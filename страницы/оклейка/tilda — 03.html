@@ -740,6 +740,35 @@
       return setTildaValue(tForm, 'Phone', formattedPhone);
     }
 
+    function keepTildaFormHiddenButSubmittable(recBlock) {
+      if (!recBlock) return;
+
+      recBlock.hidden = false;
+      recBlock.removeAttribute('aria-hidden');
+      recBlock.classList.remove('t-rec_hidden');
+
+      recBlock.style.setProperty('display', 'block', 'important');
+      recBlock.style.setProperty('position', 'fixed', 'important');
+      recBlock.style.setProperty('left', '-10000px', 'important');
+      recBlock.style.setProperty('top', '0', 'important');
+      recBlock.style.setProperty('width', '420px', 'important');
+      recBlock.style.setProperty('height', 'auto', 'important');
+      recBlock.style.setProperty('opacity', '0', 'important');
+      recBlock.style.setProperty('pointer-events', 'none', 'important');
+      recBlock.style.setProperty('z-index', '-1', 'important');
+    }
+
+    function ensureTildaFormReady(recBlock) {
+      keepTildaFormHiddenButSubmittable(recBlock);
+
+      if (recBlock && typeof window.t_form_phonemask_load === 'function') {
+        var phoneMask = recBlock.querySelector('.js-phonemask-input');
+        if (phoneMask && phoneMask.getAttribute('data-phonemask-init') !== 'yes') {
+          window.t_form_phonemask_load(phoneMask);
+        }
+      }
+    }
+
     function submitTildaForm(tForm) {
       var submitBtn = tForm.querySelector('button[type="submit"], input[type="submit"], .t-submit');
       if (submitBtn) {
@@ -765,6 +794,7 @@
       var message = (form.querySelector('[name="message"]') || {}).value || '';
 
       var recBlock = document.getElementById('rec2247650141');
+      ensureTildaFormReady(recBlock);
       var tForm    = recBlock ? recBlock.querySelector('form') : null;
 
       if (tForm) {
