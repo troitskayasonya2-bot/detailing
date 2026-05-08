@@ -685,6 +685,35 @@
     }
 
     // ─── FORM SUBMIT ───
+    function setTildaValue(tForm, fieldName, value) {
+      var field = tForm.querySelector('[name="' + fieldName + '"]');
+      if (!field) return false;
+
+      field.value = value;
+      field.setAttribute('value', value);
+      field.dispatchEvent(new Event('input',  { bubbles: true }));
+      field.dispatchEvent(new Event('change', { bubbles: true }));
+      field.dispatchEvent(new Event('blur',   { bubbles: true }));
+
+      return true;
+    }
+
+    function submitTildaForm(tForm) {
+      var submitBtn = tForm.querySelector('button[type="submit"], input[type="submit"], .t-submit');
+      if (submitBtn) {
+        submitBtn.click();
+        return true;
+      }
+
+      if (typeof tForm.requestSubmit === 'function') {
+        tForm.requestSubmit();
+        return true;
+      }
+
+      tForm.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+      return true;
+    }
+
     function handleFormSubmit(e, form) {
       e.preventDefault();
 
@@ -693,26 +722,17 @@
       var car     = (form.querySelector('[name="car"]')     || {}).value || '';
       var message = (form.querySelector('[name="message"]') || {}).value || '';
 
-      var recBlock = document.getElementById('rec2247521391');
+      var recBlock = document.getElementById('rec2247650141');
       var tForm    = recBlock ? recBlock.querySelector('form') : null;
 
       if (tForm) {
-        var fName  = tForm.querySelector('[name="Name"], [name="name"]');
-        var fPhone = tForm.querySelector('[name="Phone"], [name="phone"]');
-
-        if (fName) {
-          fName.value = name;
-          fName.dispatchEvent(new Event('input',  { bubbles: true }));
-          fName.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-        if (fPhone) {
-          fPhone.value = phone + (car ? ' | Авто: ' + car : '') + (message ? ' | ' + message : '');
-          fPhone.dispatchEvent(new Event('input',  { bubbles: true }));
-          fPhone.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-
-        var tBtn = tForm.querySelector('[type="submit"]');
-        if (tBtn) tBtn.click();
+        setTildaValue(tForm, 'Name', name);
+        setTildaValue(tForm, 'Phone', phone);
+        setTildaValue(tForm, 'Car', car);
+        setTildaValue(tForm, 'Message', message);
+        submitTildaForm(tForm);
+      } else {
+        console.warn('Tilda form #rec2247650141 not found');
       }
 
       form.reset();
