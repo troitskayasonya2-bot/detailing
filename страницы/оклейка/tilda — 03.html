@@ -740,6 +740,15 @@
       return setTildaValue(tForm, 'Phone', formattedPhone);
     }
 
+    function installTildaFormHider() {
+      if (document.getElementById('pride-tilda-form-hider')) return;
+
+      var style = document.createElement('style');
+      style.id = 'pride-tilda-form-hider';
+      style.textContent = '#rec2247650141{display:block!important;position:fixed!important;left:-10000px!important;top:0!important;width:420px!important;height:auto!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;}';
+      document.head.appendChild(style);
+    }
+
     function keepTildaFormHiddenButSubmittable(recBlock) {
       if (!recBlock) return;
 
@@ -759,6 +768,7 @@
     }
 
     function ensureTildaFormReady(recBlock) {
+      installTildaFormHider();
       keepTildaFormHiddenButSubmittable(recBlock);
 
       if (recBlock && typeof window.t_form_phonemask_load === 'function') {
@@ -769,15 +779,31 @@
       }
     }
 
+    function prepareHiddenTildaForm() {
+      ensureTildaFormReady(document.getElementById('rec2247650141'));
+    }
+
+    function watchHiddenTildaForm() {
+      installTildaFormHider();
+      prepareHiddenTildaForm();
+
+      var attempts = 0;
+      var timer = setInterval(function() {
+        attempts += 1;
+        prepareHiddenTildaForm();
+        if (document.getElementById('rec2247650141') || attempts >= 40) clearInterval(timer);
+      }, 250);
+    }
+
     function submitTildaForm(tForm) {
       var submitBtn = tForm.querySelector('button[type="submit"], input[type="submit"], .t-submit');
-      if (submitBtn) {
-        submitBtn.click();
+      if (typeof tForm.requestSubmit === 'function') {
+        tForm.requestSubmit(submitBtn || undefined);
         return true;
       }
 
-      if (typeof tForm.requestSubmit === 'function') {
-        tForm.requestSubmit();
+      if (submitBtn) {
+        submitBtn.click();
         return true;
       }
 
@@ -824,6 +850,13 @@
 
       return false;
     }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', watchHiddenTildaForm);
+    } else {
+      watchHiddenTildaForm();
+    }
+    window.addEventListener('load', prepareHiddenTildaForm);
   </script>
 </body>
 </html>
