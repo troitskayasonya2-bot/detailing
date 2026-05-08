@@ -698,6 +698,48 @@
       return true;
     }
 
+    function formatRussianPhone(value) {
+      var raw = (value || '').trim();
+      var digits = raw.replace(/\D/g, '');
+
+      if (digits.length === 10) {
+        digits = '7' + digits;
+      } else if (digits.length === 11 && digits.charAt(0) === '8') {
+        digits = '7' + digits.slice(1);
+      }
+
+      if (digits.length === 11 && digits.charAt(0) === '7') {
+        var local = digits.slice(1);
+        return '+7 (' + local.slice(0, 3) + ') ' + local.slice(3, 6) + '-' + local.slice(6, 8) + '-' + local.slice(8);
+      }
+
+      return raw;
+    }
+
+    function setTildaPhoneValue(tForm, value) {
+      var formattedPhone = formatRussianPhone(value);
+      var phoneField = tForm.querySelector('[name="Phone"]');
+      var phoneGroup = phoneField ? phoneField.closest('.t-input-group') : null;
+      var visiblePhone = phoneGroup ? phoneGroup.querySelector('[name="tildaspec-phone-part[]"], .t-input-phonemask') : null;
+
+      if (phoneGroup && visiblePhone && typeof window.t_form_phonemask__setValue === 'function') {
+        window.t_form_phonemask__setValue(phoneGroup, formattedPhone, 'ru', { silent: true, noFocus: true });
+      }
+
+      if (phoneGroup) {
+        visiblePhone = phoneGroup.querySelector('[name="tildaspec-phone-part[]"], .t-input-phonemask');
+        if (visiblePhone) {
+          visiblePhone.value = formattedPhone.replace(/^\+7\s*/, '');
+          visiblePhone.setAttribute('data-phonemask-current', visiblePhone.value);
+          visiblePhone.dispatchEvent(new Event('input',  { bubbles: true }));
+          visiblePhone.dispatchEvent(new Event('change', { bubbles: true }));
+          visiblePhone.dispatchEvent(new Event('blur',   { bubbles: true }));
+        }
+      }
+
+      return setTildaValue(tForm, 'Phone', formattedPhone);
+    }
+
     function submitTildaForm(tForm) {
       var submitBtn = tForm.querySelector('button[type="submit"], input[type="submit"], .t-submit');
       if (submitBtn) {
@@ -727,7 +769,7 @@
 
       if (tForm) {
         setTildaValue(tForm, 'Name', name);
-        setTildaValue(tForm, 'Phone', phone);
+        setTildaPhoneValue(tForm, phone);
         setTildaValue(tForm, 'Car', car);
         setTildaValue(tForm, 'Message', message);
         submitTildaForm(tForm);
