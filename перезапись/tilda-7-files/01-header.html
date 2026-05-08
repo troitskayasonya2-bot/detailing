@@ -1,0 +1,1587 @@
+<!-- ═══ ФАЙЛ 1 из 7 — ШАПКА (Header). Вставить в блок шапки страницы / первый Zero Block после служебной области шапки в Тильде.
+     Содержит: rec2203792551 (HTML/CSS шапки PRIDE), rec2215701581 (попап записи из шапки).
+     Порядок на странице: первым среди семи вставок (до основного контента). ═══ -->
+
+<div id="rec2203792551" class="r t-rec" style=" " data-animationappear="off" data-record-type="131">
+                <!-- T123 -->
+                <div class="t123">
+                    <div class="t-container_100 ">
+                        <div class="t-width t-width_100 ">
+                            <!-- nominify begin -->
+                            <link rel="preconnect" href="https://static.tildacdn.com" crossorigin>
+                            <link rel="dns-prefetch" href="https://static.tildacdn.com">
+                            <style>
+                            @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+                            /* ─── ТОКЕНЫ (scoped — не ломают цвета на странице) ─── */
+                            .pride-header, .pride-mobile-menu {
+                                --gold: #E8C030;
+                                --gold-light: #F5E060;
+                                --gold-dark: #D4A020;
+                                --bg-dark: #070809;
+                                --bg-card: #121210;
+                                --text: #F2EDE3;
+                                --text-muted: rgba(255, 255, 255, .68);
+                                --text-dim: rgba(255, 255, 255, .42);
+                                --border: rgba(232, 192, 48, 0.12);
+                                --font-heading: 'Bebas Nue Cyrillic', 'Oswald', 'Arial Black', sans-serif;
+                                --font-body: 'Montserrat', 'Segoe UI', sans-serif;
+                                --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                                --transition-fast: 0.2s ease;
+                            }/* ─── СБРОС ССЫЛОК ТИЛЬДЫ ─── */
+
+                            .pride-header a, .pride-header a:link, .pride-header a:visited, .pride-mobile-menu a, .pride-mobile-menu a:link, .pride-mobile-menu a:visited {
+                                text-decoration: none !important;
+                                color: inherit !important;
+                            }/* ─── КОНТЕЙНЕР ─── */
+
+                            .pride-header__container {
+                                width: 100%;
+                                max-width: 1520px;
+                                margin: 0 auto;
+                                padding: 0 40px;
+                                position: relative;
+                                z-index: 1;
+                                box-sizing: border-box;
+                            }/* ─── HEADER ─── */
+
+                            .pride-header {
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                z-index: 1000;
+                                padding: 16px 0;
+                                transition: padding var(--transition);
+                                font-family: var(--font-body);
+                            }/* Размытый фон — виден сразу (как на оригинале) */
+
+                            .pride-header::before {
+                                content: '';
+                                position: absolute;
+                                inset: 0;
+                                background: rgba(7, 8, 9, 0.35);
+                                backdrop-filter: blur(14px) saturate(130%);
+                                -webkit-backdrop-filter: blur(14px) saturate(130%);
+                                border-bottom: 1px solid transparent;
+                                transition: var(--transition);
+                            }
+
+                            .pride-header.scrolled {
+                                padding: 10px 0;
+                            }
+
+                            .pride-header.scrolled::before {
+                                background: rgba(7, 8, 9, 0.82);
+                                border-bottom-color: rgba(232, 192, 48, 0.22);
+                            }/* ─── NAV ─── */
+
+                            .pride-header .nav {
+                                display: flex;
+                                align-items: center;
+                                gap: 32px;
+                                position: relative;
+                                z-index: 1;
+                            }/* ─── ЛОГО ─── */
+
+                            .pride-header .logo {
+                                display: flex;
+                                align-items: center;
+                                flex-shrink: 0;
+                            }
+
+                            .pride-header .logo .logo__img, .pride-header .logo img.logo__img[src] {
+                                height: 64px !important;
+                                width: auto !important;
+                                max-width: none !important;
+                                display: block !important;
+                                transition: opacity 0.3s;
+                                filter: drop-shadow(0 6px 16px rgba(232, 192, 48, 0.28));
+                            }
+
+                            .pride-header .logo__img:hover {
+                                opacity: 0.85;
+                            }/* ─── МЕНЮ ─── */
+
+                            .pride-header .nav__menu {
+                                display: flex;
+                                align-items: center;
+                                gap: 28px;
+                                margin-left: 56px;
+                                list-style: none;
+                                padding: 0;
+                            }
+
+                            .pride-header .nav__menu a {
+                                font-family: var(--font-heading);
+                                font-size: 15px;
+                                font-weight: 500;
+                                letter-spacing: 2px;
+                                text-transform: uppercase;
+                                color: rgba(245, 242, 234, 0.78) !important;
+                                position: relative;
+                                padding: 8px 0;
+                                transition: color 0.3s ease;
+                                white-space: nowrap;
+                                display: inline-block;
+                            }
+
+                            .pride-header .nav__menu a:hover, .pride-header .nav__menu a.active {
+                                color: var(--gold-light) !important;
+                            }
+
+                            .pride-header .nav__menu a::after {
+                                content: '';
+                                position: absolute;
+                                bottom: 0;
+                                left: 50%;
+                                width: 0;
+                                height: 2px;
+                                background: linear-gradient(90deg, var(--gold), var(--gold-light));
+                                transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                                border-radius: 2px;
+                            }
+
+                            .pride-header .nav__menu a:hover::after {
+                                width: 100%;
+                                left: 0;
+                            }/* ─── ДРОПДАУН ─── */
+
+                            .pride-header .nav__item--dropdown {
+                                position: relative;
+                            }
+
+                            .pride-header .nav__item--dropdown > a {
+                                display: flex;
+                                align-items: center;
+                                gap: 6px;
+                            }
+
+                            .pride-header .nav__item--dropdown > a::after {
+                                display: none;
+                            }
+
+                            .pride-header .dropdown-arrow {
+                                width: 0;
+                                height: 0;
+                                border-left: 4px solid transparent;
+                                border-right: 4px solid transparent;
+                                border-top: 4px solid currentColor;
+                                transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                                flex-shrink: 0;
+                            }
+
+                            .pride-header .nav__item--dropdown:hover .dropdown-arrow, .pride-header .nav__item--dropdown.open .dropdown-arrow {
+                                transform: rotate(180deg);
+                                border-top-color: var(--gold);
+                            }
+
+                            .pride-header .nav__dropdown {
+                                position: absolute;
+                                top: calc(100% + 14px);
+                                left: 50%;
+                                transform: translateX(-50%) translateY(12px) scale(0.97);
+                                min-width: 360px;
+                                padding: 8px;
+                                background: #0c0e14;
+                                border: 1px solid rgba(232, 192, 48, 0.12);
+                                border-radius: 16px;
+                                box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65), 0 0 1px rgba(232, 192, 48, 0.15);
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                                z-index: 100;
+                                list-style: none;
+                            }
+
+                            .pride-header .nav__dropdown::before {
+                                content: '';
+                                position: absolute;
+                                top: -18px;
+                                left: 0;
+                                right: 0;
+                                height: 18px;
+                            }
+
+                            .pride-header .nav__item--dropdown:hover .nav__dropdown, .pride-header .nav__item--dropdown.open .nav__dropdown {
+                                opacity: 1;
+                                visibility: visible;
+                                transform: translateX(-50%) translateY(0) scale(1);
+                            }
+
+                            .pride-header .nav__dropdown li {
+                                opacity: 0;
+                                transform: translateX(-8px);
+                                transition: opacity 0.2s ease, transform 0.25s ease;
+                            }
+
+                            .pride-header .nav__item--dropdown:hover .nav__dropdown li, .pride-header .nav__item--dropdown.open .nav__dropdown li {
+                                opacity: 1;
+                                transform: translateX(0);
+                            }
+
+                            .pride-header .nav__item--dropdown:hover .nav__dropdown li:nth-child(1), .pride-header .nav__item--dropdown.open .nav__dropdown li:nth-child(1) {
+                                transition-delay: 0.03s;
+                            }
+
+                            .pride-header .nav__item--dropdown:hover .nav__dropdown li:nth-child(2), .pride-header .nav__item--dropdown.open .nav__dropdown li:nth-child(2) {
+                                transition-delay: 0.06s;
+                            }
+
+                            .pride-header .nav__item--dropdown:hover .nav__dropdown li:nth-child(3), .pride-header .nav__item--dropdown.open .nav__dropdown li:nth-child(3) {
+                                transition-delay: 0.09s;
+                            }
+
+                            .pride-header .nav__item--dropdown:hover .nav__dropdown li:nth-child(4), .pride-header .nav__item--dropdown.open .nav__dropdown li:nth-child(4) {
+                                transition-delay: 0.12s;
+                            }
+
+                            .pride-header .nav__item--dropdown:hover .nav__dropdown li:nth-child(5), .pride-header .nav__item--dropdown.open .nav__dropdown li:nth-child(5) {
+                                transition-delay: 0.15s;
+                            }
+
+                            .pride-header .nav__item--dropdown:hover .nav__dropdown li:nth-child(6), .pride-header .nav__item--dropdown.open .nav__dropdown li:nth-child(6) {
+                                transition-delay: 0.18s;
+                            }
+
+                            .pride-header .nav__dropdown li a {
+                                display: flex;
+                                align-items: center;
+                                gap: 16px;
+                                padding: 14px 18px;
+                                font-family: var(--font-heading);
+                                font-size: 14px;
+                                font-weight: 500;
+                                letter-spacing: 0.8px;
+                                color: rgba(245, 242, 234, 0.65) !important;
+                                transition: all 0.25s ease;
+                                border-radius: 16px;
+                                position: relative;
+                            }
+
+                            .pride-header .nav__dropdown li a::after {
+                                content: '❯';
+                                position: absolute;
+                                right: 18px;
+                                top: 50%;
+                                left: auto;
+                                bottom: auto;
+                                width: auto;
+                                height: auto;
+                                background: none;
+                                transform: translateY(-50%) translateX(-6px);
+                                font-size: 13px;
+                                font-weight: 900;
+                                color: var(--gold);
+                                opacity: 0;
+                                transition: opacity 0.2s ease, transform 0.2s ease;
+                                line-height: 1;
+                            }
+
+                            .pride-header .nav__dropdown li a:hover {
+                                color: #fff !important;
+                                background: rgba(232, 192, 48, 0.06);
+                            }
+
+                            .pride-header .nav__dropdown li a:hover::after {
+                                opacity: 1;
+                                transform: translateY(-50%) translateX(0);
+                            }
+
+                            .pride-header .dd-num {
+                                font-family: var(--font-heading);
+                                font-size: 18px;
+                                font-weight: 800;
+                                color: var(--gold);
+                                opacity: 0.3;
+                                min-width: 30px;
+                                text-align: right;
+                                transition: all 0.25s ease;
+                            }
+
+                            .pride-header .nav__dropdown li a:hover .dd-num {
+                                opacity: 1;
+                                color: var(--gold-light);
+                            }/* ─── ПРАВАЯ ЧАСТЬ ─── */
+
+                            .pride-header .nav__right {
+                                display: flex;
+                                align-items: center;
+                                gap: 18px;
+                                margin-left: auto;
+                                flex-shrink: 0;
+                            }/* Мессенджеры */
+
+                            .pride-header .nav__messengers {
+                                display: flex;
+                                gap: 4px;
+                            }
+
+                            .pride-header .nav__msg {
+                                width: 38px;
+                                height: 38px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border: 1px solid rgba(232, 192, 48, 0.15);
+                                border-radius: 16px;
+                                color: rgba(245, 240, 232, 0.88) !important;
+                                background: transparent;
+                                transition: all 0.25s ease;
+                            }
+
+                            .pride-header .nav__msg:hover {
+                                color: var(--gold) !important;
+                                border-color: rgba(232, 192, 48, 0.45);
+                                background: rgba(232, 192, 48, 0.08);
+                                box-shadow: 0 0 14px rgba(232, 192, 48, 0.12);
+                            }/* Часы работы */
+
+                            .pride-header .nav__hours {
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 6px;
+                                white-space: nowrap;
+                            }
+
+                            .pride-header .nav__hours svg {
+                                color: var(--gold);
+                                flex-shrink: 0;
+                            }
+
+                            .pride-header .nav__hours-text {
+                                display: flex;
+                                flex-direction: column;
+                                line-height: 1.25;
+                            }
+
+                            .pride-header .nav__hours-days {
+                                font-family: var(--font-heading);
+                                font-size: 16px;
+                                font-weight: 600;
+                                color: var(--text) !important;
+                                letter-spacing: 0.5px;
+                            }
+
+                            .pride-header .nav__hours-time {
+                                font-size: 13px;
+                                font-weight: 500;
+                                color: var(--text-dim) !important;
+                                letter-spacing: 0.3px;
+                            }/* Контакты (телефон + адрес) */
+
+                            .pride-header .nav__contacts {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-end;
+                                gap: 1px;
+                            }
+
+                            .pride-header .nav__phone {
+                                font-family: var(--font-heading);
+                                font-size: 14px;
+                                font-weight: 600;
+                                letter-spacing: 0.5px;
+                                white-space: nowrap;
+                                color: var(--text) !important;
+                                transition: color 0.25s ease;
+                            }
+
+                            .pride-header .nav__phone:hover {
+                                color: var(--gold) !important;
+                            }
+
+                            .pride-header .nav__address {
+                                font-size: 11px;
+                                font-weight: 600;
+                                color: var(--gold) !important;
+                                white-space: nowrap;
+                            }/* ─── CTA КНОПКА (как на оригинале: clip-path + glow) ─── */
+
+                            @keyframes pride-glow-pulse {
+                                0%, 100% {
+                                    box-shadow: 0 0 18px rgba(240, 210, 60, 0.28), 0 6px 20px rgba(0, 0, 0, 0.45);
+                                }
+
+                                50% {
+                                    box-shadow: 0 0 38px rgba(240, 210, 60, 0.55), 0 8px 28px rgba(0, 0, 0, 0.5);
+                                }
+                            }
+
+                            .pride-header .nav__cta {
+                                font-family: var(--font-heading);
+                                font-size: 13px;
+                                font-weight: 700;
+                                letter-spacing: 2.5px;
+                                text-transform: uppercase;
+                                padding: 13px 28px;
+                                background: linear-gradient(130deg, #F5E060 0%, #D4A020 45%, #F0C830 100%);
+                                color: #080804 !important;
+                                -webkit-text-fill-color: #080804 !important;
+                                border: none;
+                                border-radius: 16px;
+                                animation: pride-glow-pulse 2.8s ease-in-out infinite;
+                                transition: transform 0.3s ease, background 0.3s ease;
+                                white-space: nowrap;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 10px;
+                                cursor: pointer;
+                                flex-shrink: 0;
+                                position: relative;
+                                overflow: hidden;
+                            }
+
+                            .pride-header .nav__cta span, .pride-header .nav__cta svg {
+                                color: #080804 !important;
+                                -webkit-text-fill-color: #080804 !important;
+                            }
+
+                            .pride-header .nav__cta:hover {
+                                transform: translateY(-2px) scale(1.03);
+                                background: linear-gradient(130deg, #FFE860 0%, #E0B020 45%, #FFD840 100%);
+                                box-shadow: 0 0 50px rgba(240, 210, 60, 0.6), 0 10px 26px rgba(0, 0, 0, 0.5);
+                                animation: none;
+                            }
+
+                            .pride-header .nav__cta svg {
+                                transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                                flex-shrink: 0;
+                            }
+
+                            .pride-header .nav__cta:hover svg {
+                                transform: translateX(4px);
+                            }/* ─── БУРГЕР ─── */
+
+                            .pride-header .burger {
+                                display: none;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: stretch;
+                                gap: 6px;
+                                width: 32px;
+                                min-width: 32px;
+                                min-height: 44px;
+                                padding: 0;
+                                cursor: pointer;
+                                background: none;
+                                border: none;
+                                z-index: 101;
+                                flex-shrink: 0;
+                                overflow: visible;
+                                box-sizing: border-box;
+                                -webkit-tap-highlight-color: transparent;
+                            }
+
+                            .pride-header .burger span {
+                                display: block;
+                                width: 100% !important;
+                                max-width: none !important;
+                                height: 2px;
+                                min-height: 2px;
+                                flex: 0 0 auto;
+                                background: var(--text);
+                                transform-origin: center;
+                                border-radius: 1px;
+                            }/* Крайние полоски только transform; середина opacity — чтобы скрывалась сразу, а не после 0.4s общего transition */
+
+                            .pride-header .burger span:nth-child(1), .pride-header .burger span:nth-child(3) {
+                                transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                            }
+
+                            .pride-header .burger span:nth-child(2) {
+                                transition: opacity 0.2s ease;
+                            }/* Три одинаковые полосы (только в закрытом виде). Не вешать opacity:1 !important на все состояния — иначе при .active средняя не скрывается и перечёркивает крестик */
+
+                            .pride-header .burger:not(.active) span:nth-child(2) {
+                                width: 100% !important;
+                                margin-left: 0 !important;
+                                opacity: 1 !important;
+                            }/* Сначала сдвигаем к центру (gap 6px + высота полосы 2px), потом поворот — иначе translate идёт по развёрнутым осям и получается «звезда» */
+
+                            .pride-header .burger.active span:nth-child(1) {
+                                transform: translateY(8px) rotate(45deg);
+                            }
+
+                            .pride-header .burger.active span:nth-child(2) {
+                                opacity: 0 !important;
+                                visibility: hidden;
+                                pointer-events: none;
+                                transition: opacity 0s linear, visibility 0s linear !important;
+                            }
+
+                            .pride-header .burger.active span:nth-child(3) {
+                                transform: translateY(-8px) rotate(-45deg);
+                            }/* ─── МОБИЛЬНОЕ МЕНЮ ─── */
+
+                            .pride-mobile-menu {
+                                position: fixed;
+                                inset: 0;
+                                background: rgba(10, 10, 10, 0.97);
+                                backdrop-filter: blur(20px);
+                                -webkit-backdrop-filter: blur(20px);
+                                z-index: 999;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: flex-start;
+                                align-items: center;
+                                gap: 0;
+                                overflow-x: hidden;
+                                overflow-y: auto;
+                                -webkit-overflow-scrolling: touch;
+                                padding: 100px 0 48px;
+                                box-sizing: border-box;
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: opacity 0.4s ease, visibility 0.4s ease;
+                            }
+
+                            .pride-mobile-menu.active {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+
+                            .pride-mobile-menu__inner {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                gap: 20px;
+                                width: 100%;
+                                max-width: 420px;
+                                padding: 0 20px;
+                                box-sizing: border-box;
+                            }
+
+                            .pride-mobile-menu a.pride-mobile-menu__link, .pride-mobile-menu__link {
+                                font-family: var(--font-heading);
+                                font-size: 28px;
+                                font-weight: 700;
+                                text-transform: uppercase;
+                                letter-spacing: 3px;
+                                color: var(--text-muted) !important;
+                                transform: translateY(20px);
+                                opacity: 0;
+                                transition: color 0.2s ease, transform 0.4s ease, opacity 0.4s ease;
+                            }
+
+                            .pride-mobile-menu button.pride-mobile-menu__link {
+                                -webkit-appearance: none;
+                                appearance: none;
+                                background: none;
+                                border: none;
+                                cursor: pointer;
+                                padding: 0;
+                                margin: 0;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 10px;
+                                max-width: 100%;
+                                text-align: center;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-menu__inner > * {
+                                transform: translateY(0);
+                                opacity: 1;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-menu__inner > *:nth-child(1) {
+                                transition-delay: 0.05s;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-menu__inner > *:nth-child(2) {
+                                transition-delay: 0.10s;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-menu__inner > *:nth-child(3) {
+                                transition-delay: 0.15s;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-menu__inner > *:nth-child(4) {
+                                transition-delay: 0.20s;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-menu__inner > *:nth-child(5) {
+                                transition-delay: 0.25s;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-menu__inner > *:nth-child(6) {
+                                transition-delay: 0.30s;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-menu__inner > *:nth-child(7) {
+                                transition-delay: 0.35s;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-menu__inner > *:nth-child(8) {
+                                transition-delay: 0.40s;
+                            }
+
+                            .pride-mobile-menu a.pride-mobile-menu__link:hover, .pride-mobile-menu button.pride-mobile-menu__link:hover {
+                                color: var(--gold) !important;
+                            }/* Мобильный аккордеон «Услуги» */
+
+                            .pride-mobile-submenu {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                transform: translateY(20px);
+                                opacity: 0;
+                                transition: color 0.2s ease, transform 0.4s ease, opacity 0.4s ease;
+                            }
+
+                            .pride-mobile-submenu__trigger .dropdown-arrow {
+                                width: 0;
+                                height: 0;
+                                border-left: 5px solid transparent;
+                                border-right: 5px solid transparent;
+                                border-top: 6px solid currentColor;
+                                transition: transform 0.35s ease;
+                                flex-shrink: 0;
+                            }
+
+                            .pride-mobile-submenu.open .pride-mobile-submenu__trigger .dropdown-arrow {
+                                transform: rotate(180deg);
+                            }
+
+                            .pride-mobile-submenu__list {
+                                list-style: none;
+                                margin: 16px 0 0;
+                                padding: 0;
+                                width: 100%;
+                                display: none;
+                                flex-direction: column;
+                                align-items: stretch;
+                                gap: 10px;
+                                padding-top: 16px;
+                            }
+
+                            .pride-mobile-submenu.open .pride-mobile-submenu__list {
+                                display: flex;
+                            }
+
+                            .pride-mobile-submenu__list > li {
+                                margin: 0;
+                                padding: 0;
+                                width: 100%;
+                            }
+
+                            .pride-mobile-submenu__list a {
+                                font-family: var(--font-heading);
+                                font-size: 15px;
+                                font-weight: 600;
+                                letter-spacing: 0.1em;
+                                text-transform: uppercase;
+                                color: rgba(245, 242, 234, 0.55) !important;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 0;
+                                padding: 12px 10px;
+                                border-radius: 12px;
+                                width: 100%;
+                                box-sizing: border-box;
+                                transition: color 0.2s ease, background 0.2s ease;
+                                transform: none !important;
+                                opacity: 1 !important;
+                            }
+
+                            .pride-mobile-submenu__list a:hover {
+                                color: var(--gold-light) !important;
+                                background: rgba(232, 192, 48, 0.06);
+                            }/* Кнопка «Услуги» не прямой ребёнок анимации inner > * — явно показываем при открытом меню */
+
+                            .pride-mobile-menu.active .pride-mobile-submenu .pride-mobile-submenu__trigger {
+                                opacity: 1 !important;
+                                transform: translateY(0);
+                            }
+
+                            .pride-mobile-contact-icons {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 28px;
+                                width: 100%;
+                                margin-top: 0;
+                                transform: translateY(20px);
+                                opacity: 0;
+                                transition: opacity 0.4s ease, transform 0.4s ease;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-contact-icons {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+
+                            .pride-mobile-contact-icon {
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 48px;
+                                height: 48px;
+                                border-radius: 12px;
+                                color: rgba(245, 242, 234, 0.75) !important;
+                                background: rgba(232, 192, 48, 0.08);
+                                border: 1px solid rgba(232, 192, 48, 0.2);
+                                transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+                            }
+
+                            .pride-mobile-contact-icon:hover {
+                                color: var(--gold) !important;
+                                background: rgba(232, 192, 48, 0.12);
+                                border-color: rgba(232, 192, 48, 0.35);
+                                transform: translateY(-2px);
+                            }
+
+                            .pride-mobile-contact-icon svg {
+                                width: 24px;
+                                height: 24px;
+                                filter: grayscale(100%);
+                            }
+
+                            .pride-mobile-menu .mobile-phone {
+                                margin-top: 8px;
+                                font-family: var(--font-heading);
+                                font-size: 22px;
+                                font-weight: 700;
+                                color: var(--gold) !important;
+                                letter-spacing: 0.05em;
+                                transform: translateY(20px);
+                                opacity: 0;
+                                transition: color 0.2s ease, transform 0.4s ease, opacity 0.4s ease;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-menu__inner > .mobile-phone {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }/* ─── АДАПТИВ ─── */
+
+                            @media (max-width: 1100px) {
+                                .pride-header .nav__contacts {
+                                    display: none;
+                                }
+
+                                .pride-header .nav__hours {
+                                    display: none;
+                                }
+
+                                .pride-header .nav__menu {
+                                    gap: 18px;
+                                }
+                            }
+
+                            @media (max-width: 960px) {
+                                .pride-header .nav__menu {
+                                    display: none;
+                                }
+
+                                .pride-header .nav__cta {
+                                    display: none;
+                                }
+
+                                .pride-header .nav__messengers {
+                                    display: none;
+                                }
+
+                                .pride-header .burger {
+                                    display: flex;
+                                }
+                            }
+
+                            @media (max-width: 600px) {
+                                .pride-header__container {
+                                    padding: 0 20px;
+                                }
+                            }/* ЧБ: шапка в стиле главной */
+
+                            .pride-header {
+                                color: #f5f5f5 !important;
+                            }
+
+                            .pride-header::before {
+                                background: rgba(6, 7, 8, 0.58) !important;
+                                border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+                                backdrop-filter: blur(18px) saturate(120%) !important;
+                                -webkit-backdrop-filter: blur(18px) saturate(120%) !important;
+                            }
+
+                            .pride-header.scrolled::before {
+                                background: rgba(6, 7, 8, 0.88) !important;
+                                border-bottom-color: rgba(255, 255, 255, 0.16) !important;
+                                box-shadow: 0 14px 42px rgba(0, 0, 0, 0.34) !important;
+                            }
+
+                            .pride-header .logo .logo__img, .pride-header .logo img.logo__img[src] {
+                                filter: none !important;
+                                opacity: 0.96 !important;
+                            }
+
+                            .pride-header .logo__img:hover {
+                                opacity: 1 !important;
+                            }
+
+                            .pride-header .nav__menu a, .pride-header .nav__dropdown li a, .pride-mobile-menu a.pride-mobile-menu__link, .pride-mobile-menu button.pride-mobile-menu__link {
+                                color: rgba(255, 255, 255, 0.72) !important;
+                            }
+
+                            .pride-mobile-menu .pride-mobile-submenu__list a {
+                                color: rgba(255, 255, 255, 0.62) !important;
+                            }
+
+                            .pride-mobile-menu .pride-mobile-submenu__list a:hover {
+                                color: #fff !important;
+                            }
+
+                            .pride-header .nav__menu a:hover, .pride-header .nav__menu a.active, .pride-mobile-menu a.pride-mobile-menu__link:hover, .pride-mobile-menu button.pride-mobile-menu__link:hover {
+                                color: #fff !important;
+                            }
+
+                            .pride-header .nav__menu a::after {
+                                background: #fff !important;
+                            }
+
+                            .pride-header .dropdown-arrow, .pride-header .nav__item--dropdown:hover .dropdown-arrow, .pride-header .nav__item--dropdown.open .dropdown-arrow {
+                                border-top-color: currentColor !important;
+                            }
+
+                            .pride-header .nav__dropdown {
+                                background: rgba(8, 9, 11, 0.96) !important;
+                                border-color: rgba(255, 255, 255, 0.14) !important;
+                                box-shadow: 0 32px 80px rgba(0, 0, 0, 0.62), 0 0 0 1px rgba(255, 255, 255, 0.04) inset !important;
+                            }
+
+                            .pride-header .nav__dropdown li a:hover {
+                                background: rgba(255, 255, 255, 0.08) !important;
+                                color: #fff !important;
+                            }
+
+                            .pride-header .nav__dropdown li a, .pride-header .nav__dropdown li a:hover, .pride-header .nav__dropdown li a:focus {
+                                text-decoration: none !important;
+                            }
+
+                            .pride-header .nav__dropdown li a::before, .pride-header .nav__dropdown li a::after, .pride-header .nav__dropdown li a:hover::before, .pride-header .nav__dropdown li a:hover::after {
+                                display: none !important;
+                                content: none !important;
+                            }
+
+                            .pride-header .nav__dropdown li a::after, .pride-header .dd-num, .pride-header .nav__dropdown li a:hover .dd-num, .pride-header .nav__address, .pride-header .nav__hours svg {
+                                color: #fff !important;
+                            }
+
+                            .pride-header .dd-num {
+                                opacity: 0.34 !important;
+                            }
+
+                            .pride-header .nav__dropdown li a:hover .dd-num {
+                                opacity: 1 !important;
+                            }
+
+                            .pride-header .nav__msg {
+                                border-color: rgba(255, 255, 255, 0.16) !important;
+                                color: rgba(255, 255, 255, 0.72) !important;
+                                background: rgba(255, 255, 255, 0.03) !important;
+                            }
+
+                            .pride-header .nav__msg:hover {
+                                border-color: rgba(255, 255, 255, 0.52) !important;
+                                color: #08090b !important;
+                                background: #fff !important;
+                                box-shadow: 0 14px 30px rgba(0, 0, 0, 0.30) !important;
+                            }
+
+                            .pride-header .nav__hours-days, .pride-header .nav__phone {
+                                color: #fff !important;
+                            }
+
+                            .pride-header .nav__hours-time {
+                                color: rgba(255, 255, 255, 0.48) !important;
+                            }
+
+                            .pride-header .nav__phone:hover, .pride-header .nav__email:hover {
+                                color: rgba(255, 255, 255, 0.82) !important;
+                            }
+
+                            .pride-header .nav__cta {
+                                border-radius: 16px !important;
+                                background: transparent !important;
+                                border: 1px solid rgba(255, 255, 255, 0.64) !important;
+                                color: #fff !important;
+                                -webkit-text-fill-color: #fff !important;
+                                box-shadow: none !important;
+                                animation: none !important;
+                            }
+
+                            .pride-header .nav__cta span, .pride-header .nav__cta svg {
+                                color: inherit !important;
+                                -webkit-text-fill-color: inherit !important;
+                            }
+
+                            .pride-header .nav__cta:hover {
+                                background: #fff !important;
+                                border-color: #fff !important;
+                                color: #08090b !important;
+                                -webkit-text-fill-color: #08090b !important;
+                                box-shadow: 0 16px 36px rgba(0, 0, 0, 0.34) !important;
+                            }
+
+                            .pride-header .burger span {
+                                background: #fff !important;
+                                width: 100% !important;
+                                max-width: none !important;
+                            }
+
+                            .pride-mobile-menu {
+                                background: rgba(6, 7, 8, 0.98) !important;
+                            }
+
+                            .pride-mobile-menu .mobile-phone {
+                                color: #fff !important;
+                            }
+                            </style>
+                            <!-- МОБИЛЬНОЕ МЕНЮ -->
+                            <div class="pride-mobile-menu" id="prideMobileMenu">
+                                <div class="pride-mobile-menu__inner">
+                                    <a class="pride-mobile-menu__link" href="https://detailingpride.tilda.ws/">Главная</a>
+                                    <div class="pride-mobile-submenu">
+                                        <button type="button" class="pride-mobile-menu__link pride-mobile-submenu__trigger" id="prideMobileServicesBtn" aria-expanded="false" aria-controls="prideMobileServicesList">
+
+                                                    Услуги
+                                                    
+                                            <span class="dropdown-arrow" aria-hidden="true"></span>
+                                        </button>
+                                        <ul id="prideMobileServicesList" class="pride-mobile-submenu__list" role="list">
+                                            <li>
+                                                <a href="https://detailingpride.tilda.ws/okleyka-avto-plenkoy">Оклейка кузова</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://detailingpride.tilda.ws/polirovka-i-keramika">Полировка, керамика</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://detailingpride.tilda.ws/vypryamlenie-vmyatin">Выпрямление вмятин</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://detailingpride.tilda.ws/bronirovanie-stekla-i-panoramy">Бронь стекла и панорамы</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://detailingpride.tilda.ws/pokraska-kozhi">Покраска кожи</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://detailingpride.tilda.ws/himchistka-salona">Химчистка</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://detailingpride.tilda.ws/#services">Все услуги на главной</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a class="pride-mobile-menu__link" href="https://detailingpride.tilda.ws/#prices">Цены</a>
+                                    <a class="pride-mobile-menu__link" href="https://detailingpride.tilda.ws/#portfolio">Работы</a>
+                                    <a class="pride-mobile-menu__link" href="https://pride-detailing.ru/#rec2243431611">Отзывы</a>
+                                    <a class="pride-mobile-menu__link" href="https://pride-detailing.ru/#rec2243431771">Контакты</a>
+                                    <a href="tel:+79032555171" class="mobile-phone">+7 (903) 255-51-71</a>
+                                    <div class="pride-mobile-contact-icons" role="group" aria-label="Telegram и карта">
+                                        <a href="https://t.me/pride_detailing7" class="pride-mobile-contact-icon" aria-label="Telegram" target="_blank" rel="noopener">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                <path d="M11.944 0A12 12 0 1 0 24 12.056A12.013 12.013 0 0 0 11.944 0Zm5.654 8.22l-1.7 8.007c-.128.6-.462.746-.938.465l-2.59-1.91-1.25 1.2c-.138.14-.254.254-.52.254l.186-2.64 4.8-4.34c.21-.186-.045-.29-.324-.104l-5.94 3.74-2.56-.8c-.556-.174-.567-.556.116-.824l10-3.86c.464-.168.87.112.72.812Z"/>
+                                            </svg>
+                                        </a>
+                                        <a href="https://yandex.ru/maps/?text=%D0%B3.%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D1%83%D0%BB.%20%D0%A1%D0%B5%D0%BC%D1%91%D0%BD%D0%B0%20%D0%93%D0%BE%D1%80%D0%B4%D0%BE%D0%B3%D0%BE%2C%207" class="pride-mobile-contact-icon" aria-label="Как добраться" target="_blank" rel="noopener">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"/>
+                                                <circle cx="12" cy="10" r="3"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ШАПКА -->
+                            <header class="pride-header" id="prideHeader">
+                                <div class="pride-header__container">
+                                    <nav class="nav">
+                                        <!-- ЛОГО -->
+                                        <a href="https://detailingpride.tilda.ws/" class="logo">
+                                            <img loading="eager" src="https://static.tildacdn.com/tild6439-3933-4637-b232-386562656536/Group_1.svg" alt="PRIDE детейлинг" class="logo__img" width="973" height="394" fetchpriority="high" decoding="async">
+                                        </a>
+                                        <!-- МЕНЮ -->
+                                        <ul class="nav__menu">
+                                            <li>
+                                                <a href="https://detailingpride.tilda.ws/">Главная</a>
+                                            </li>
+                                            <li class="nav__item--dropdown">
+                                                <a href="#" aria-haspopup="true" aria-expanded="false">
+                                                    Услуги 
+                                                    <span class="dropdown-arrow"></span>
+                                                </a>
+                                                <ul class="nav__dropdown">
+                                                    <li>
+                                                        <a href="https://detailingpride.tilda.ws/okleyka-avto-plenkoy">
+                                                            <span class="dd-num">01</span>
+                                                             Оклейка кузова
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://detailingpride.tilda.ws/polirovka-i-keramika">
+                                                            <span class="dd-num">02</span>
+                                                             Полировка, керамика
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://detailingpride.tilda.ws/vypryamlenie-vmyatin">
+                                                            <span class="dd-num">03</span>
+                                                             Выпрямление вмятин
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://detailingpride.tilda.ws/bronirovanie-stekla-i-panoramy">
+                                                            <span class="dd-num">04</span>
+                                                             Бронь стекла и панорамы
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://detailingpride.tilda.ws/pokraska-kozhi">
+                                                            <span class="dd-num">05</span>
+                                                             Покраска кожи
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://detailingpride.tilda.ws/himchistka-salona">
+                                                            <span class="dd-num">06</span>
+                                                             Химчистка
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="https://detailingpride.tilda.ws/#prices">Цены</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://detailingpride.tilda.ws/#portfolio">Работы</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://pride-detailing.ru/#rec2243431611">Отзывы</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://pride-detailing.ru/#rec2243431771">Контакты</a>
+                                            </li>
+                                        </ul>
+                                        <!-- ПРАВАЯ ЧАСТЬ -->
+                                        <div class="nav__right">
+                                            <!-- Telegram -->
+                                            <div class="nav__messengers">
+                                                <a href="https://t.me/pride_detailing7" class="nav__msg" aria-label="Telegram" target="_blank" rel="noopener">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M11.944 0A12 12 0 1 0 24 12.056A12.013 12.013 0 0 0 11.944 0Zm5.654 8.22l-1.7 8.007c-.128.6-.462.746-.938.465l-2.59-1.91-1.25 1.2c-.138.14-.254.254-.52.254l.186-2.64 4.8-4.34c.21-.186-.045-.29-.324-.104l-5.94 3.74-2.56-.8c-.556-.174-.567-.556.116-.824l10-3.86c.464-.168.87.112.72.812Z"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <!-- Часы работы -->
+                                            <div class="nav__hours">
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <circle cx="12" cy="12" r="10"/>
+                                                    <path d="M12 6v6l4 2"/>
+                                                </svg>
+                                                <div class="nav__hours-text">
+                                                    <span class="nav__hours-days">Пн–Вс</span>
+                                                    <span class="nav__hours-time">9:00–22:00</span>
+                                                </div>
+                                            </div>
+                                            <!-- Телефон + адрес -->
+                                            <div class="nav__contacts">
+                                                <a href="tel:+79032555171" class="nav__phone">+7 (903) 255-51-71</a>
+                                                <span class="nav__address">ул. Семёна Гордого, 7</span>
+                                            </div>
+                                            <!-- CTA -->
+                                            <a href="#popup:zapisshapka" class="nav__cta">
+                                                <span>Записаться</span>
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M5 12h14"/>
+                                                    <path d="M13 6l6 6-6 6"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <!-- БУРГЕР -->
+                                        <button class="burger" id="prideBurger" aria-label="Меню">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </button>
+                                    </nav>
+                                </div>
+                            </header>
+                            <script>
+                            (function() {
+                                var header = document.getElementById('prideHeader');
+                                var burger = document.getElementById('prideBurger');
+                                var mMenu = document.getElementById('prideMobileMenu');
+
+                                /* --- Скролл → .scrolled --- */
+                                function onScroll() {
+                                    if (window.scrollY > 60)
+                                        header.classList.add('scrolled');
+                                    else
+                                        header.classList.remove('scrolled');
+                                }
+                                window.addEventListener('scroll', onScroll, {
+                                    passive: true
+                                });
+                                onScroll();
+
+                                function collapseMobileServicesMenu() {
+                                    if (!mMenu)
+                                        return;
+                                    var sub = mMenu.querySelector('.pride-mobile-submenu');
+                                    var trg = mMenu.querySelector('.pride-mobile-submenu__trigger');
+                                    if (sub)
+                                        sub.classList.remove('open');
+                                    if (trg)
+                                        trg.setAttribute('aria-expanded', 'false');
+                                }
+
+                                /* --- Бургер / мобильное меню --- */
+                                if (burger && mMenu) {
+                                    burger.addEventListener('click', function() {
+                                        var open = mMenu.classList.toggle('active');
+                                        burger.classList.toggle('active', open);
+                                        document.body.style.overflow = open ? 'hidden' : '';
+                                        if (!open)
+                                            collapseMobileServicesMenu();
+                                    });
+
+                                    mMenu.querySelectorAll('a').forEach(function(a) {
+                                        a.addEventListener('click', function() {
+                                            mMenu.classList.remove('active');
+                                            burger.classList.remove('active');
+                                            document.body.style.overflow = '';
+                                            collapseMobileServicesMenu();
+                                        });
+                                    });
+
+                                    var mobSub = mMenu.querySelector('.pride-mobile-submenu');
+                                    var mobTrigger = mMenu.querySelector('.pride-mobile-submenu__trigger');
+                                    if (mobSub && mobTrigger) {
+                                        mobTrigger.addEventListener('click', function(e) {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            var isOpen = mobSub.classList.toggle('open');
+                                            mobTrigger.setAttribute('aria-expanded', String(isOpen));
+                                        });
+                                    }
+                                }
+
+                                /* --- Услуги: клик раскрывает список, hover работает через CSS --- */
+                                document.querySelectorAll('.pride-header .nav__item--dropdown > a').forEach(function(trigger) {
+                                    trigger.addEventListener('click', function(e) {
+                                        e.preventDefault();
+                                        var item = trigger.closest('.nav__item--dropdown');
+                                        var isOpen = item.classList.contains('open');
+                                        document.querySelectorAll('.pride-header .nav__item--dropdown.open').forEach(function(openItem) {
+                                            if (openItem !== item) {
+                                                openItem.classList.remove('open');
+                                                var openTrigger = openItem.querySelector(':scope > a');
+                                                if (openTrigger)
+                                                    openTrigger.setAttribute('aria-expanded', 'false');
+                                            }
+                                        });
+                                        item.classList.toggle('open', !isOpen);
+                                        trigger.setAttribute('aria-expanded', String(!isOpen));
+                                    });
+                                });
+
+                                document.addEventListener('click', function(e) {
+                                    if (e.target.closest('.pride-header .nav__item--dropdown'))
+                                        return;
+                                    document.querySelectorAll('.pride-header .nav__item--dropdown.open').forEach(function(item) {
+                                        item.classList.remove('open');
+                                        var trigger = item.querySelector(':scope > a');
+                                        if (trigger)
+                                            trigger.setAttribute('aria-expanded', 'false');
+                                    });
+                                });
+
+                                /* --- Escape --- */
+                                document.addEventListener('keydown', function(e) {
+                                    if (e.key === 'Escape' && mMenu && mMenu.classList.contains('active')) {
+                                        mMenu.classList.remove('active');
+                                        if (burger)
+                                            burger.classList.remove('active');
+                                        document.body.style.overflow = '';
+                                        collapseMobileServicesMenu();
+                                    }
+                                });
+
+                                /* --- Активная ссылка --- */
+                                var sections = document.querySelectorAll('section[id]');
+                                if (sections.length) {
+                                    window.addEventListener('scroll', function() {
+                                        var scrollY = window.scrollY + 120;
+                                        sections.forEach(function(sec) {
+                                            var id = sec.getAttribute('id');
+                                            var top = sec.offsetTop;
+                                            var link = document.querySelector(
+                                            '.pride-header .nav__menu a[href$="#' + id + '"]'
+                                            );
+                                            if (!link)
+                                                return;
+                                            if (scrollY >= top && scrollY < top + sec.offsetHeight) {
+                                                document.querySelectorAll('.pride-header .nav__menu a')
+                                                .forEach(function(a) {
+                                                    a.classList.remove('active');
+                                                });
+                                                link.classList.add('active');
+                                            }
+                                        });
+                                    }, {
+                                        passive: true
+                                    });
+                                }
+
+                                function prideAnchorTarget(href) {
+                                    if (!href || href.indexOf('#') === -1)
+                                        return null;
+                                    if (href.indexOf('#popup:') !== -1)
+                                        return null;
+                                    var i = href.lastIndexOf('#');
+                                    if (i < 0 || i >= href.length - 1)
+                                        return null;
+                                    var sel = href.slice(i);
+                                    try {
+                                        return document.querySelector(sel);
+                                    } catch (err) {
+                                        return null;
+                                    }
+                                }
+
+                                function prideSamePageAnchor(href) {
+                                    if (!href || href.indexOf('#') === -1)
+                                        return false;
+                                    if (href.indexOf('#popup:') !== -1)
+                                        return false;
+                                    if (href.charAt(0) === '#')
+                                        return true;
+                                    if (href.charAt(0) === '/' && href.indexOf('#') !== -1)
+                                        return true;
+                                    try {
+                                        var abs = new URL(href, window.location.href);
+                                        return abs.origin === window.location.origin && abs.pathname === window.location.pathname;
+                                    } catch (e) {
+                                        return false;
+                                    }
+                                }
+
+                                document.querySelectorAll('.pride-header a, .pride-mobile-menu a').forEach(function(a) {
+                                    a.addEventListener('click', function(e) {
+                                        var href = a.getAttribute('href') || '';
+                                        if (!prideSamePageAnchor(href))
+                                            return;
+                                        var target = prideAnchorTarget(href);
+                                        if (!target)
+                                            return;
+                                        e.preventDefault();
+                                        window.scrollTo({
+                                            top: target.getBoundingClientRect().top + window.scrollY - 80,
+                                            behavior: 'smooth'
+                                        });
+                                    });
+                                });
+
+                                /* --- Страховка ссылок услуг после кэша Тильды --- */
+                                var serviceUrls = {
+                                    'okleyka-avto-plenkoy': 'http://pride-detailing.ru/okleyka-avto-plenkoy',
+                                    'polirovka-i-keramika': 'http://pride-detailing.ru/polirovka-i-keramika',
+                                    'vypryamlenie-vmyatin': 'http://pride-detailing.ru/vypryamlenie-vmyatin',
+                                    'bronirovanie-stekla-i-panoramy': 'http://pride-detailing.ru/bronirovanie-stekla-i-panoramy',
+                                    'pokraska-kozhi': 'http://pride-detailing.ru/pokraska-kozhi',
+                                    'himchistka-salona': 'http://pride-detailing.ru/himchistka-salona'
+                                };
+                                function normalizeServiceLinks() {
+                                    document.querySelectorAll('.pride-header a, .pride-footer a, .pride-mobile-menu a').forEach(function(a) {
+                                        var href = a.getAttribute('href') || '';
+                                        Object.keys(serviceUrls).forEach(function(slug) {
+                                            if (href.indexOf(slug) !== -1)
+                                                a.setAttribute('href', serviceUrls[slug]);
+                                        });
+                                        if (/химчистка/i.test(a.textContent || '')) {
+                                            a.setAttribute('href', serviceUrls['himchistka-salona']);
+                                        }
+                                    });
+                                }
+                                normalizeServiceLinks();
+                                document.addEventListener('DOMContentLoaded', normalizeServiceLinks);
+                            })();
+                            </script>
+                            <!-- PRIDE mobile menu fallback -->
+                            <style>
+                            html.pride-menu-open, body.pride-menu-open {
+                                overflow: hidden !important;
+                            }
+
+                            .pride-mobile-menu:not(.active) {
+                                pointer-events: none !important;
+                            }
+
+                            .pride-mobile-menu.active, .mobile-menu.active {
+                                display: flex !important;
+                                opacity: 1 !important;
+                                visibility: visible !important;
+                                pointer-events: auto !important;
+                            }
+
+                            .pride-mobile-menu.active a, .pride-mobile-menu.active button.pride-mobile-menu__link, .pride-mobile-menu.active .pride-mobile-submenu__trigger, .pride-mobile-menu.active .mobile-phone, .mobile-menu.active a, .mobile-menu.active button.pride-mobile-menu__link {
+                                opacity: 1 !important;
+                                transform: translateY(0) !important;
+                            }
+
+                            .pride-mobile-menu.active .pride-mobile-submenu__list a {
+                                transform: none !important;
+                            }
+                            </style>
+                            <script>
+                            (function() {
+                                if (window.__prideMobileMenuFallback)
+                                    return;
+                                window.__prideMobileMenuFallback = true;
+
+                                function getMenus() {
+                                    return Array.prototype.slice.call(document.querySelectorAll('#prideMobileMenu, .pride-mobile-menu, .mobile-menu'));
+                                }
+
+                                function findMenuForBurger(burger) {
+                                    if (!burger)
+                                        return null;
+                                    if (burger.id === 'prideBurger' || burger.closest('.pride-header')) {
+                                        return document.getElementById('prideMobileMenu') || document.querySelector('.pride-mobile-menu');
+                                    }
+                                    return document.querySelector('.mobile-menu') || document.getElementById('prideMobileMenu') || document.querySelector('.pride-mobile-menu');
+                                }
+
+                                function setOpen(targetMenu, targetBurger, open) {
+                                    getMenus().forEach(function(menu) {
+                                        menu.classList.toggle('active', menu === targetMenu && open);
+                                    });
+                                    document.querySelectorAll('#prideBurger, .burger').forEach(function(burger) {
+                                        burger.classList.toggle('active', burger === targetBurger && open);
+                                        burger.setAttribute('aria-expanded', String(burger === targetBurger && open));
+                                    });
+                                    document.documentElement.classList.toggle('pride-menu-open', open);
+                                    if (document.body) {
+                                        document.body.classList.toggle('pride-menu-open', open);
+                                        document.body.style.overflow = open ? 'hidden' : '';
+                                    }
+                                    if (!open) {
+                                        getMenus().forEach(function(menu) {
+                                            var sub = menu.querySelector('.pride-mobile-submenu');
+                                            var btn = menu.querySelector('.pride-mobile-submenu__trigger');
+                                            if (sub)
+                                                sub.classList.remove('open');
+                                            if (btn)
+                                                btn.setAttribute('aria-expanded', 'false');
+                                        });
+                                    }
+                                }
+
+                                document.addEventListener('click', function(event) {
+                                    var burger = event.target.closest('#prideBurger, .pride-header .burger, .header .burger');
+                                    if (!burger)
+                                        return;
+                                    var menu = findMenuForBurger(burger);
+                                    if (!menu)
+                                        return;
+                                    event.preventDefault();
+                                    event.stopImmediatePropagation();
+                                    setOpen(menu, burger, !menu.classList.contains('active'));
+                                }, true);
+
+                                document.addEventListener('click', function(event) {
+                                    if (!event.target.closest('#prideMobileMenu a, .pride-mobile-menu a, .mobile-menu a'))
+                                        return;
+                                    setOpen(null, null, false);
+                                }, true);
+
+                                document.addEventListener('keydown', function(event) {
+                                    if (event.key === 'Escape')
+                                        setOpen(null, null, false);
+                                });
+                            })();
+                            </script>
+                            <!-- nominify end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="rec2215701581" class="r t-rec" style=" " data-animationappear="off" data-record-type="702">
+                <!-- T702 -->
+                <div class="t702">
+                    <div class="t-popup" data-tooltip-hook="#popup:zapisshapka" role="dialog" aria-modal="true" tabindex="-1" aria-label="ЗАПИСАТЬСЯ" style="background-color: rgba(0,0,0,0.90);">
+                        <div class="t-popup__close t-popup__block-close">
+                            <button type="button" class="t-popup__close-wrapper t-popup__block-close-button" aria-label="Закрыть диалоговое окно">
+                                <svg role="presentation" class="t-popup__close-icon" width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g stroke="none" stroke-width="1" fill="#ffffff" fill-rule="evenodd">
+                                        <rect transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) " x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
+                                        <rect transform="translate(11.313708, 11.313708) rotate(-315.000000) translate(-11.313708, -11.313708) " x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                        <style>
+                        @media screen and (max-width: 560px) {
+                            #rec2215701581 .t-popup__close-icon g {
+                                fill: #ffffff !important;
+                            }
+                        }
+                        </style>
+                        <div class="t-popup__container t-width t-width_6" style="background-color:#ffffff;" data-popup-type="702">
+                            <div class="t702__wrapper">
+                                <div class="t702__text-wrapper t-align_center">
+                                    <div class="t702__title t-title t-title_xxs" id="popuptitle_2215701581">ЗАПИСАТЬСЯ</div>
+                                </div>
+                                <form id="form2215701581" name='form2215701581' role="form" action='' method='POST' data-formactiontype="0" data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_2 " data-success-callback="t702_onSuccess">
+                                    <!-- NO ONE SERVICES CONNECTED -->
+                                    <!-- @classes t-title t-text t-btn -->
+                                    <div class="js-successbox t-form__successbox t-text t-text_md" aria-live="polite" style="display:none;"></div>
+                                    <div class="t-form__inputsbox
+                                    t-form__inputsbox_vertical-form t-form__inputsbox_inrow
+                                    ">
+                                        <div class="t-input-group t-input-group_nm " data-input-lid="8822106938210" data-field-type="nm" data-field-name="Name">
+                                            <div class="t-input-block " style="border-radius:5px;">
+                                                <input type="text" autocomplete="name" name="Name" id="input_8822106938210" class="t-input js-tilda-rule" value="" placeholder="Имя" data-tilda-req="1" aria-required="true" data-tilda-rule="name" aria-describedby="error_8822106938210" style="color:#000000;border:1px solid #c9c9c9;border-radius:5px;">
+                                            </div>
+                                            <div class="t-input-error" aria-live="polite" id="error_8822106938210"></div>
+                                        </div>
+                                        <div class="t-input-group t-input-group_ph " data-input-lid="8822106938211" data-field-async="true" data-field-type="ph" data-field-name="Phone">
+                                            <div class="t-input-block " style="border-radius:5px;">
+                                                <input type="tel" autocomplete="tel" name="Phone" id="input_8822106938211" data-phonemask-init="no" data-phonemask-id="2215701581" data-phonemask-lid="8822106938211" data-phonemask-maskcountry="RU" class="t-input js-phonemask-input js-tilda-rule" value="" placeholder="+1(000)000-0000" data-tilda-req="1" aria-required="true" aria-describedby="error_8822106938211" style="color:#000000;border:1px solid #c9c9c9;border-radius:5px;">
+                                                <script type="text/javascript">
+                                                t_onReady(function() {
+                                                    t_onFuncLoad('t_loadJsFile', function() {
+                                                        t_loadJsFile('https://static.tildacdn.com/js/tilda-phone-mask-1.1.min.js', function() {
+                                                            t_onFuncLoad('t_form_phonemask_load', function() {
+                                                                var phoneMasks = document.querySelectorAll('#rec2215701581 [data-phonemask-lid="8822106938211"]');
+                                                                t_form_phonemask_load(phoneMasks);
+                                                            });
+                                                        })
+                                                    })
+                                                });
+                                                </script>
+                                            </div>
+                                            <div class="t-input-error" aria-live="polite" id="error_8822106938211"></div>
+                                        </div>
+                                        <div class="t-form__errorbox-middle">
+                                            <!--noindex-->
+                                            <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;" data-nosnippet tabindex="-1" aria-label="Ошибки при заполнении формы">
+                                                <ul role="list" class="t-form__errorbox-text t-text t-text_md">
+                                                    <li class="t-form__errorbox-item js-rule-error js-rule-error-all"></li>
+                                                    <li class="t-form__errorbox-item js-rule-error js-rule-error-req"></li>
+                                                    <li class="t-form__errorbox-item js-rule-error js-rule-error-email"></li>
+                                                    <li class="t-form__errorbox-item js-rule-error js-rule-error-name"></li>
+                                                    <li class="t-form__errorbox-item js-rule-error js-rule-error-phone"></li>
+                                                    <li class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></li>
+                                                    <li class="t-form__errorbox-item js-rule-error js-rule-error-string"></li>
+                                                </ul>
+                                            </div>
+                                            <!--/noindex-->
+                                        </div>
+                                        <div class="t-form__submit">
+                                            <button class="t-submit t-btnflex t-btnflex_type_submit t-btnflex_md" type="submit">
+                                                <span class="t-btnflex__text">Отправить</span>
+                                                <style>
+                                                #rec2215701581 .t-btnflex.t-btnflex_type_submit {
+                                                    color: #ffffff;
+                                                    background-color: #000000;
+                                                    --border-width: 0px;
+                                                    border-style: none !important;
+                                                    border-radius: 5px;
+                                                    box-shadow: none !important;
+                                                    transition-duration: 0.2s;
+                                                    transition-property: background-color, color, border-color, box-shadow, opacity, transform, gap;
+                                                    transition-timing-function: ease-in-out;
+                                                }
+                                                </style>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="t-form__errorbox-bottom">
+                                        <!--noindex-->
+                                        <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;" data-nosnippet tabindex="-1" aria-label="Ошибки при заполнении формы">
+                                            <ul role="list" class="t-form__errorbox-text t-text t-text_md">
+                                                <li class="t-form__errorbox-item js-rule-error js-rule-error-all"></li>
+                                                <li class="t-form__errorbox-item js-rule-error js-rule-error-req"></li>
+                                                <li class="t-form__errorbox-item js-rule-error js-rule-error-email"></li>
+                                                <li class="t-form__errorbox-item js-rule-error js-rule-error-name"></li>
+                                                <li class="t-form__errorbox-item js-rule-error js-rule-error-phone"></li>
+                                                <li class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></li>
+                                                <li class="t-form__errorbox-item js-rule-error js-rule-error-string"></li>
+                                            </ul>
+                                        </div>
+                                        <!--/noindex-->
+                                    </div>
+                                </form>
+                                <style>
+                                #rec2215701581 input::-webkit-input-placeholder {
+                                    color: #000000;
+                                    opacity: 0.5;
+                                }
+
+                                #rec2215701581 input::-moz-placeholder {
+                                    color: #000000;
+                                    opacity: 0.5;
+                                }
+
+                                #rec2215701581 input:-moz-placeholder {
+                                    color: #000000;
+                                    opacity: 0.5;
+                                }
+
+                                #rec2215701581 input:-ms-input-placeholder {
+                                    color: #000000;
+                                    opacity: 0.5;
+                                }
+
+                                #rec2215701581 textarea::-webkit-input-placeholder {
+                                    color: #000000;
+                                    opacity: 0.5;
+                                }
+
+                                #rec2215701581 textarea::-moz-placeholder {
+                                    color: #000000;
+                                    opacity: 0.5;
+                                }
+
+                                #rec2215701581 textarea:-moz-placeholder {
+                                    color: #000000;
+                                    opacity: 0.5;
+                                }
+
+                                #rec2215701581 textarea:-ms-input-placeholder {
+                                    color: #000000;
+                                    opacity: 0.5;
+                                }
+                                </style>
+                                <div class="t702__form-bottom-text t-text t-text_xs t-align_center">
+                                    <span style="color: rgb(0, 0, 0);">Нажимая на кнопку Отправить, вы даете согласие на&nbsp;</span>
+                                    <a href="https://korpigra.ru/policy" target="_blank" rel="noreferrer noopener" style="color: rgb(0, 0, 0);">обработку предоставленных персональных данных</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                t_onReady(function() {
+                    t_onFuncLoad('t702_initPopup', function() {
+                        t702_initPopup('2215701581');
+                    });
+                });
+                </script>
+                <style>
+                #rec2215701581 .t702__title {
+                    font-family: var(--t-headline-font, Arial);
+                }
+
+                @media screen and (min-width: 900px) {
+                    #rec2215701581 .t702__title {
+                        font-size: 40px;
+                    }
+                }
+                </style>
+            </div>
+        </header>
+        <!--/header-->
+        

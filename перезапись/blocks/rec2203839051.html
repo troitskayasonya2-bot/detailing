@@ -1,0 +1,528 @@
+<div id="rec2203839051" class="r t-rec" style=" " data-animationappear="off" data-record-type="131">
+            <!-- T123 -->
+            <div class="t123">
+                <div class="t-container_100 ">
+                    <div class="t-width t-width_100 ">
+                        <!-- nominify begin -->
+                        <!-- ПЕРВЫЙ БЛОК, ЧАСТЬ 2: скрипты -->
+                        <script>
+                        /* ============================================
+                           ДЕТЕЙЛИНГ PRIDE — Main JavaScript
+                           Premium interactions & animations
+                           ============================================ */
+
+                        // Vimeo embeds use loading="lazy" on iframes in HTML — player loads when near viewport
+
+                        // Fix viewport-fit=cover for iPhone safe area
+                        (function() {
+                            const vp = document.querySelector('meta[name="viewport"]');
+                            if (vp && !vp.content.includes('viewport-fit')) {
+                                vp.content = vp.content + ', viewport-fit=cover';
+                            }
+                        })();
+
+                        document.addEventListener('DOMContentLoaded', () => {
+
+                            // --- HEADER SCROLL ---
+                            const header = document.querySelector('.header');
+                            let lastScroll = 0;
+
+                            window.addEventListener('scroll', () => {
+                                if (!header)
+                                    return;
+                                const currentScroll = window.scrollY;
+
+                                if (currentScroll > 60) {
+                                    header.classList.add('scrolled');
+                                } else {
+                                    header.classList.remove('scrolled');
+                                }
+
+                                lastScroll = currentScroll;
+                            }, {
+                                passive: true
+                            });
+
+                            // --- MOBILE MENU ---
+                            const burger = document.querySelector('.burger');
+                            const mobileMenu = document.querySelector('.mobile-menu');
+
+                            if (burger && mobileMenu) {
+                                burger.addEventListener('click', () => {
+                                    burger.classList.toggle('active');
+                                    mobileMenu.classList.toggle('active');
+                                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+                                });
+
+                                // Close on link click
+                                mobileMenu.querySelectorAll('a').forEach(link => {
+                                    link.addEventListener('click', () => {
+                                        burger.classList.remove('active');
+                                        mobileMenu.classList.remove('active');
+                                        document.body.style.overflow = '';
+                                    });
+                                });
+                            }
+
+                            // --- SMOOTH SCROLL ---
+                            document.querySelectorAll('.pride-tilda a[href^="#"]').forEach(anchor => {
+                                anchor.addEventListener('click', (e) => {
+                                    const href = anchor.getAttribute('href');
+                                    if (href === '#' || href.indexOf('#popup:') === 0)
+                                        return;
+                                    e.preventDefault();
+                                    const target = document.querySelector(href);
+                                    if (target) {
+                                        const offset = 80;
+                                        const y = target.getBoundingClientRect().top + window.scrollY - offset;
+                                        window.scrollTo({
+                                            top: y,
+                                            behavior: 'smooth'
+                                        });
+                                    }
+                                });
+                            });
+
+                            // --- SCROLL REVEAL ---
+                            let revealAnimationsInitialized = false;
+
+                            function initRevealAnimations() {
+                                if (revealAnimationsInitialized)
+                                    return;
+                                revealAnimationsInitialized = true;
+                                const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+                                const observer = new IntersectionObserver((entries) => {
+                                    entries.forEach(entry => {
+                                        if (entry.isIntersecting) {
+                                            entry.target.classList.add('visible');
+                                        }
+                                    });
+                                }, {
+                                    threshold: 0.1,
+                                    rootMargin: '0px 0px -40px 0px'
+                                });
+
+                                revealElements.forEach(el => observer.observe(el));
+                            }
+
+                            // --- COUNTER ANIMATION ---
+                            const counters = document.querySelectorAll('[data-counter]');
+
+                            const counterObserver = new IntersectionObserver((entries) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting && !entry.target.dataset.counted) {
+                                        entry.target.dataset.counted = 'true';
+                                        animateCounter(entry.target);
+                                    }
+                                });
+                            }, {
+                                threshold: 0.5
+                            });
+
+                            counters.forEach(el => counterObserver.observe(el));
+
+                            function animateCounter(el) {
+                                const target = parseInt(el.dataset.counter);
+                                const suffix = el.dataset.suffix || '';
+                                const prefix = el.dataset.prefix || '';
+                                const duration = 2000;
+                                const start = performance.now();
+
+                                function tick(now) {
+                                    const elapsed = now - start;
+                                    const progress = Math.min(elapsed / duration, 1);
+                                    // Ease out cubic
+                                    const eased = 1 - Math.pow(1 - progress, 3);
+                                    const current = Math.round(eased * target);
+                                    el.textContent = prefix + current.toLocaleString('ru-RU') + suffix;
+                                    if (progress < 1)
+                                        requestAnimationFrame(tick);
+                                }
+
+                                requestAnimationFrame(tick);
+                            }
+
+                            // --- PRICES TABS ---
+                            const priceTabs = document.querySelectorAll('.prices__tab');
+                            const pricePanels = document.querySelectorAll('.prices__panel');
+
+                            priceTabs.forEach(tab => {
+                                tab.addEventListener('click', () => {
+                                    const target = tab.dataset.tab;
+                                    if (!target)
+                                        return;
+                                    priceTabs.forEach(t => {
+                                        t.classList.remove('active');
+                                        t.removeAttribute('aria-current');
+                                    });
+                                    pricePanels.forEach(p => p.classList.remove('active'));
+                                    tab.classList.add('active');
+                                    tab.setAttribute('aria-current', 'true');
+                                    document.getElementById(target)?.classList.add('active');
+                                });
+                            });
+
+                            // --- FAQ ACCORDION ---
+                            const faqItems = document.querySelectorAll('.faq-item');
+
+                            faqItems.forEach(item => {
+                                const header = item.querySelector('.faq-item__header');
+                                const answer = item.querySelector('.faq-item__answer');
+
+                                header.addEventListener('click', () => {
+                                    const isActive = item.classList.contains('active');
+
+                                    // Close all
+                                    faqItems.forEach(i => {
+                                        i.classList.remove('active');
+                                        i.querySelector('.faq-item__answer').style.maxHeight = '0';
+                                    });
+
+                                    // Open clicked if wasn't active
+                                    if (!isActive) {
+                                        item.classList.add('active');
+                                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                                    }
+                                });
+                            });
+
+                            // --- REVIEWS SLIDER ---
+                            const reviewsTrack = document.querySelector('.reviews__track');
+                            const prevBtn = document.querySelector('.reviews__arrow--prev');
+                            const nextBtn = document.querySelector('.reviews__arrow--next');
+
+                            if (reviewsTrack && prevBtn && nextBtn) {
+                                const scrollAmount = 410;
+
+                                prevBtn.addEventListener('click', () => {
+                                    reviewsTrack.scrollBy({
+                                        left: -scrollAmount,
+                                        behavior: 'smooth'
+                                    });
+                                });
+
+                                nextBtn.addEventListener('click', () => {
+                                    reviewsTrack.scrollBy({
+                                        left: scrollAmount,
+                                        behavior: 'smooth'
+                                    });
+                                });
+                            }
+
+                            // --- BEFORE/AFTER SLIDER ---
+                            function initPortfolioSliders() {
+                                const portfolioSliders = document.querySelectorAll('.portfolio-card__slider');
+                                if (!portfolioSliders.length)
+                                    return false;
+
+                                portfolioSliders.forEach(slider => {
+                                    if (slider.dataset.sliderInit)
+                                        return; // уже инициализирован
+                                    slider.dataset.sliderInit = '1';
+
+                                    const before = slider.querySelector('.portfolio-card__before');
+                                    const divider = slider.querySelector('.portfolio-card__divider');
+                                    let isDragging = false;
+
+                                    function updatePosition(x) {
+                                        const rect = slider.getBoundingClientRect();
+                                        let pos = ((x - rect.left) / rect.width) * 100;
+                                        pos = Math.max(5, Math.min(95, pos));
+                                        before.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
+                                        divider.style.left = pos + '%';
+                                    }
+
+                                    slider.addEventListener('mousedown', (e) => {
+                                        isDragging = true;
+                                        updatePosition(e.clientX);
+                                    });
+
+                                    window.addEventListener('mousemove', (e) => {
+                                        if (isDragging) {
+                                            e.preventDefault();
+                                            updatePosition(e.clientX);
+                                        }
+                                    });
+
+                                    window.addEventListener('mouseup', () => {
+                                        isDragging = false;
+                                    });
+
+                                    // Touch support — без passive чтобы предотвратить скролл при перетаскивании
+                                    slider.addEventListener('touchstart', (e) => {
+                                        isDragging = true;
+                                        updatePosition(e.touches[0].clientX);
+                                    }, {
+                                        passive: true
+                                    });
+
+                                    slider.addEventListener('touchmove', (e) => {
+                                        if (isDragging) {
+                                            e.preventDefault(); // блокируем вертикальный скролл
+                                            updatePosition(e.touches[0].clientX);
+                                        }
+                                    }, {
+                                        passive: false
+                                    });
+
+                                    slider.addEventListener('touchend', () => {
+                                        isDragging = false;
+                                    });
+                                });
+                                return true;
+                            }
+
+                            // Сразу пробуем, затем ждём загрузки блока 05
+                            if (!initPortfolioSliders()) {
+                                let attempts = 0;
+                                const retryInterval = setInterval(() => {
+                                    attempts++;
+                                    if (initPortfolioSliders() || attempts > 20) {
+                                        clearInterval(retryInterval);
+                                    }
+                                }, 300);
+                            }
+
+                            // --- MODAL ---
+                            const modalOverlay = document.querySelector('.modal-overlay:not(.modal-overlay--calc)');
+                            const calcModalOverlay = document.querySelector('.modal-overlay--calc');
+                            const openModalBtns = document.querySelectorAll('.pride-tilda [data-modal]');
+                            const openCalcBtns = document.querySelectorAll('.pride-tilda [data-modal-calc]');
+
+                            openModalBtns.forEach(btn => {
+                                btn.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    modalOverlay?.classList.add('active');
+                                    document.body.style.overflow = 'hidden';
+                                });
+                            });
+
+                            openCalcBtns.forEach(btn => {
+                                btn.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    calcModalOverlay?.classList.add('active');
+                                    document.body.style.overflow = 'hidden';
+                                });
+                            });
+
+                            [modalOverlay, calcModalOverlay].forEach(overlay => {
+                                overlay?.addEventListener('click', (e) => {
+                                    if (e.target === overlay)
+                                        closeModal();
+                                });
+                            });
+
+                            document.querySelectorAll('.modal__close').forEach(btn => {
+                                btn.addEventListener('click', closeModal);
+                            });
+
+                            function closeModal() {
+                                modalOverlay?.classList.remove('active');
+                                calcModalOverlay?.classList.remove('active');
+                                document.body.style.overflow = '';
+                            }
+
+                            // Close on Escape
+                            document.addEventListener('keydown', (e) => {
+                                if (e.key === 'Escape') {
+                                    closeModal();
+                                    if (mobileMenu?.classList.contains('active')) {
+                                        burger.classList.remove('active');
+                                        mobileMenu.classList.remove('active');
+                                        document.body.style.overflow = '';
+                                    }
+                                }
+                            });
+
+                            // --- FORM HANDLING ---
+                            const forms = document.querySelectorAll('.pride-tilda form');
+
+                            forms.forEach(form => {
+                                form.addEventListener('submit', (e) => {
+                                    e.preventDefault();
+                                    const btn = form.querySelector('.btn');
+                                    const originalText = btn?.innerHTML;
+
+                                    if (btn) {
+                                        btn.innerHTML = '<span>ОТПРАВЛЕНО ✓</span>';
+                                        btn.style.background = '#2a7a3a';
+                                        btn.style.borderColor = '#2a7a3a';
+                                    }
+
+                                    setTimeout(() => {
+                                        if (btn) {
+                                            btn.innerHTML = originalText;
+                                            btn.style.background = '';
+                                            btn.style.borderColor = '';
+                                        }
+                                        form.reset();
+                                        closeModal();
+                                    }, 2000);
+                                });
+                            });
+
+                            // --- PARALLAX on hero elements ---
+                            const heroSection = document.querySelector('#hero');
+
+                            if (heroSection) {
+                                window.addEventListener('scroll', () => {
+                                    const content = heroSection.querySelector('.hero-content');
+                                    if (content) {
+                                        content.style.transform = 'none';
+                                        content.style.opacity = '1';
+                                    }
+                                }, {
+                                    passive: true
+                                });
+                            }
+
+                            // --- ACTIVE NAV HIGHLIGHT ---
+                            const sections = document.querySelectorAll('.pride-tilda section[id]');
+
+                            window.addEventListener('scroll', () => {
+                                const scrollY = window.scrollY + 120;
+
+                                sections.forEach(section => {
+                                    const top = section.offsetTop;
+                                    const height = section.offsetHeight;
+                                    const id = section.getAttribute('id');
+                                    const link = document.querySelector(`.nav__menu a[href="#${id}"]`);
+
+                                    if (link) {
+                                        if (scrollY >= top && scrollY < top + height) {
+                                            document.querySelectorAll('.nav__menu a').forEach(a => a.classList.remove('active'));
+                                            link.classList.add('active');
+                                        }
+                                    }
+                                });
+                            }, {
+                                passive: true
+                            });
+
+                            // --- STAGE TOGGLE (desktop + mobile) ---
+                            document.querySelectorAll('.stage-item').forEach(item => {
+                                const toggle = document.createElement('button');
+                                toggle.className = 'stage-toggle';
+                                toggle.textContent = 'Подробнее';
+                                item.appendChild(toggle);
+
+                                toggle.addEventListener('click', () => {
+                                    const isOpen = item.classList.contains('expanded');
+                                    item.classList.toggle('expanded', !isOpen);
+                                    toggle.textContent = isOpen ? 'Подробнее' : 'Скрыть';
+                                });
+                            });
+
+                            // --- MOBILE SERVICE CARD SCROLL REVEAL ---
+                            const mobileServiceObserver = new IntersectionObserver((entries) => {
+                                entries.forEach(entry => {
+                                    if (window.innerWidth <= 768) {
+                                        if (entry.isIntersecting) {
+                                            entry.target.classList.add('in-view');
+                                        } else {
+                                            entry.target.classList.remove('in-view');
+                                        }
+                                    }
+                                });
+                            }, {
+                                threshold: 0.45
+                            });
+
+                            document.querySelectorAll('.service-card').forEach(card => {
+                                mobileServiceObserver.observe(card);
+                            });
+
+                            // --- REVIEWS DESKTOP ARROWS (hard-fix) ---
+                            (function initReviewsDesktopArrows() {
+                                const reviewsSection = document.querySelector('#reviews');
+                                const slider = reviewsSection ? reviewsSection.querySelector('.reviews__slider') : null;
+                                const titleWrap = reviewsSection ? reviewsSection.querySelector('.reveal') : null;
+                                if (!reviewsSection || !slider || !titleWrap)
+                                    return;
+
+                                if (!document.getElementById('reviews-desktop-arrows-style')) {
+                                    const style = document.createElement('style');
+                                    style.id = 'reviews-desktop-arrows-style';
+                                    style.textContent = `
+                                    #reviews .reviews__head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+                                    #reviews .reviews__head .section__title{margin-bottom:0}
+                                    #reviews .reviews__nav{display:inline-flex;align-items:center;gap:10px;margin-left:auto}
+                                    #reviews .reviews__nav-btn{width:42px;height:42px;border:1px solid rgba(255,255,255,.42)!important;border-radius:12px;background:rgba(0,0,0,.55)!important;color:#fff!important;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease}
+                                    #reviews .reviews__nav-btn:hover{background:#fff!important;border-color:#fff!important;color:#050607!important;transform:translateY(-1px)}
+                                    #reviews .reviews__nav-btn svg{width:18px;height:18px;display:block;stroke:currentColor}
+                                    @media (max-width:768px){#reviews .reviews__nav{display:none!important}}
+                                    `;
+                                    document.head.appendChild(style);
+                                }
+
+                                if (!titleWrap.classList.contains('reviews__head'))
+                                    titleWrap.classList.add('reviews__head');
+
+                                let nav = reviewsSection.querySelector('.reviews__nav');
+                                if (!nav) {
+                                    nav = document.createElement('div');
+                                    nav.className = 'reviews__nav';
+                                    nav.setAttribute('aria-label', 'Навигация по отзывам');
+                                    nav.innerHTML = `
+                                        <button type="button" class="reviews__nav-btn reviews__nav-btn--prev" aria-label="Предыдущие отзывы">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+                                        </button>
+                                        <button type="button" class="reviews__nav-btn reviews__nav-btn--next" aria-label="Следующие отзывы">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+                                        </button>
+                                    `;
+                                    titleWrap.appendChild(nav);
+                                }
+
+                                const prevBtn = nav.querySelector('.reviews__nav-btn--prev');
+                                const nextBtn = nav.querySelector('.reviews__nav-btn--next');
+                                if (!prevBtn || !nextBtn || slider.dataset.reviewsDesktopArrowsBound === '1')
+                                    return;
+                                slider.dataset.reviewsDesktopArrowsBound = '1';
+
+                                window.__reviewsManualLock = window.__reviewsManualLock || false;
+                                let lockedScrollLeft = slider.scrollLeft;
+                                const step = () => Math.max(260, Math.min(420, Math.round(slider.clientWidth * 0.66)));
+
+                                function lockAt(value) {
+                                    window.__reviewsManualLock = true;
+                                    lockedScrollLeft = Math.max(0, value);
+                                    slider.scrollTo({ left: lockedScrollLeft, behavior: 'smooth' });
+                                }
+
+                                prevBtn.addEventListener('click', () => lockAt(slider.scrollLeft - step()));
+                                nextBtn.addEventListener('click', () => lockAt(slider.scrollLeft + step()));
+
+                                window.addEventListener('scroll', () => {
+                                    if (!window.__reviewsManualLock)
+                                        return;
+                                    window.__reviewsManualLock = false;
+                                }, { passive: true });
+                            })();
+
+                            // --- INIT REVEAL ---
+                            initRevealAnimations();
+
+                            // --- MAGNETIC BUTTON EFFECT ---
+                            document.querySelectorAll('.btn, .nav__cta').forEach(btn => {
+                                btn.addEventListener('mousemove', (e) => {
+                                    const rect = btn.getBoundingClientRect();
+                                    const x = e.clientX - rect.left - rect.width / 2;
+                                    const y = e.clientY - rect.top - rect.height / 2;
+                                    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+                                });
+
+                                btn.addEventListener('mouseleave', () => {
+                                    btn.style.transform = '';
+                                });
+                            });
+
+                        });
+                        </script>
+                        <!-- nominify end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        

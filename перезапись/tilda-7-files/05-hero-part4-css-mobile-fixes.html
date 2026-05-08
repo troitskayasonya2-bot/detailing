@@ -1,0 +1,401 @@
+<div class="t123">
+    <div class="t-container_100 ">
+        <div class="t-width t-width_100 ">
+<!-- Герой 4/5 -->
+<style>
+                                box-sizing: border-box !important;
+                              }
+                              .pride-tilda #hero .hero-stats > div,
+                              #hero .hero-stats > div {
+                                min-height: auto !important;
+                                padding: 14px 8px !important;
+                                display: flex !important;
+                                flex-direction: column !important;
+                                justify-content: center !important;
+                                align-items: center !important;
+                                text-align: center !important;
+                                width: 100% !important;
+                                box-sizing: border-box !important;
+                              }
+                              .pride-tilda #hero .hero-stats > .stat-wide,
+                              #hero .hero-stats > .stat-wide {
+                                grid-column: 1 / -1 !important;
+                              }
+                              .pride-tilda #hero .stat-num,
+                              #hero .stat-num {
+                                font-size: 22px !important;
+                                line-height: 1 !important;
+                                font-weight: 800 !important;
+                              }
+                              .pride-tilda #hero .stat-label,
+                              #hero .stat-label {
+                                font-size: 9px !important;
+                                line-height: 1.2 !important;
+                                margin-top: 4px !important;
+                                white-space: normal !important;
+                                max-width: 100% !important;
+                              }
+                              .pride-tilda #hero .hero-bg,
+                              #hero .hero-bg {
+                                display: block !important;
+                                aspect-ratio: 1 / 1 !important;
+                                max-height: 360px !important;
+                                border-radius: 16px !important;
+                                overflow: hidden !important;
+                              }
+                              .pride-tilda #hero .hero-video,
+                              #hero .hero-video {
+                                width: 100% !important;
+                                height: 100% !important;
+                                position: absolute !important;
+                                inset: 0 !important;
+                                margin: 0 !important;
+                                object-fit: cover !important;
+                                object-position: center center !important;
+                                border-radius: 16px !important;
+                              }
+                              .pride-tilda #hero .hero-bg::before,
+                              #hero .hero-bg::before {
+                                display: none !important;
+                              }
+                            }
+
+                            /* === FINAL PHONE ADAPTIVE FIXES (TILDA) === */
+                            @media (max-width: 768px) {
+                              html,
+                              body,
+                              .pride-tilda {
+                                max-width: 100% !important;
+                                overflow-x: hidden !important;
+                              }
+
+                              .pride-tilda *,
+                              .pride-tilda *::before,
+                              .pride-tilda *::after {
+                                max-width: 100% !important;
+                                word-wrap: break-word !important;
+                              }
+
+                              /* Отзывы: трек шире экрана — иначе max-width:100% убивает скролл и автопрокрутку */
+                              html body .pride-tilda #reviews .reviews__track,
+                              html body #reviews .reviews__track {
+                                max-width: none !important;
+                              }
+
+                              html body .pride-tilda #reviews .reviews__track .review-card,
+                              html body #reviews .reviews__track .review-card {
+                                flex-shrink: 0 !important;
+                                min-width: min(340px, calc(100vw - 56px)) !important;
+                                max-width: min(340px, calc(100vw - 56px)) !important;
+                                box-sizing: border-box !important;
+                              }
+
+                              html body .pride-tilda #reviews .reviews__slider,
+                              html body #reviews .reviews__slider {
+                                max-width: none !important;
+                                transform: none !important;
+                                -webkit-transform: none !important;
+                              }
+
+                              /* First screen: photo below heading on phone */
+                              .pride-tilda #hero,
+                              #hero {
+                                grid-template-columns: 1fr !important;
+                                grid-template-areas:
+                                  "copy"
+                                  "visual" !important;
+                                width: min(100% - 24px, 1520px) !important;
+                                margin: 0 auto !important;
+                                padding-top: 92px !important;
+                                gap: 16px !important;
+                              }
+
+                              .pride-tilda #hero .hero-bg,
+                              #hero .hero-bg {
+                                display: block !important;
+                                grid-area: visual !important;
+                                order: 2 !important;
+                                width: 100% !important;
+                                aspect-ratio: 1 / 1 !important;
+                                min-height: unset !important;
+                                max-height: 360px !important;
+                                border-radius: 16px !important;
+                                overflow: hidden !important;
+                                position: relative !important;
+                              }
+
+                              .pride-tilda #hero .hero-content,
+                              #hero .hero-content {
+                                order: 1 !important;
+                              }
+
+                              .pride-tilda #hero .hero-bg .hero-video,
+                              #hero .hero-bg .hero-video,
+                              .pride-tilda #hero img.hero-video,
+                              #hero img.hero-video {
+                                position: absolute !important;
+                                top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important;
+                                width: 100% !important;
+                                height: 100% !important;
+                                object-fit: cover !important;
+                                object-position: center center !important;
+                                border-radius: 16px !important;
+                              }
+
+                              .pride-tilda #hero .hero-content,
+                              #hero .hero-content,
+                              .pride-tilda #hero .hero-content > div:first-child,
+                              #hero .hero-content > div:first-child {
+                                min-height: auto !important;
+                              }
+
+                              .pride-tilda #hero .hero-h1,
+                              #hero .hero-h1 {
+                                font-size: clamp(36px, 11vw, 56px) !important;
+                                line-height: 1.04 !important;
+                                letter-spacing: -0.03em !important;
+                              }
+
+                              .pride-tilda #hero .hero-h1__small,
+                              #hero .hero-h1__small {
+                                margin-top: 0.12em !important;
+                              }
+
+                              .pride-tilda #hero .hero-sub,
+                              #hero .hero-sub {
+                                font-size: 13px !important;
+                                line-height: 1.55 !important;
+                                margin-top: 14px !important;
+                              }
+
+                              .pride-tilda .section-title,
+                              .pride-tilda .section__title {
+                                font-size: clamp(28px, 8.5vw, 40px) !important;
+                                line-height: 1.04 !important;
+                              }
+
+                              .pride-tilda .section-sub,
+                              .pride-tilda .section__subtitle {
+                                font-size: 14px !important;
+                                line-height: 1.5 !important;
+                              }
+
+                              .pride-tilda .services-grid {
+                                grid-template-columns: 1fr !important;
+                              }
+
+                              .pride-tilda .service-card,
+                              .pride-tilda .portfolio-card,
+                              .pride-tilda .faq-item,
+                              .pride-tilda .review-card,
+                              .pride-tilda .contact__right {
+                                border-radius: 16px !important;
+                              }
+
+                              .pride-tilda .review-card {
+                                min-width: 280px !important;
+                              }
+
+                              .pride-tilda .prices__table-wrap {
+                                overflow-x: auto !important;
+                                -webkit-overflow-scrolling: touch !important;
+                              }
+
+                              .pride-tilda .prices__table {
+                                min-width: 540px !important;
+                              }
+
+                              .pride-tilda .prices__table th,
+                              .pride-tilda .prices__table td {
+                                padding-left: 11px !important;
+                                padding-right: 11px !important;
+                              }
+                            }
+
+                            /* ============================================================
+                               Скругление: кнопки и горизонтальные плашки —
+                               var(--radius-control); карточки и крупные блоки — 16px
+                               ============================================================ */
+                            .pride-tilda .btn-gold,
+                            .pride-tilda .btn-outline,
+                            .pride-tilda .btn,
+                            .pride-tilda .srv-btn,
+                            .pride-tilda .faq-ask-btn,
+                            .pride-tilda .prices__tab,
+                            .pride-tilda .nav__cta,
+                            .pride-tilda .form-submit {
+                              border-radius: var(--radius-control) !important;
+                            }
+
+                            .pride-tilda .nav__dropdown,
+                            .pride-tilda .portfolio-card,
+                            .pride-tilda #hero .hero-stats > div,
+                            .pride-tilda .price-card,
+                            .pride-tilda .vertical-media__slot,
+                            .pride-tilda .contact__form input:not([type="checkbox"]):not([type="radio"]),
+                            .pride-tilda .contact__form textarea,
+                            .pride-tilda .stage-item,
+                            .pride-tilda .faq-item,
+                            .pride-tilda .review-card {
+                              border-radius: var(--radius) !important;
+                            }
+
+                            .pride-tilda .btn-gold,
+                            .pride-tilda .btn-outline,
+                            .pride-tilda .btn,
+                            .pride-tilda .srv-btn,
+                            .pride-tilda .faq-ask-btn,
+                            .pride-tilda .prices__tab,
+                            .pride-tilda .form-submit {
+                              clip-path: none !important;
+                            }
+
+                            /* ============================================================
+                               ФИНАЛЬНЫЕ ПЕРЕБИВАТЕЛИ — картинка и мобилка
+                               ============================================================ */
+
+                            /* Десктоп: hero-bg — контейнер, hero-video показывает фото через background-image */
+                            .pride-tilda #hero .hero-bg,
+                            #hero .hero-bg {
+                              position: relative !important;
+                              overflow: hidden !important;
+                              padding: 0 !important;
+                            }
+
+                            .pride-tilda #hero .hero-bg .hero-video,
+                            .pride-tilda #hero img.hero-video,
+                            #hero .hero-bg .hero-video,
+                            #hero img.hero-video {
+                              position: absolute !important;
+                              top: 0 !important;
+                              right: 0 !important;
+                              bottom: 0 !important;
+                              left: 0 !important;
+                              width: 100% !important;
+                              height: 100% !important;
+                              max-width: 100% !important;
+                              max-height: 100% !important;
+                              margin: 0 !important;
+                              object-fit: cover !important;
+                              object-position: center center !important;
+                              transform: none !important;
+                              filter: none !important;
+                              opacity: 1 !important;
+                              border-radius: 0 !important;
+                            }
+
+                            /* Мобильная картинка внутри текстового блока */
+                            .pride-tilda .hero-mobile-img {
+                              display: none !important;
+                            }
+                            @media (max-width: 768px) {
+                              .pride-tilda .hero-mobile-img {
+                                display: block !important;
+                                width: 100% !important;
+                                aspect-ratio: 1 / 1 !important;
+                                max-height: 320px !important;
+                                object-fit: cover !important;
+                                object-position: center center !important;
+                                border-radius: 16px !important;
+                                margin: 16px 0 !important;
+                              }
+                              .pride-tilda #hero .hero-bg,
+                              #hero .hero-bg {
+                                display: none !important;
+                              }
+
+                              /* Мобильные плашки: 2 сверху + 1 широкая снизу */
+                              html body .pride-tilda #hero .hero-stats,
+                              html body #hero .hero-stats {
+                                display: flex !important;
+                                flex-wrap: wrap !important;
+                                grid-template-columns: none !important;
+                                padding: 0 !important;
+                                padding-bottom: 32px !important;
+                                gap: 8px !important;
+                                width: 100% !important;
+                                max-width: 100% !important;
+                                margin: 0 !important;
+                                margin-top: 16px !important;
+                                box-sizing: border-box !important;
+                              }
+                              html body .pride-tilda #hero .hero-stats > div,
+                              html body #hero .hero-stats > div,
+                              html body .pride-tilda #hero .hero-stats > div:nth-child(1),
+                              html body .pride-tilda #hero .hero-stats > div:nth-child(2),
+                              html body .pride-tilda #hero .hero-stats > div:nth-child(3),
+                              html body #hero .hero-stats > div:nth-child(1),
+                              html body #hero .hero-stats > div:nth-child(2),
+                              html body #hero .hero-stats > div:nth-child(3) {
+                                min-height: auto !important;
+                                min-width: 0 !important;
+                                max-width: none !important;
+                                padding: 14px 8px !important;
+                                display: flex !important;
+                                flex-direction: column !important;
+                                justify-content: center !important;
+                                align-items: center !important;
+                                text-align: center !important;
+                                width: calc(50% - 4px) !important;
+                                flex: 0 0 calc(50% - 4px) !important;
+                                box-sizing: border-box !important;
+                              }
+                              html body .pride-tilda #hero .hero-stats > .stat-wide,
+                              html body #hero .hero-stats > .stat-wide,
+                              html body .pride-tilda #hero .hero-stats > div:nth-child(3),
+                              html body #hero .hero-stats > div:nth-child(3) {
+                                width: 100% !important;
+                                flex: 0 0 100% !important;
+                              }
+                              html body .pride-tilda #hero .stat-num,
+                              html body #hero .stat-num {
+                                font-size: 22px !important;
+                                min-height: 0 !important;
+                                height: auto !important;
+                                line-height: 1.2 !important;
+                                text-align: center !important;
+                                width: 100% !important;
+                              }
+                              html body .pride-tilda #hero .stat-label,
+                              html body #hero .stat-label {
+                                font-size: 9px !important;
+                                text-align: center !important;
+                                width: 100% !important;
+                              }
+
+                              /* Мобилка: убираем emoji и старые SVG-правила — стрелку рисует .portfolio-card__divider-handle */
+                              .portfolio-card__divider::before,
+                              .portfolio-card__divider::after {
+                                display: none !important;
+                                content: none !important;
+                              }
+
+                              /* Mobile-only: move the first visible hero container lower */
+                              html body .pride-tilda #hero .hero-content > div:first-child,
+                              html body #hero .hero-content > div:first-child {
+                                margin-top: 28px !important;
+                              }
+
+                              /* Первый пример работ #portfolio — поднять кадр на телефоне (перебиваем center !important выше) */
+                              html body .pride-tilda #portfolio .portfolio__grid > .portfolio-card:nth-child(1) .portfolio-card__after,
+                              html body .pride-tilda #portfolio .portfolio__grid > .portfolio-card:nth-child(1) .portfolio-card__before,
+                              html body #portfolio .portfolio__grid > .portfolio-card:nth-child(1) .portfolio-card__after,
+                              html body #portfolio .portfolio__grid > .portfolio-card:nth-child(1) .portfolio-card__before {
+                                background-position: center 14% !important;
+                                background-size: cover !important;
+                                transform: scale(1.06) !important;
+                                transform-origin: center top !important;
+                              }
+
+                              html body .pride-tilda #vertical-media .vertical-media__item--photo-3 .vertical-media__slot img,
+                              html body #vertical-media .vertical-media__item--photo-3 .vertical-media__slot img {
+                                object-position: center 12% !important;
+                                transform: translateY(-20%) scale(1.06) !important;
+                              }
+                            }
+                            /* end overrides */
+                            
+                        </style>
+        </div>
+    </div>
+</div>

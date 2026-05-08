@@ -1,0 +1,1246 @@
+<style>
+    #faq .faq-item { border: 1px solid rgba(255,255,255,.12) !important; border-radius: 0 !important; background: rgba(255,255,255,.035) !important; box-shadow: none !important; overflow: hidden !important; }
+    #faq .faq-item.open { border-color: rgba(255,255,255,.82) !important; background: rgba(255,255,255,.06) !important; }
+    #faq .faq-item__hd { padding: 20px 24px !important; gap: 16px !important; align-items: center !important; }
+    #faq .faq-item__q { font-size: clamp(22px, 2.2vw, 36px) !important; font-weight: 600 !important; letter-spacing: .3px !important; text-transform: none !important; line-height: 1.18 !important; color: #fff !important; }
+    #faq .faq-item__ico { width: 42px !important; height: 42px !important; border-radius: 0 !important; border: 1px solid rgba(255,255,255,.16) !important; background: rgba(255,255,255,.05) !important; position: relative !important; }
+    #faq .faq-item.open .faq-item__ico { background: #fff !important; border-color: #fff !important; transform: rotate(45deg) !important; }
+    #faq .faq-item__ico::before { content: '+' !important; width: auto !important; height: auto !important; background: none !important; color: #fff !important; font-family: var(--font-heading) !important; font-size: 26px !important; line-height: 1 !important; top: 50% !important; left: 50% !important; transform: translate(-50%,-50%) !important; }
+    #faq .faq-item__ico::after { display: none !important; }
+    #faq .faq-item.open .faq-item__ico::before { color: #08090b !important; }
+    #faq .faq-item__inner { padding: 0 24px 24px !important; font-size: 17px !important; line-height: 1.8 !important; color: rgba(255,255,255,.62) !important; }
+    .reviews__slider { overflow: hidden !important; }
+    .reviews__track { display: flex !important; width: max-content !important; min-width: max-content !important; animation: reviewsScroll 32s linear infinite !important; will-change: transform !important; }
+    .reviews__slider:hover .reviews__track { animation-play-state: paused !important; }
+    .review-card { min-width: 360px !important; flex: 0 0 360px !important; }
+    .review-card__author::after { content: '' !important; display: block !important; width: auto !important; height: 32px !important; min-width: 76px !important; max-width: 90px !important; margin-left: auto !important; align-self: center !important; flex: 0 0 76px !important; border: 0 !important; border-radius: 0 !important; opacity: .7 !important; background: transparent url('https://static.tildacdn.com/tild3161-3230-4035-b930-313836306433/mesto.png') center/contain no-repeat !important; }
+
+    .svc-hero h1 br { display: block !important; }
+    .nowrap { white-space: nowrap !important; display: inline-block !important; }
+    .nav__dropdown li a, .nav__dropdown li a:hover, .nav__dropdown li a:focus { text-decoration: none !important; }
+    .nav__dropdown li a::before, .nav__dropdown li a::after, .nav__dropdown li a:hover::before, .nav__dropdown li a:hover::after { display: none !important; content: none !important; }
+    #reviews .review-card, .reviews-section .review-card { min-height: 0 !important; padding: 22px 22px 20px !important; }
+    #reviews .review-card__text, .reviews-section .review-card__text { line-height: 1.55 !important; margin-bottom: 16px !important; }
+    #reviews .review-card__badge, .reviews-section .review-card__badge { margin-bottom: 12px !important; }
+    #reviews .review-card__author::after, .reviews-section .review-card__author::after { height: 42px !important; min-width: 104px !important; max-width: 118px !important; flex-basis: 104px !important; opacity: 1 !important; filter: contrast(1.2) brightness(1.1) !important; }
+    /* Final reviews alignment */
+    .reviews__track { display: flex !important; width: max-content !important; min-width: max-content !important; animation: reviewsScroll 32s linear infinite !important; will-change: transform !important; }
+    .reviews__slider:hover .reviews__track { animation-play-state: paused !important; }
+    .review-card { display: flex !important; flex-direction: column !important; min-height: 300px !important; transform: none !important; }
+    .review-card:hover { transform: none !important; }
+    .review-card__text { flex: 1 1 auto !important; }
+    .review-card__author { display: grid !important; grid-template-columns: 52px minmax(0, 1fr) 108px !important; align-items: center !important; gap: 12px !important; margin-top: auto !important; width: 100% !important; }
+    .review-card__avatar { width: 52px !important; height: 52px !important; border-radius: 0 !important; background: #fff !important; color: #08090b !important; display: flex !important; align-items: center !important; justify-content: center !important; flex: 0 0 52px !important; }
+    .review-card__info { min-width: 0 !important; }
+    .review-card__author::after { content: '' !important; display: block !important; width: 108px !important; height: 42px !important; min-width: 108px !important; max-width: 108px !important; flex: 0 0 108px !important; margin-left: 0 !important; align-self: center !important; opacity: 1 !important; background: transparent url('https://static.tildacdn.com/tild3161-3230-4035-b930-313836306433/mesto.png') center/contain no-repeat !important; filter: contrast(1.2) brightness(1.1) !important; }
+
+    /* Отзывы: свайп на мобилке */
+    @media (max-width: 768px) {
+      #reviews .reviews__slider,
+      .reviews-section .reviews__slider {
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-snap-type: x mandatory !important;
+        scrollbar-width: thin !important;
+      }
+      #reviews .reviews__track,
+      .reviews-section .reviews__track {
+        animation: none !important;
+        will-change: auto !important;
+      }
+      #reviews .reviews__slider:hover .reviews__track,
+      .reviews-section .reviews__slider:hover .reviews__track {
+        animation-play-state: paused !important;
+      }
+      #reviews .review-card,
+      .reviews-section .review-card {
+        scroll-snap-align: start !important;
+        scroll-snap-stop: always !important;
+        min-width: min(340px, calc(100vw - 48px)) !important;
+        flex: 0 0 min(340px, calc(100vw - 48px)) !important;
+      }
+    }
+
+
+    /* Hero image background override */
+    .svc-hero {
+      isolation: isolate;
+      background: var(--bg-dark) !important;
+    }
+    .svc-hero__image {
+      display: block !important;
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 0 !important;
+      pointer-events: none !important;
+      background-image:
+        linear-gradient(90deg, rgba(5,6,7,1) 0%, rgba(5,6,7,1) 34%, rgba(5,6,7,.92) 50%, rgba(5,6,7,.62) 66%, rgba(5,6,7,.22) 82%, rgba(5,6,7,.06) 100%),
+        var(--hero-image) !important;
+      background-size: 100% 100%, auto 100% !important;
+      background-position: center, calc(100% + 220px) center !important;
+      background-repeat: no-repeat !important;
+    }
+    .svc-hero > .container,
+    .svc-hero__bg-word {
+      position: relative !important;
+      z-index: 1 !important;
+    }
+    @media (max-width: 860px) {
+      .svc-hero__image {
+        background-image:
+          linear-gradient(90deg, rgba(5,6,7,1) 0%, rgba(5,6,7,.96) 52%, rgba(5,6,7,.58) 100%),
+          var(--hero-image) !important;
+        background-size: 100% 100%, auto 100% !important;
+        background-position: center, calc(100% + 120px) center !important;
+      }
+    }
+
+    /* Main page radius parity. */
+    :root {
+      --radius-card: 16px;
+      --radius-field: 16px;
+      --radius-control: 16px;
+    }
+    .btn,
+    .btn--outline,
+    .srv-btn,
+    .reviews__nav-btn,
+    .slm-nav__btn,
+    .service-link-card__btn {
+      border-radius: 16px !important;
+      clip-path: none !important;
+    }
+    .hbadge,
+    .service-card,
+    .psel-card,
+    .pkg-action,
+    .prices__table-wrap,
+    .review-card,
+    .faq-item,
+    .faq-item__ico,
+    .contact__right,
+    .contact__video,
+    .contact-item,
+    .contact-item__icon,
+    .contact__form,
+    .form-group input,
+    .form-group textarea,
+    .ff input,
+    .ff textarea,
+    .service-link-card,
+    .service-link-card__media {
+      border-radius: 16px !important;
+    }
+
+    /* Hidden by request; content stays in markup. */
+    #packages,
+    #prices {
+      display: none !important;
+    }
+    .svc-hero .hero-btns a[href="#prices"] {
+      display: none !important;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════
+       БЛОК 1 — HERO
+  ════════════════════════════════════ -->
+  <section class="svc-hero" style="--hero-image:url('https://static.tildacdn.com/tild3661-3738-4636-a632-343161613231/image_1656.webp')">
+    <div class="svc-hero__image" aria-hidden="true"></div>
+    <div class="container">
+      <div class="svc-hero__wrap">
+
+        <!-- LEFT -->
+        <div class="reveal">
+          <div class="bc">
+            <a href="../../index.html">Главная</a>
+            <span>/</span>
+            <a href="../../index.html#services">Услуги</a>
+            <span>/</span>
+            <span class="cur">Бронь стекла и панорамы</span>
+          </div>
+
+          <div class="sec-eyebrow">Защита стёкол</div>
+
+          <h1>Бронирование<br>стекла и панорамы</h1>
+
+          <p class="svc-hero__sub">Защитная полиуретановая плёнка на лобовое стекло, панорамную крышу и боковые стёкла. Защита от сколов, трещин, УФ-излучения и потёртостей — без искажения видимости.</p>
+
+          <div class="hero-badges">
+            <span class="hbadge">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Защита от сколов
+            </span>
+            <span class="hbadge">
+              <svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><polyline points="8 21 3 21 3 16"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+              Лобовое и панорама
+            </span>
+            <span class="hbadge">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              UV‑фильтр до 99%
+            </span>
+            <span class="hbadge">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+              Без искажений
+            </span>
+          </div>
+
+          <div class="hero-btns">
+            <a href="#contact" class="btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span>Записаться</span>
+            </a>
+            <a href="#prices" class="btn btn--outline" style="clip-path:none; border:1.5px solid rgba(255,255,255,.5); background:transparent; color:var(--gold);"><span>Смотреть цены</span></a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hstat">
+              <div class="hstat__num">99%</div>
+              <div class="hstat__label"><strong>UV-защита</strong>блокировка ультрафиолета</div>
+            </div>
+            <div class="hstat">
+              <div class="hstat__num">5+</div>
+              <div class="hstat__label"><strong>лет службы</strong>плёнки без замены</div>
+            </div>
+            <div class="hstat">
+              <div class="hstat__num">0</div>
+              <div class="hstat__label"><strong>искажений</strong>оптической видимости</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+       БЛОК 2 — ЗОНЫ
+  ════════════════════════════════════ -->
+  <section class="section section--alt" id="zones" aria-label="Виды бронирования стёкол">
+    <div class="tire-bg"></div>
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="gold-rule"></div>
+        <h2 class="section__title">Виды <span class="g">бронирования стёкол</span></h2>
+        <p class="section__subtitle">Защищаем лобовое стекло, панораму и боковые стёкла — подбираем плёнку под задачу и бюджет клиента.</p>
+      </div>
+
+      <div class="zones-grid">
+
+        <div class="service-card reveal stagger-1">
+          <div class="srv-bg" style="background-image:url('https://static.tildacdn.com/tild3334-6464-4833-b131-616431353637/image_1634.webp');background-size:cover;background-position:center;background-repeat:no-repeat;"></div><span class="srv-num">01</span>
+          <div class="srv-content">
+            <h3 class="srv-title">Лобовое стекло</h3>
+            <div class="srv-desc">Бронировка лобового стекла от сколов и трещин. Плёнка толщиной 200 мкм поглощает удары гравия и мелких камней.</div>
+            <a href="#popup:zapisbronirovanie" class="srv-btn">Записаться <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <div class="service-card reveal stagger-2">
+          <div class="srv-bg" style="background-image:url('https://static.tildacdn.com/tild3463-3835-4039-a239-373866316537/image_1635.webp');background-size:cover;background-position:center;background-repeat:no-repeat;"></div><span class="srv-num">02</span>
+          <div class="srv-content">
+            <h3 class="srv-title">Панорамная крыша</h3>
+            <div class="srv-desc">Защитная плёнка на панораму: блокирует до 99% UV, снижает нагрев салона летом, защищает от сколов изнутри и снаружи.</div>
+            <a href="#popup:zapisbronirovanie" class="srv-btn">Записаться <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <div class="service-card reveal stagger-3">
+          <div class="srv-bg" style="background-image:url('https://static.tildacdn.com/tild6531-3235-4164-b034-383138656439/image_1633.webp');background-size:cover;background-position:center;background-repeat:no-repeat;"></div><span class="srv-num">03</span>
+          <div class="srv-content">
+            <h3 class="srv-title">Боковые стёкла</h3>
+            <div class="srv-desc">Бронировка боковых стёкол от царапин и потёртостей. Защищает от веток на парковке и вандализма.</div>
+            <a href="#popup:zapisbronirovanie" class="srv-btn">Записаться <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <div class="service-card reveal stagger-4">
+          <div class="srv-bg" style="background-image:url('https://static.tildacdn.com/tild6466-6539-4339-a662-626563346433/image_1636.webp');background-size:cover;background-position:center;background-repeat:no-repeat;"></div><span class="srv-num">04</span>
+          <div class="srv-content">
+            <h3 class="srv-title">Зеркала и фары</h3>
+            <div class="srv-desc">Бронировка корпусов зеркал и фар прозрачной PPF-плёнкой. Защита от сколов, пескоструя и помутнения оптики.</div>
+            <a href="#popup:zapisbronirovanie" class="srv-btn">Записаться <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <div class="service-card reveal stagger-5">
+          <div class="srv-bg" style="background-image:url('https://static.tildacdn.com/tild6630-6366-4833-b861-363230383764/image_1637.webp');background-size:cover;background-position:center;background-repeat:no-repeat;"></div><span class="srv-num">05</span>
+          <div class="srv-content">
+            <h3 class="srv-title">Комплексная защита</h3>
+            <div class="srv-desc">Полное остекление: лобовое + панорама + боковые стёкла одновременно. Скидка при комплексном заказе.</div>
+            <a href="#popup:zapisbronirovanie" class="srv-btn">Записаться <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <div class="service-card reveal stagger-6">
+          <div class="srv-bg" style="background-image:url('https://static.tildacdn.com/tild6561-3938-4663-a564-663561363137/image_1638.webp');background-size:cover;background-position:center;background-repeat:no-repeat;"></div><span class="srv-num">06</span>
+          <div class="srv-content">
+            <h3 class="srv-title">Тонировочная бронировка</h3>
+            <div class="srv-desc">Плёнка с затемнением: защита + тонировка в одном слое. Снижает нагрев, защищает от UV и добавляет приватность.</div>
+            <a href="#popup:zapisbronirovanie" class="srv-btn">Записаться <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+       БЛОК 3 — ПАКЕТЫ
+  ════════════════════════════════════ -->
+  <section class="section" id="packages" aria-label="Пакеты бронирования стёкол">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="gold-rule"></div>
+        <h2 class="section__title">Выберите пакет <span class="g">под вашу задачу</span></h2>
+        <p class="section__subtitle">Четыре готовых решения — от защиты одного стекла до полного бронирования всего остекления.</p>
+      </div>
+
+      <div class="pkg-select reveal">
+
+        <div class="psel-card" data-pkg="Лобовое стекло">
+          <div class="psel-radio"></div>
+          <div class="psel-n">01</div>
+          <div class="psel-info">
+            <h3>Только лобовое</h3>
+            <p>Бронировка лобового стекла плёнкой 200 мкм. Основная защита от сколов и трещин в дороге.</p>
+          </div>
+          <div class="psel-meta">Результат за 1 день</div>
+          <div class="psel-price">от 8 000 ₽</div>
+        </div>
+
+        <div class="psel-card" data-pkg="Лобовое + панорама">
+          <div class="psel-radio"></div>
+          <div class="psel-n">02</div>
+          <div class="psel-info">
+            <h3>Лобовое + панорама</h3>
+            <div class="psel-badge">Популярный</div>
+            <p>Защита лобового + панорамной крыши. UV-фильтрация и защита от сколов для двух зон риска.</p>
+          </div>
+          <div class="psel-meta">Срок 1–2 дня</div>
+          <div class="psel-price">от 18 000 ₽</div>
+        </div>
+
+        <div class="psel-card" data-pkg="Полное остекление">
+          <div class="psel-radio"></div>
+          <div class="psel-n">03</div>
+          <div class="psel-info">
+            <h3>Полное остекление</h3>
+            <p>Лобовое + панорама + все боковые стёкла. Максимальная защита всего остекления автомобиля.</p>
+          </div>
+          <div class="psel-meta">Гарантия 5 лет</div>
+          <div class="psel-price">от 35 000 ₽</div>
+        </div>
+
+        <div class="psel-card" data-pkg="Индивидуальный">
+          <div class="psel-radio"></div>
+          <div class="psel-n">04</div>
+          <div class="psel-info">
+            <h3>Индивидуальный</h3>
+            <p>Любая комбинация зон: выбираете нужные стёкла, фары, зеркала. Точный расчёт после осмотра.</p>
+          </div>
+          <div class="psel-meta">По запросу</div>
+          <div class="psel-price">индивид.</div>
+        </div>
+
+      </div>
+
+      <div class="pkg-action reveal">
+        <div class="pkg-action__hint" id="pkgHint">Выберите пакет выше</div>
+        <a href="#popup:zapisbronirovanie" class="btn" id="pkgBtn" disabled>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span id="pkgBtnText">Записаться</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       БЛОК 4 — ЦЕНЫ
+  ════════════════════════════════════ -->
+  <section class="section section--alt" id="prices" aria-label="Цены на бронирование стёкол">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="gold-rule"></div>
+        <h2 class="section__title">Стоимость <span class="g">бронирования стёкол</span></h2>
+        <p class="section__subtitle">Цена зависит от зоны и класса автомобиля. Ниже — ориентиры по прайсу.</p>
+      </div>
+
+      <div class="reveal">
+        <p class="price-label">Бронирование стёкол и панорамы — защитная плёнка</p>
+        <div class="table-hint">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M5 12l4-4M5 12l4 4"/></svg>
+          Листайте таблицу вправо
+          <svg viewBox="0 0 24 24"><path d="M19 12H5M19 12l-4-4M19 12l-4 4"/></svg>
+        </div>
+        <div class="table-scroll-outer" id="tableOuter">
+        <div class="prices__table-wrap" id="tableScroll">
+          <table class="prices__table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Услуга</th>
+                                                        <th>1 класс</th>
+                                                        <th>2 класс</th>
+                                                        <th>3 класс</th>
+                                                        <th>4 класс</th>
+                                                        <th>5 класс</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Удаление тонировки (1 стекло)</td>
+                                                        <td>
+                                                            <span class="price-val">от2000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от2000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от2000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от2000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от2000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Тонировка задняя полусфера</td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">10 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Тонировка передние 2 стекла</td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Тонировка лобового стекла атермальное (без гарантии)</td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Тонировка лобового стекла (без гарантии)</td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Передняя полусфера атермальной плёнкой</td>
+                                                        <td>
+                                                            <span class="price-val">12 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">12 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">12 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">13 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">13 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+        </div>
+        </div>
+        <p class="price-micro">Точная стоимость рассчитывается после осмотра автомобиля. Цена включает материал и работу. Гарантия 5 лет на плёнку и монтаж.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+       БЛОК 5 — ОТЗЫВЫ
+  ════════════════════════════════════ -->
+  <section class="reviews-section" aria-label="Отзывы о бронировании стёкол">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="gold-rule"></div>
+        <h2 class="section__title">Отзывы о <span class="g">бронировании в PRIDE</span></h2>
+        <p class="section__subtitle">Реальные клиенты о защите стёкол и панорамы в нашем детейлинге.</p>
+      </div>
+    </div>
+
+    <div class="reviews__slider">
+      <div class="reviews__track">
+
+        <div class="review-card">
+          <div class="review-card__quote">"</div>
+          <div class="review-card__badge">Лобовое стекло</div>
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__text">Сделали бронировку лобового на Audi Q7. Через неделю пойман первый скол — плёнка поглотила удар, стекло целое. Раньше бы уже менял стекло. Теперь жалею, что не сделал раньше.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">АМ</div>
+            <div class="review-card__info">
+              <span class="review-card__name">Антон М.</span>
+              <span class="review-card__car">Audi Q7</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card__quote">"</div>
+          <div class="review-card__badge">Панорамная крыша</div>
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__text">Клеили плёнку на панораму BMW X5. Летом заметно прохладнее в салоне, солнце не слепит. Видимость не ухудшилась совсем. Установка заняла полдня, всё аккуратно.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">ОК</div>
+            <div class="review-card__info">
+              <span class="review-card__name">Ольга К.</span>
+              <span class="review-card__car">BMW X5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card__quote">"</div>
+          <div class="review-card__badge">Полное остекление</div>
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__text">Взял полный пакет на Porsche Cayenne — лобовое, панорама, все боковые. Два дня работы, результат безупречный. Качество монтажа без пузырей и швов — не видно невооружённым взглядом.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">РС</div>
+            <div class="review-card__info">
+              <span class="review-card__name">Роман С.</span>
+              <span class="review-card__car">Porsche Cayenne</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card__quote">"</div>
+          <div class="review-card__badge">Фары</div>
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__text">Защитили фары на Mercedes GLE после того, как один раз поймал скол. Плёнка прозрачная, совершенно не заметна. Уже год — никаких проблем, фары как новые.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">НВ</div>
+            <div class="review-card__info">
+              <span class="review-card__name">Николай В.</span>
+              <span class="review-card__car">Mercedes GLE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card__quote">"</div>
+          <div class="review-card__badge">Лобовое стекло</div>
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__text">Часто езжу по трассе М4, сколы — постоянная проблема. После бронировки лобового за 2 года ни одной трещины. Плёнка самовосстановилась от мелких царапин — сам наблюдал.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">ВП</div>
+            <div class="review-card__info">
+              <span class="review-card__name">Виктор П.</span>
+              <span class="review-card__car">Toyota Land Cruiser</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- дубли для бесшовной прокрутки -->
+        <div class="review-card" aria-hidden="true">
+          <div class="review-card__quote">"</div>
+          <div class="review-card__badge">Лобовое стекло</div>
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__text">Сделали бронировку лобового на Audi Q7. Через неделю пойман первый скол — плёнка поглотила удар, стекло целое. Раньше бы уже менял стекло. Теперь жалею, что не сделал раньше.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">АМ</div>
+            <div class="review-card__info">
+              <span class="review-card__name">Антон М.</span>
+              <span class="review-card__car">Audi Q7</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" aria-hidden="true">
+          <div class="review-card__quote">"</div>
+          <div class="review-card__badge">Панорамная крыша</div>
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__text">Клеили плёнку на панораму BMW X5. Летом заметно прохладнее в салоне, солнце не слепит. Видимость не ухудшилась совсем. Установка заняла полдня, всё аккуратно.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">ОК</div>
+            <div class="review-card__info">
+              <span class="review-card__name">Ольга К.</span>
+              <span class="review-card__car">BMW X5</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" aria-hidden="true">
+          <div class="review-card__quote">"</div>
+          <div class="review-card__badge">Полное остекление</div>
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__text">Взял полный пакет на Porsche Cayenne — лобовое, панорама, все боковые. Два дня работы, результат безупречный. Качество монтажа без пузырей и швов — не видно невооружённым взглядом.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">РС</div>
+            <div class="review-card__info">
+              <span class="review-card__name">Роман С.</span>
+              <span class="review-card__car">Porsche Cayenne</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" aria-hidden="true">
+          <div class="review-card__quote">"</div>
+          <div class="review-card__badge">Фары</div>
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__text">Защитили фары на Mercedes GLE после того, как один раз поймал скол. Плёнка прозрачная, совершенно не заметна. Уже год — никаких проблем, фары как новые.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">НВ</div>
+            <div class="review-card__info">
+              <span class="review-card__name">Николай В.</span>
+              <span class="review-card__car">Mercedes GLE</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" aria-hidden="true">
+          <div class="review-card__quote">"</div>
+          <div class="review-card__badge">Лобовое стекло</div>
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__text">Часто езжу по трассе М4, сколы — постоянная проблема. После бронировки лобового за 2 года ни одной трещины. Плёнка самовосстановилась от мелких царапин — сам наблюдал.</p>
+          <div class="review-card__author">
+            <div class="review-card__avatar">ВП</div>
+            <div class="review-card__info">
+              <span class="review-card__name">Виктор П.</span>
+              <span class="review-card__car">Toyota Land Cruiser</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+       БЛОК 5 — FAQ
+  ════════════════════════════════════ -->
+  <section class="section" id="faq" aria-label="Вопросы о бронировании стёкол">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="gold-rule"></div>
+        <h2 class="section__title">Частые вопросы о <span class="g">бронировании стёкол</span></h2>
+      </div>
+
+      <div class="faq-wrap reveal">
+
+        <div class="faq-item">
+          <div class="faq-item__hd">
+            <h3 class="faq-item__q">Видна ли защитная плёнка на стекле?</h3>
+            <span class="faq-item__ico" aria-hidden="true"></span>
+          </div>
+          <div class="faq-item__body">
+            <div class="faq-item__inner">Профессиональная защитная плёнка практически невидима. Оптика не искажается, блики минимальны. Заметить плёнку можно только при специальном освещении под острым углом. После монтажа пузыри и швы отсутствуют.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__hd">
+            <h3 class="faq-item__q">Можно ли мыть машину после бронировки?</h3>
+            <span class="faq-item__ico" aria-hidden="true"></span>
+          </div>
+          <div class="faq-item__body">
+            <div class="faq-item__inner">Первые 5–7 дней рекомендуем избегать мойки — плёнка окончательно схватывается с поверхностью стекла. После этого — обычная бесконтактная или ручная мойка без ограничений. Жёсткие щётки автомойки лучше исключить.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__hd">
+            <h3 class="faq-item__q">Сколько служит защитная плёнка на стекле?</h3>
+            <span class="faq-item__ico" aria-hidden="true"></span>
+          </div>
+          <div class="faq-item__body">
+            <div class="faq-item__inner">Срок службы — от 5 до 7 лет в зависимости от условий эксплуатации и качества материала. Мы предоставляем гарантию 5 лет на плёнку и монтаж. По истечении срока плёнку можно снять и заменить без вреда для стекла.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__hd">
+            <h3 class="faq-item__q">Что такое самовосстановление плёнки?</h3>
+            <span class="faq-item__ico" aria-hidden="true"></span>
+          </div>
+          <div class="faq-item__body">
+            <div class="faq-item__inner">Верхний слой плёнки изготовлен из полиуретана с памятью формы. Мелкие царапины от щёток и лёгких загрязнений затягиваются самостоятельно при нагреве — под солнцем или горячей водой. Глубокие повреждения не восстанавливаются, но плёнка принимает удар на себя, защищая стекло.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__hd">
+            <h3 class="faq-item__q">Сколько времени занимает монтаж?</h3>
+            <span class="faq-item__ico" aria-hidden="true"></span>
+          </div>
+          <div class="faq-item__body">
+            <div class="faq-item__inner">Лобовое стекло — 3–5 часов. Панорамная крыша — 4–6 часов. Полное остекление — 1–2 дня. Сроки зависят от сложности геометрии конкретного автомобиля и площади поклейки.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__hd">
+            <h3 class="faq-item__q">Можно ли клеить плёнку поверх тонировки?</h3>
+            <span class="faq-item__ico" aria-hidden="true"></span>
+          </div>
+          <div class="faq-item__body">
+            <div class="faq-item__inner">Да, защитная плёнка совместима с большинством видов тонировочных плёнок. Однако наклейка поверх существующей тонировки может ухудшить адгезию и внешний вид. Рекомендуем консультацию перед работой — осмотрим состояние покрытия и подберём оптимальное решение.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+
+
+  
+
+
+  <script>
+    (function() {
+      var root = document.querySelector('#reviews, .reviews-section');
+      if (!root) return;
+      var track = root.querySelector('.reviews__track');
+      if (!track) return;
+      var head = root.querySelector('.section-head');
+      if (head && !head.querySelector('.reviews__nav')) {
+        var nav = document.createElement('div');
+        nav.className = 'reviews__nav';
+        nav.innerHTML = '<button type="button" class="reviews__nav-btn reviews__nav-btn--prev" aria-label="Предыдущие отзывы"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" class="reviews__nav-btn reviews__nav-btn--next" aria-label="Следующие отзывы"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>';
+        head.appendChild(nav);
+      }
+      var prevBtn = root.querySelector('.reviews__nav-btn--prev');
+      var nextBtn = root.querySelector('.reviews__nav-btn--next');
+      if (!prevBtn || !nextBtn) return;
+      function getStep() {
+        var card = track.querySelector('.review-card');
+        if (!card) return 0;
+        var gap = parseFloat(window.getComputedStyle(track).gap || '0') || 0;
+        return card.getBoundingClientRect().width + gap;
+      }
+      function stopAuto() {
+        track.style.animation = 'none';
+        track.style.transform = 'translateX(0)';
+      }
+      function next() {
+        var step = getStep();
+        var first = track.firstElementChild;
+        if (!step || !first) return;
+        stopAuto();
+        track.style.transition = 'transform .35s ease';
+        track.style.transform = 'translateX(' + (-step) + 'px)';
+        setTimeout(function() {
+          track.appendChild(first);
+          track.style.transition = 'none';
+          track.style.transform = 'translateX(0)';
+        }, 360);
+      }
+      function prev() {
+        var step = getStep();
+        var last = track.lastElementChild;
+        if (!step || !last) return;
+        stopAuto();
+        track.style.transition = 'none';
+        track.insertBefore(last, track.firstElementChild);
+        track.style.transform = 'translateX(' + (-step) + 'px)';
+        requestAnimationFrame(function() {
+          track.style.transition = 'transform .35s ease';
+          track.style.transform = 'translateX(0)';
+        });
+      }
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+    })();
+  </script>
+
+
+  <script>
+    // PRIDE MOBILE ZONES IN-VIEW
+    (function() {
+      if (window.__prideZonesInViewInit) return;
+      window.__prideZonesInViewInit = true;
+      var cards = Array.prototype.slice.call(document.querySelectorAll('#zones .service-card'));
+      if (!cards.length) return;
+      var mobileQuery = window.matchMedia('(max-width: 768px)');
+      var ticking = false;
+      function updateActiveCard() {
+        ticking = false;
+        if (!mobileQuery.matches) {
+          cards.forEach(function(card) { card.classList.remove('in-view'); });
+          return;
+        }
+        var focusLine = window.innerHeight * 0.55;
+        var activeCard = null;
+        var closestDistance = Infinity;
+        cards.forEach(function(card) {
+          var rect = card.getBoundingClientRect();
+          var isVisible = rect.bottom > 80 && rect.top < window.innerHeight - 80;
+          if (!isVisible) return;
+          var cardCenter = rect.top + rect.height / 2;
+          var distance = Math.abs(cardCenter - focusLine);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            activeCard = card;
+          }
+        });
+        cards.forEach(function(card) { card.classList.toggle('in-view', card === activeCard); });
+      }
+      function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateActiveCard);
+      }
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate);
+      if (mobileQuery.addEventListener) mobileQuery.addEventListener('change', requestUpdate);
+      updateActiveCard();
+    })();
+  </script>
+<!-- PRIDE tail: финальный каскад после CSS Tilda (обёртки .t-rec, скроллы). Вставьте этот фрагмент в конец HTML-блока на странице. -->
+<style id="pride-tilda-tail">
+  @keyframes pride-zones-arrow-nudge {
+    0%, 100% { margin-left: 0; margin-right: 0; }
+    42% { margin-left: 7px; }
+  }
+  html body div.t-rec:has(section.svc-hero),
+  html body div.t-rec:has(#zones){
+    overflow-x: visible !important;
+  }
+  html body section.svc-hero,
+  html body section.svc-hero .container{
+    overflow-x: visible !important;
+  }
+  html body section.svc-hero .svc-hero__wrap{
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    max-width: min(940px, 100%) !important;
+  }
+  html body section.svc-hero .reveal{
+    overflow: visible !important;
+    max-width: 100%;
+  }
+  html body section.svc-hero .hero-badges{
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    gap: 10px !important;
+    box-sizing: border-box !important;
+  }
+  html body #zones .zones-grid .service-card:hover .srv-btn{
+    overflow: visible !important;
+    padding: 10px 32px 10px 16px !important;
+    border-radius: 10px !important;
+  }
+  html body #zones .zones-grid .srv-btn{
+    border-radius: 10px !important;
+  }
+  html body #zones .zones-grid .service-card:hover .srv-btn svg,
+  html body #zones .zones-grid .srv-btn:hover svg{
+    transform: none !important;
+    -webkit-transform: none !important;
+    animation: pride-zones-arrow-nudge 0.65s cubic-bezier(0.4, 0, 0.2, 1) both !important;
+  }
+
+  /* Видео Vimeo во встроенных блоках Tilda: на всю ширину экрана на телефоне */
+  @media (max-width: 768px) {
+    html body .t-rec iframe[src*="player.vimeo.com"] {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    html body .t-video__wrapper,
+    html body .t-video .t-video__carrier {
+      width: 100% !important;
+      max-width: 100vw !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      overflow: hidden !important;
+    }
+  }
+
+
+  /* PRIDE PRICES TABLE MAIN PAGE PARITY */
+  html body #prices .prices__table-wrap{
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    border:1px solid var(--border) !important;
+    background:var(--bg-card) !important;
+    border-radius:16px !important;
+  }
+  html body #prices .prices__table{
+    width:100% !important;
+    border-collapse:collapse !important;
+    min-width:640px !important;
+  }
+  html body #prices .prices__table thead{
+    background:rgba(232,192,48,0.08) !important;
+  }
+  html body #prices .prices__table th{
+    font-family:var(--font-heading) !important;
+    font-size:12px !important;
+    font-weight:600 !important;
+    letter-spacing:1.5px !important;
+    text-transform:uppercase !important;
+    text-align:left !important;
+    padding:16px 20px !important;
+    color:var(--gold) !important;
+    border-bottom:1px solid var(--border) !important;
+    white-space:nowrap !important;
+  }
+  html body #prices .prices__table td{
+    padding:14px 20px !important;
+    font-size:14px !important;
+    color:var(--text-muted) !important;
+    border-bottom:1px solid rgba(232,192,48,0.06) !important;
+    white-space:nowrap !important;
+  }
+  html body #prices .prices__table tbody tr{
+    transition:background .2s ease !important;
+  }
+  html body #prices .prices__table tbody tr:hover{
+    background:rgba(232,192,48,0.03) !important;
+  }
+  html body #prices .prices__table td:first-child{
+    color:var(--text) !important;
+    font-weight:500 !important;
+  }
+  html body #prices .prices__table .pval,
+  html body #prices .prices__table .price-val{
+    font-family:var(--font-heading) !important;
+    font-weight:600 !important;
+    color:var(--text) !important;
+  }
+  html body #prices .price-label{
+    margin-bottom:14px !important;
+  }
+  html body #prices .table-hint{
+    display:none !important;
+    align-items:center !important;
+    gap:10px !important;
+    margin:0 0 12px !important;
+    color:var(--text-dim) !important;
+    font-size:12px !important;
+    letter-spacing:.08em !important;
+    text-transform:uppercase !important;
+  }
+  html body #prices .table-hint svg{
+    width:16px !important;
+    height:16px !important;
+    opacity:.8 !important;
+  }
+  @media (max-width: 900px){
+    html body #prices .table-hint{
+      display:flex !important;
+    }
+    html body #prices .prices__table-wrap{
+      border-radius:16px !important;
+    }
+    html body #prices .prices__table{
+      min-width:620px !important;
+    }
+    html body #prices .prices__table th{
+      padding:14px 16px !important;
+      font-size:11px !important;
+    }
+    html body #prices .prices__table td{
+      padding:12px 16px !important;
+      font-size:13px !important;
+    }
+  }
+
+
+
+  /* MOBILE SERVICES UNIFIED TUNING */
+  @media (max-width: 768px){
+    html body .svc-hero .hero-badges{
+      display:grid !important;
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      gap:6px !important;
+    }
+    html body .svc-hero .hbadge{
+      width:100% !important;
+      min-width:0 !important;
+      max-width:100% !important;
+      white-space:normal !important;
+      overflow-wrap:anywhere !important;
+      text-align:left !important;
+      font-size:9px !important;
+      padding:5px 8px !important;
+      min-height:30px !important;
+      line-height:1.25 !important;
+      justify-content:flex-start !important;
+    }
+    html body #zones .service-card{
+      min-height:260px !important;
+    }
+    html body #zones .service-card .srv-content{
+      transform:translateY(0) !important;
+      transition:transform .28s ease, opacity .28s ease !important;
+    }
+    html body #zones .service-card .srv-desc{
+      max-height:180px !important;
+      opacity:1 !important;
+      visibility:visible !important;
+      overflow:visible !important;
+      margin-top:8px !important;
+      transform:none !important;
+    }
+    html body #zones .service-card.in-view .srv-content{
+      transform:translateY(0) !important;
+    }
+    html body #zones .service-card .srv-btn{
+      height:40px !important;
+      min-height:40px !important;
+      max-height:40px !important;
+      padding:0 16px !important;
+      display:inline-flex !important;
+      align-items:center !important;
+      transition:opacity 0.5s ease 0.25s,visibility 0.5s ease 0.25s !important;
+    }
+    html body #zones .service-card .srv-btn{opacity:1 !important;visibility:visible !important}
+    html body #zones .service-card.in-view .srv-btn{
+      opacity:1 !important;
+      visibility:visible !important;
+      margin-top:10px !important;
+      transform:translateY(0) !important;
+      transition:opacity 0.5s ease 0.2s,visibility 0.5s ease 0.2s !important;
+    }
+    html body #prices .prices__table th:first-child{
+      min-width:0 !important;
+      width:auto !important;
+    }
+    html body #prices .prices__table td:first-child{
+      white-space:normal !important;
+    }
+    html body #prices .prices__table{
+      min-width:540px !important;
+    }
+    html body #prices .prices__table th{
+      padding:10px 8px !important;
+      font-size:10px !important;
+      letter-spacing:.06em !important;
+    }
+    html body #prices .prices__table td{
+      padding:10px 8px !important;
+      font-size:12px !important;
+    }
+    html body #prices .prices__table .pval,
+    html body #prices .prices__table .price-val{
+      font-size:12px !important;
+    }
+    html body .reviews__nav{
+      display:none !important;
+    }
+    html body .slm-nav{
+      display:none !important;
+    }
+  }
+
+  /* Main page radius parity: final cascade after Tilda tail. */
+  html body .btn,
+  html body .btn--outline,
+  html body .srv-btn,
+  html body .reviews__nav-btn,
+  html body .slm-nav__btn,
+  html body .service-link-card__btn {
+    border-radius: 16px !important;
+    clip-path: none !important;
+  }
+  html body .hbadge,
+  html body .service-card,
+  html body .psel-card,
+  html body .pkg-action,
+  html body .prices__table-wrap,
+  html body .review-card,
+  html body .faq-item,
+  html body .faq-item__ico,
+  html body .contact__right,
+  html body .contact__video,
+  html body .contact-item,
+  html body .contact-item__icon,
+  html body .contact__form,
+  html body .form-group input,
+  html body .form-group textarea,
+  html body .ff input,
+  html body .ff textarea,
+  html body .service-link-card,
+  html body .service-link-card__media {
+    border-radius: 16px !important;
+  }
+
+  @media (max-width: 768px) {
+    html body .svc-hero h1 {
+      max-width: 100% !important;
+      font-size: clamp(40px, 10.5vw, 56px) !important;
+      line-height: 1.08 !important;
+      letter-spacing: 0 !important;
+      word-break: normal !important;
+      overflow-wrap: break-word !important;
+      hyphens: manual !important;
+    }
+    html body .svc-hero .svc-hero__sub {
+      max-width: 360px !important;
+      font-size: 13px !important;
+      line-height: 1.55 !important;
+      margin-bottom: 22px !important;
+    }
+    html body .svc-hero .hero-badges {
+      display: flex !important;
+      grid-template-columns: none !important;
+      flex-wrap: wrap !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+      gap: 6px !important;
+      width: auto !important;
+      max-width: 100% !important;
+    }
+    html body .svc-hero .hbadge {
+      width: auto !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      flex: 0 1 auto !important;
+      justify-content: flex-start !important;
+      white-space: normal !important;
+      overflow-wrap: normal !important;
+      text-align: left !important;
+      font-size: 9px !important;
+      line-height: 1.25 !important;
+      padding: 6px 10px !important;
+      min-height: 30px !important;
+    }
+    html body .contact__video {
+      width: min(100%, 360px) !important;
+      max-width: 360px !important;
+      aspect-ratio: 9 / 16 !important;
+      min-height: 0 !important;
+      justify-self: center !important;
+      align-self: center !important;
+    }
+    html body .contact__video iframe {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      transform: scaleX(1.42) scaleY(1.08) !important;
+      transform-origin: center center !important;
+    }
+  }
+
+</style>

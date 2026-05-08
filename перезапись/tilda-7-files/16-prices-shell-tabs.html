@@ -1,0 +1,74 @@
+<!-- Прайс: заголовок, вкладки (таблицы — в 17–22). Один раз на странице: не держите старый целый блок с #prices рядом с этой связкой. -->
+<div class="t123">
+    <div class="t-container_100 ">
+        <div class="t-width t-width_100 ">
+<style>
+/* Стрелка «Листайте вправо»: фиксированный размер, не на весь экран */
+.pride-tilda #prices.prices .prices__scroll-hint {
+    width: fit-content !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+.pride-tilda #prices.prices .prices__scroll-hint svg,
+.pride-tilda #prices.prices .prices__scroll-hint-icon {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+    min-width: 0 !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+}
+@media (max-width: 768px) {
+    .pride-tilda #prices.prices .prices__scroll-hint {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin: 6px 0 6px !important;
+    }
+}
+@media (min-width: 769px) {
+    .pride-tilda #prices.prices .prices__scroll-hint {
+        display: none !important;
+    }
+}
+/* Ящики merge 17–22: Тильда иногда срезает атрибут hidden — не показывать доноров внизу страницы */
+.pride-prices-merge-src {
+    display: none !important;
+}
+</style>
+                                        passive: false
+                                    });
+                                    slider.addEventListener('touchmove', function(e) {
+                                        if (drag) {
+                                            e.preventDefault();
+                                            pos(e.touches[0].clientX);
+                                        }
+                                    }, {
+                                        passive: false
+                                    });
+                                    slider.addEventListener('touchend', function() {
+                                        drag = false;
+                                    });
+                                });
+                                document.querySelectorAll('.portfolio-card__divider').forEach(ensureHandle);
+                            }
+                            initSliders();
+                            setTimeout(initSliders, 400);
+                            window.addEventListener('resize', initSliders);
+                        })();
+                        </script>
+                        <div class="pride-tilda">
+                            <section class="prices section" id="prices">
+                                <div class="container">
+                                    <div class="reveal">
+                                        <h2 class="section__title">
+                                            Прайс на 
+                                            <span>услуги</span>
+                                </div>
+                            </section>
+                        </div>
+        </div>
+    </div>
+</div>

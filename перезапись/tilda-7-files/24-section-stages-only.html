@@ -1,0 +1,162 @@
+<!-- Этапы работы (#stages) -->
+<div class="t123">
+    <div class="t-container_100 ">
+        <div class="t-width t-width_100 ">
+                        <!-- nominify begin -->
+                        <style>
+                        @media (max-width: 768px) {
+                            .pride-tilda #reviews .reviews__slider, #reviews .reviews__slider {
+                                overflow-x: auto !important;
+                                overflow-y: hidden !important;
+                                -webkit-overflow-scrolling: touch;
+                                scroll-snap-type: x proximity;
+                                scrollbar-width: thin;
+                                margin-left: 0 !important;
+                                margin-right: 0 !important;
+                                padding-left: 0 !important;
+                                padding-right: 0 !important;
+                                width: 100% !important;
+                                box-sizing: border-box !important;
+                            }
+
+                            .pride-tilda #reviews .reviews__track, #reviews .reviews__track {
+                                animation: none !important;
+                                max-width: none !important;
+                            }
+
+                            .pride-tilda #reviews .reviews__track .review-card, #reviews .reviews__track .review-card {
+                                flex-shrink: 0 !important;
+                                min-width: min(340px, calc(100vw - 56px)) !important;
+                                max-width: min(340px, calc(100vw - 56px)) !important;
+                                box-sizing: border-box !important;
+                            }/* Safari: transform + overflow-x scroll на одном элементе даёт обрыв автопрокрутки */
+
+                            .pride-tilda #reviews .reviews__slider.reveal.visible, #reviews .reviews__slider.reveal.visible {
+                                transform: none !important;
+                                -webkit-transform: none !important;
+                                opacity: 1 !important;
+                            }
+                        }
+
+                        .pride-tilda #reviews .reviews__head {
+                            display: flex;
+                            align-items: flex-end;
+                            justify-content: space-between;
+                            gap: 16px;
+                        }
+
+                        .pride-tilda #reviews .reviews__head .section__title {
+                            margin-bottom: 0;
+                        }
+
+                        .pride-tilda #reviews .reviews__nav {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 10px;
+                            margin-left: auto;
+                        }
+
+                        .pride-tilda #reviews .reviews__nav-btn {
+                            width: 42px;
+                            height: 42px;
+                            border: 1px solid rgba(255, 255, 255, .42) !important;
+                            border-radius: 12px;
+                            background: rgba(0, 0, 0, .55) !important;
+                            color: #fff !important;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                            transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+                        }
+
+                        .pride-tilda #reviews .reviews__nav-btn:hover {
+                            background: #fff;
+                            border-color: #fff;
+                            color: #050607;
+                            transform: translateY(-1px);
+                        }
+
+                        .pride-tilda #reviews .reviews__nav-btn svg {
+                            width: 18px;
+                            height: 18px;
+                            display: block;
+                            stroke: currentColor;
+                        }
+
+                        @media (max-width: 768px) {
+                            .pride-tilda #reviews .reviews__nav {
+                                display: none !important;
+                            }
+                        }
+
+                        /* Линия в блоке "Как проходит работа" — нейтральная, без золотого отлива */
+                        .pride-tilda #stages .stages__timeline::before,
+                        .pride-tilda #stages .stages__timeline::after {
+                            background: linear-gradient(
+                                90deg,
+                                rgba(255, 255, 255, 0.42) 0%,
+                                rgba(255, 255, 255, 0.2) 55%,
+                                rgba(255, 255, 255, 0.38) 100%
+                            ) !important;
+                            box-shadow: none !important;
+                            filter: none !important;
+                        }
+                        </style>
+                        <div class="pride-tilda">
+                            <section class="stages section section--alt tire-pattern-bg" id="stages">
+                                <div class="container">
+                                    <div class="reveal">
+                                        <h2 class="section__title">Как проходит работа</h2>
+                                        <h3 class="section__subtitle">Мы заранее объясняем, что будет сделано с автомобилем, сколько это займёт и какой результат можно ожидать.</h3>
+                                    </div>
+                                    <div class="stages__timeline">
+                                        <div class="stage-item reveal stagger-1">
+                                            <div class="stage-item__dot">
+                                                <span class="stage-item__num">01</span>
+                                            </div>
+                                            <h4 class="stage-item__title">Консультация</h4>
+                                            <h5 class="stage-item__text">Вы рассказываете, что хотите сделать: защитить кузов, убрать дефекты, очистить салон или подготовить автомобиль к продаже.</h5>
+                                        </div>
+                                        <div class="stage-item reveal stagger-2">
+                                            <div class="stage-item__dot">
+                                                <span class="stage-item__num">02</span>
+                                            </div>
+                                            <h4 class="stage-item__title">Осмотр автомобиля</h4>
+                                            <h5 class="stage-item__text">Оцениваем состояние кузова, стекла, салона или кожи. При необходимости просим фото, чтобы заранее ориентировать по стоимости.</h5>
+                                        </div>
+                                        <div class="stage-item reveal stagger-3">
+                                            <div class="stage-item__dot">
+                                                <span class="stage-item__num">03</span>
+                                            </div>
+                                            <h4 class="stage-item__title">Подбор работ</h4>
+                                            <h5 class="stage-item__text">Предлагаем подходящий вариант услуги: без лишних процедур, которые красиво звучат, но не всегда нужны.</h5>
+                                        </div>
+                                        <div class="stage-item reveal stagger-4">
+                                            <div class="stage-item__dot">
+                                                <span class="stage-item__num">04</span>
+                                            </div>
+                                            <h4 class="stage-item__title">Выполнение детейлинга</h4>
+                                            <h5 class="stage-item__text">Проводим работы по технологии: очищаем, подготавливаем поверхности, наносим защиту, восстанавливаем или ремонтируем нужные зоны.</h5>
+                                        </div>
+                                        <div class="stage-item reveal stagger-5">
+                                            <div class="stage-item__dot">
+                                                <span class="stage-item__num">05</span>
+                                            </div>
+                                            <h4 class="stage-item__title">Проверка результата</h4>
+                                            <h5 class="stage-item__text">Перед выдачей проверяем детали, стыки, поверхности и общее состояние автомобиля.</h5>
+                                        </div>
+                                        <div class="stage-item reveal stagger-6">
+                                            <div class="stage-item__dot">
+                                                <span class="stage-item__num">06</span>
+                                            </div>
+                                            <h4 class="stage-item__title">Рекомендации по уходу</h4>
+                                            <h5 class="stage-item__text">Объясняем, как сохранить результат дольше и чего лучше не делать после процедуры.</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+        </div>
+    </div>
+</div>

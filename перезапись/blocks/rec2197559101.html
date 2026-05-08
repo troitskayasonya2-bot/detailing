@@ -1,0 +1,2233 @@
+<div id="rec2197559101" class="r t-rec" style=" " data-animationappear="off" data-record-type="131">
+            <!-- T123 -->
+            <div class="t123">
+                <div class="t-container_100 ">
+                    <div class="t-width t-width_100 ">
+                        <!-- nominify begin -->
+                        <style>
+                        @media (max-width: 768px) {
+                            .vertical-media__item--video-3 {
+                                display: none;
+                            }
+
+                            /* фото №3 в сетке (класс photo-3): на мобилке поднимаем кадр в слоте */
+                            .vertical-media__item--photo-3 .vertical-media__slot img,
+                            .pride-tilda #vertical-media .vertical-media__item--photo-3 .vertical-media__slot img,
+                            #vertical-media .vertical-media__item--photo-3 .vertical-media__slot img {
+                                object-position: center 12% !important;
+                                transform: translateY(-20%) scale(1.06) !important;
+                            }
+                        }/* Portfolio slider hard-fix (main page, block 05) */
+                        .portfolio-card__divider::after {
+                            content: none !important;
+                            display: none !important;
+                        }
+
+                        .portfolio-card__divider::before {
+                            content: none !important;
+                            display: none !important;
+                        }
+
+                        .portfolio-card__slider {
+                            touch-action: none;
+                        }
+
+                        .portfolio-card__divider-handle {
+                            position: absolute !important;
+                            top: 50% !important;
+                            left: 50% !important;
+                            transform: translate(-50%, -50%) !important;
+                            z-index: 4 !important;
+                            pointer-events: none !important;
+                            width: 36px !important;
+                            height: 36px !important;
+                            border-radius: 50% !important;
+                            background: #ffffff !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                        }
+
+                        .portfolio-card__divider-handle svg {
+                            width: 24px !important;
+                            height: 24px !important;
+                            display: block !important;
+                        }
+
+                        .portfolio-card__divider-handle svg path {
+                            stroke: #0A0A0A !important;
+                            stroke-width: 2.2 !important;
+                        }
+
+                        @media (max-width: 768px) {
+                            .portfolio-card__divider-handle {
+                                width: 52px !important;
+                                height: 52px !important;
+                            }
+
+                            .portfolio-card__divider-handle svg {
+                                width: 34px !important;
+                                height: 34px !important;
+                            }
+
+                            .portfolio-card__divider-handle svg path {
+                                stroke-width: 2.8 !important;
+                            }
+                        }/* Первая карточка в галерее «До/после»: сильнее поднять кадр в зоне превью */
+                        #portfolio .portfolio-card:first-child .portfolio-card__after, #portfolio .portfolio-card:first-child .portfolio-card__before {
+                            background-position: center 22% !important;
+                        }
+
+                        @media (max-width: 768px) {
+                            #portfolio .portfolio-card:first-child .portfolio-card__after, #portfolio .portfolio-card:first-child .portfolio-card__before {
+                                background-position: center 18% !important;
+                            }
+                        }/* Прайс: вкладки + одна активная таблица (блок #prices, Zero 05) */
+                        @keyframes pricesPanelIn {
+                            from {
+                                opacity: 0;
+                                transform: translateY(12px);
+                            }
+
+                            to {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+
+                        #prices.prices .container > .reveal .section__subtitle {
+                            max-width: 640px;
+                            margin-left: 0;
+                            margin-right: auto;
+                            text-align: left;
+                        }
+
+                        #prices.prices .prices__tabs {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 8px;
+                            margin-top: 24px;
+                            margin-bottom: 28px;
+                            justify-content: flex-start;
+                        }
+
+                        #prices.prices .prices__tab {
+                            font-size: 11px;
+                            font-weight: 700;
+                            letter-spacing: 0.16em;
+                            text-transform: uppercase;
+                            padding: 11px 18px;
+                            border: 1.5px solid rgba(240, 210, 60, 0.35);
+                            color: rgba(245, 242, 234, 0.65);
+                            background: rgba(240, 210, 60, 0.04);
+                            border-radius: var(--radius-control, var(--pride-r, 14px));
+                            cursor: pointer;
+                            font-family: inherit;
+                            line-height: 1.2;
+                            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+                        }
+
+                        #prices.prices .prices__tab:hover {
+                            border-color: rgba(240, 210, 60, 0.75);
+                            color: #e8c840;
+                            background: rgba(240, 210, 60, 0.1);
+                        }
+
+                        #prices.prices .prices__tab.active {
+                            background: linear-gradient(130deg, #f5e060 0%, #d4a020 45%, #f0c830 100%);
+                            color: #0a0a0a;
+                            border-color: transparent;
+                            box-shadow: 0 0 20px rgba(240, 210, 60, 0.35), 0 4px 16px rgba(0, 0, 0, 0.45);
+                        }
+
+                        #prices.prices .prices__panel {
+                            display: none;
+                        }
+
+                        #prices.prices .prices__panel.active {
+                            display: block;
+                            animation: pricesPanelIn 0.35s ease;
+                        }
+
+                        .prices-master__footnote {
+                            margin-top: 24px;
+                        }
+
+                        #prices.prices .prices__table td:first-child {
+                            white-space: normal !important;
+                            vertical-align: top;
+                            max-width: min(48vw, 380px);
+                            line-height: 1.35;
+                        }
+
+                        @media (max-width: 768px) {
+                            #prices.prices .prices__tabs {
+                                margin-top: 20px;
+                                margin-bottom: 12px;
+                                justify-content: flex-start;
+                                overflow-x: auto;
+                                flex-wrap: nowrap;
+                                padding-bottom: 8px;
+                                gap: 6px;
+                                -webkit-overflow-scrolling: touch;
+                                scrollbar-width: thin !important;
+                                scrollbar-color: rgba(240, 210, 60, 0.55) rgba(255, 255, 255, 0.12) !important;
+                            }
+
+                            #prices.prices .prices__tabs::-webkit-scrollbar {
+                                display: block !important;
+                                height: 4px !important;
+                            }
+
+                            #prices.prices .prices__tabs::-webkit-scrollbar-track {
+                                background: rgba(255, 255, 255, 0.12) !important;
+                                border-radius: 999px !important;
+                            }
+
+                            #prices.prices .prices__tabs::-webkit-scrollbar-thumb {
+                                background: rgba(240, 210, 60, 0.55) !important;
+                                border-radius: 999px !important;
+                            }
+
+                            #prices.prices .prices__tab {
+                                flex-shrink: 0;
+                                white-space: nowrap;
+                                font-size: 10px;
+                                padding: 9px 12px;
+                                letter-spacing: 0.12em;
+                            }
+
+                            #prices.prices .prices__table {
+                                min-width: 520px !important;
+                            }
+
+                            #prices.prices .prices__table th:first-child {
+                                white-space: normal !important;
+                                width: min(39vw, 173px) !important;
+                                min-width: min(39vw, 173px) !important;
+                                max-width: min(39vw, 173px) !important;
+                                vertical-align: bottom;
+                                line-height: 1.25;
+                            }
+
+                            #prices.prices .prices__table td:first-child {
+                                width: min(39vw, 173px) !important;
+                                min-width: min(39vw, 173px) !important;
+                                max-width: min(39vw, 173px) !important;
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                            }
+
+                            #prices.prices .prices__table th,
+                            #prices.prices .prices__table td {
+                                padding-left: 11px !important;
+                                padding-right: 11px !important;
+                            }
+
+                            #prices.prices .prices__table th:not(:first-child),
+                            #prices.prices .prices__table td:not(:first-child) {
+                                padding-left: 9px !important;
+                                padding-right: 9px !important;
+                            }
+
+                            #prices.prices .prices__table thead th {
+                                padding-top: 11px !important;
+                                padding-bottom: 10px !important;
+                                font-size: 11px !important;
+                                letter-spacing: 0.08em !important;
+                            }
+
+                            #prices.prices .prices__table tbody td {
+                                padding-top: 10px !important;
+                                padding-bottom: 10px !important;
+                            }
+
+                            .pride-tilda #prices.prices .prices__scroll-hint {
+                                display: inline-flex !important;
+                                align-items: center !important;
+                                margin: 6px 0 6px !important;
+                            }
+                        }
+
+                        /* Подсказка «Листайте вправо»: жёсткий размер svg — иначе правила Тильды тянут svg на всю ширину */
+                        .pride-tilda #prices.prices .prices__scroll-hint {
+                            margin: 8px 0 12px;
+                            display: none;
+                            align-items: center;
+                            gap: 8px;
+                            font-size: 13px;
+                            line-height: 1.4;
+                            font-weight: 400;
+                            color: rgba(242, 237, 227, 0.55);
+                            width: fit-content;
+                            max-width: 100%;
+                            box-sizing: border-box;
+                        }
+
+                        .pride-tilda #prices.prices .prices__scroll-hint svg {
+                            width: 18px !important;
+                            height: 18px !important;
+                            max-width: 18px !important;
+                            max-height: 18px !important;
+                            min-width: 0 !important;
+                            flex-shrink: 0 !important;
+                            display: block !important;
+                            box-sizing: border-box !important;
+                        }
+
+                        </style>
+                        <div class="pride-tilda">
+                            <section id="services">
+                                <div class="tire-bg"></div>
+                                <div class="section-wrap">
+                                    <div class="reveal">
+                                        <h2 class="section-title">Детейлинг-услуги</h2>
+                                        <h3 class="section-sub">Подберите услугу под задачу: защитить кузов, восстановить блеск, убрать вмятины, очистить салон или обновить кожу</h3>
+                                    </div>
+                                    <div class="services-grid">
+                                        <div class="srv-1 service-card reveal">
+                                            <div class="srv-bg">
+                                                <img loading="eager" src="https://static.tildacdn.com/tild3137-6665-4963-a466-343836373265/image_1610.webp" alt="" fetchpriority="high" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/okleyka-avto-plenkoy" aria-label="Перейти на страницу оклейки кузова"></a>
+                                            <span class="srv-num">01</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Защита кузова</div>
+                                                <h3 class="srv-title">Оклейка кузова</h3>
+                                                <h4 class="srv-desc">Защита лакокрасочного покрытия от сколов, песка, реагентов и следов городской эксплуатации. Подходит для новых и дорогих автомобилей, которые хочется сохранить в идеальном состоянии.</h4>
+                                                <a href="https://detailingpride.tilda.ws/okleyka-avto-plenkoy" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="srv-2 service-card reveal" style="transition-delay:.08s">
+                                            <div class="srv-bg">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3235-6336-4562-b766-373338653930/image_158.webp" alt="" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/polirovka-i-keramika" aria-label="Перейти на страницу полировки и керамики"></a>
+                                            <span class="srv-num">02</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Блеск и защита</div>
+                                                <h3 class="srv-title">Полировка и керамика</h3>
+                                                <h4 class="srv-desc">Убираем мелкие царапины, матовость и «паутинку», возвращаем кузову глубину цвета и закрепляем результат защитным покрытием.</h4>
+                                                <a href="https://detailingpride.tilda.ws/polirovka-i-keramika" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="srv-3 service-card reveal" style="transition-delay:.16s">
+                                            <div class="srv-bg">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3531-3334-4630-b634-656433333563/image_1660.webp" alt="" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/vypryamlenie-vmyatin" aria-label="Перейти на страницу выпрямления вмятин"></a>
+                                            <span class="srv-num">03</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Кузовные работы</div>
+                                                <h3 class="srv-title">Выпрямление вмятин</h3>
+                                                <h4 class="srv-desc">Аккуратно устраняем локальные вмятины без лишнего вмешательства в покрытие, если состояние детали позволяет выполнить ремонт без покраски.</h4>
+                                                <a href="https://detailingpride.tilda.ws/vypryamlenie-vmyatin" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="srv-4 service-card reveal" style="transition-delay:.12s">
+                                            <div class="srv-bg">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3963-3465-4731-a637-623530613835/image_150.webp" alt="" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/bronirovanie-stekla-i-panoramy" aria-label="Перейти на страницу бронирования стекла и панорамы"></a>
+                                            <span class="srv-num">04</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Защита стекла</div>
+                                                <h3 class="srv-title">Бронь стекла и панорамы</h3>
+                                                <h4 class="srv-desc">Защищаем лобовое стекло и панорамную крышу от мелких повреждений, песка, щёток и дорожного износа. Особенно актуально для трассы и активной городской езды.</h4>
+                                                <a href="https://detailingpride.tilda.ws/bronirovanie-stekla-i-panoramy" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="srv-5 service-card reveal" style="transition-delay:.2s">
+                                            <div class="srv-bg">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3736-6166-4135-a631-326164323037/IMG_2840_2_1.webp" alt="" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/himchistka-salona" aria-label="Перейти на страницу химчистки салона"></a>
+                                            <span class="srv-num">05</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Чистота салона</div>
+                                                <h3 class="srv-title">Химчистка салона</h3>
+                                                <h4 class="srv-desc">Глубоко очищаем салон с разбором или без: сиденья, ковры, пластик, потолок, швы и труднодоступные зоны. Убираем не только видимую грязь.</h4>
+                                                <a href="https://detailingpride.tilda.ws/himchistka-salona" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="srv-6 service-card reveal" style="transition-delay:.24s">
+                                            <div class="srv-bg">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3130-6537-4532-a662-616532626163/image_151.webp" alt="" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/pokraska-kozhi" aria-label="Перейти на страницу покраски кожи"></a>
+                                            <span class="srv-num">06</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Реставрация</div>
+                                                <h3 class="srv-title">Покраска кожи</h3>
+                                                <h4 class="srv-desc">Восстанавливаем цвет, аккуратный вид и ощущение ухоженного салона: сиденья, руль, подлокотники и другие кожаные элементы.</h4>
+                                                <a href="https://detailingpride.tilda.ws/pokraska-kozhi" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="pride-tilda">
+                            <section class="portfolio section section--alt" id="portfolio">
+                                <div class="container">
+                                    <div class="reveal">
+                                        <h2 class="section__title">Результат без слов</h2>
+                                        <h3 class="section__subtitle">Показываем реальные изменения после полировки, химчистки, восстановления кожи, оклейки и других работ</h3>
+                                    </div>
+                                    <div class="portfolio__grid">
+                                        <!-- Card 1 -->
+                                        <div class="portfolio-card reveal stagger-1">
+                                            <h3 class="portfolio-card__tag">Полировка кузова: убрали матовость и мелкую паутинку</h3>
+                                            <div class="portfolio-card__slider">
+                                                <div class="portfolio-card__after" style="background-image: url('https://static.tildacdn.com/tild3664-6537-4065-a337-623637386632/photo_2026-04-24_031.svg'); background-size: cover; background-position: center 14%;"></div>
+                                                <div class="portfolio-card__before" style="background-image: url('https://static.tildacdn.com/tild3332-3535-4230-a335-393362363131/image_153.svg'); background-size: cover; background-position: center 14%;"></div>
+                                                <div class="portfolio-card__divider"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Card 2 -->
+                                        <div class="portfolio-card reveal stagger-2">
+                                            <h3 class="portfolio-card__tag">Оклейка кузова: защита уязвимых зон от сколов</h3>
+                                            <div class="portfolio-card__slider">
+                                                <div class="portfolio-card__after" style="background-image: url('https://static.tildacdn.com/tild6564-3366-4435-b665-313936343930/image_154.svg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__before" style="background-image: url('https://static.tildacdn.com/tild3266-3131-4631-b935-653131366437/image_155.svg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__divider"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Card 3 -->
+                                        <div class="portfolio-card reveal stagger-3">
+                                            <h3 class="portfolio-card__tag">Химчистка салона: глубокая очистка сидений и ковров</h3>
+                                            <div class="portfolio-card__slider">
+                                                <div class="portfolio-card__after" style="background-image: url('https://static.tildacdn.com/tild6436-3965-4662-b133-626464383933/8e03f19db0bb55941ad6.jpg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__before" style="background-image: url('https://static.tildacdn.com/tild3835-3130-4837-a331-626463323364/image_156.svg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__divider"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Card 4 -->
+                                        <div class="portfolio-card reveal stagger-4">
+                                            <h3 class="portfolio-card__tag">Восстановление кожи: обновили цвет и убрали следы износа</h3>
+                                            <div class="portfolio-card__slider">
+                                                <div class="portfolio-card__after" style="background-image: url('https://static.tildacdn.com/tild3436-3134-4166-b938-656435393933/6a3f1e85ea779d04cda1.svg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__before" style="background-image: url('https://static.tildacdn.com/tild3430-3636-4335-b038-666434306136/image_159.svg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__divider"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                        /* Before/After слайдер — inline JS блок 05 */
+                        (function() {
+                            var handleHTML = '<span class="portfolio-card__divider-handle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h14M11 4l4 4-4 4M5 4L1 8l4 4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+
+                            function ensureHandle(divider) {
+                                if (!divider)
+                                    return;
+                                if (!divider.querySelector('.portfolio-card__divider-handle')) {
+                                    divider.insertAdjacentHTML('beforeend', handleHTML);
+                                }
+                            }
+
+                            function initSliders() {
+                                document.querySelectorAll('.portfolio-card__slider').forEach(function(slider) {
+                                    if (slider.dataset.ready)
+                                        return;
+                                    slider.dataset.ready = '1';
+                                    var before = slider.querySelector('.portfolio-card__before');
+                                    var divider = slider.querySelector('.portfolio-card__divider');
+                                    if (!before || !divider)
+                                        return;
+                                    ensureHandle(divider);
+                                    var drag = false;
+                                    function pos(x) {
+                                        var r = slider.getBoundingClientRect();
+                                        var p = Math.max(5, Math.min(95, ((x - r.left) / r.width) * 100));
+                                        before.style.clipPath = 'inset(0 ' + (100 - p) + '% 0 0)';
+                                        divider.style.setProperty('left', p + '%', 'important');
+                                    }
+                                    slider.addEventListener('mousedown', function(e) {
+                                        drag = true;
+                                        pos(e.clientX);
+                                    });
+                                    document.addEventListener('mousemove', function(e) {
+                                        if (drag)
+                                            pos(e.clientX);
+                                    });
+                                    document.addEventListener('mouseup', function() {
+                                        drag = false;
+                                    });
+                                    slider.addEventListener('touchstart', function(e) {
+                                        drag = true;
+                                        e.preventDefault();
+                                        pos(e.touches[0].clientX);
+                                    }, {
+                                        passive: false
+                                    });
+                                    slider.addEventListener('touchmove', function(e) {
+                                        if (drag) {
+                                            e.preventDefault();
+                                            pos(e.touches[0].clientX);
+                                        }
+                                    }, {
+                                        passive: false
+                                    });
+                                    slider.addEventListener('touchend', function() {
+                                        drag = false;
+                                    });
+                                });
+                                document.querySelectorAll('.portfolio-card__divider').forEach(ensureHandle);
+                            }
+                            initSliders();
+                            setTimeout(initSliders, 400);
+                            window.addEventListener('resize', initSliders);
+                        })();
+                        </script>
+                        <div class="pride-tilda">
+                            <section class="prices section" id="prices">
+                                <div class="container">
+                                    <div class="reveal">
+                                        <h2 class="section__title">
+                                            Прайс на 
+                                            <span>услуги</span>
+                                        </h2>
+                                        <p class="section__subtitle">Прайс на услуги автомойки и детейлинга.</p>
+                                    </div>
+                                    <div class="prices__tabs reveal" role="tablist">
+                                        <button type="button" class="prices__tab active" data-tab="price-wash" title="Моечные процедуры" aria-current="true">Мойка</button>
+                                        <button type="button" class="prices__tab" data-tab="price-body" title="Очистка кузова">Очистка кузова</button>
+                                        <button type="button" class="prices__tab" data-tab="price-film" title="Оклейка авто плёнкой Spectrol Premium 210 мкрн">Оклейка PPF</button>
+                                        <button type="button" class="prices__tab" data-tab="price-protect" title="Защита кузова и салона">Защита</button>
+                                        <button type="button" class="prices__tab" data-tab="price-polish" title="Полировка и защитные покрытия">Полировка</button>
+                                        <button type="button" class="prices__tab" data-tab="price-salon" title="Химчистка салона">Химчистка</button>
+                                        <button type="button" class="prices__tab" data-tab="price-tint" title="Тонировка">Тонировка</button>
+                                        <button type="button" class="prices__tab" data-tab="price-other" title="Другое">Другое</button>
+                                    </div>
+                                    <p class="prices__scroll-hint" role="note">
+
+                                                Листайте вправо
+                                                
+                                        <svg class="prices__scroll-hint-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                                        </svg>
+                                    </p>
+                                    <div class="prices__panel active" id="price-wash">
+                                        <div class="prices__table-wrap reveal">
+                                            <table class="prices__table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Услуга</th>
+                                                        <th>1 класс</th>
+                                                        <th>2 класс</th>
+                                                        <th>3 класс</th>
+                                                        <th>4 класс</th>
+                                                        <th>5 класс</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Экспресс мойка кузова</td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Мойка кузова (3-х фазная)</td>
+                                                        <td>
+                                                            <span class="price-val">1 200 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 300 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 400 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 600 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 750 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Нано-мойка кузова (3-х фазная) Koch + турбосушка</td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 750 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 850 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 950 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 150 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Комплекс (3-х фазная)</td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 200 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 400 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 550 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 850 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Нано-комплекс Koch (3-х фазная) + турбосушка</td>
+                                                        <td>
+                                                            <span class="price-val">2 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 900 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 100 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 350 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Уборка салона</td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 650 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 750 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 900 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 100 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Детейлинг уборка салона</td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">4 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">4 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">4 500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Уборка багажного отделения</td>
+                                                        <td>
+                                                            <span class="price-val">от 300 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 300 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 300 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 350 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 350 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Детейлинг комплекс Koch (3-х фазная мойка, пылесос,влажная уборка со спец. средствами, стекла</td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Детейлинг комплекс VIP PRIDE (3-х фазная комплексная детейлинг мойка koch,
+                                                            <br>
+                                                            химчистка кузова, химчистка дисков, легкая очистка и кондиционер кожи, кварцевое покрытие кузова)
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Мойка двигателя (без гарантии)</td>
+                                                        <td>
+                                                            <span class="price-val">2 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Мойка двигателя гель диэлектриком с консервацией и обработкой пластиковых элементов (без гарантии)</td>
+                                                        <td>
+                                                            <span class="price-val">3 700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 700 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Мойка колесных ниш и подвески автомобиля (без разбора)</td>
+                                                        <td>
+                                                            <span class="price-val">3 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Детейлинг мойка днища (с разбором)</td>
+                                                        <td>
+                                                            <span class="price-val">от 18000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 18000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 18000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 18000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 18000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Мойка радиатора</td>
+                                                        <td>
+                                                            <span class="price-val">12 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">12 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">13 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">15 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">15 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="prices__panel" id="price-body">
+                                        <div class="prices__table-wrap reveal">
+                                            <table class="prices__table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Услуга</th>
+                                                        <th>1 класс</th>
+                                                        <th>2 класс</th>
+                                                        <th>3 класс</th>
+                                                        <th>4 класс</th>
+                                                        <th>5 класс</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Химчистка кузова</td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 900 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">4 100 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Удаление водного камня (за кузов)</td>
+                                                        <td>
+                                                            <span class="price-val">от 8000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 8000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 8500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 9000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 10000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Удаление водного камня (за деталь)</td>
+                                                        <td>
+                                                            <span class="price-val">от 3000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 3500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 4000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 4000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 5000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Удаление битума (за кузов)</td>
+                                                        <td>
+                                                            <span class="price-val">от 1500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 1500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 1700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 1700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от1800 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Удаление битума\реагента (за деталь)</td>
+                                                        <td>
+                                                            <span class="price-val">от 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 700 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Удаление смолы деревьев (за деталь)</td>
+                                                        <td>
+                                                            <span class="price-val">от 3000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 3000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 3000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 3000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 3000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Удаление метала (за кузов)</td>
+                                                        <td>
+                                                            <span class="price-val">от 1500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 1500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 1750 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 1750 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 1750 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Удаление метала (за деталь)</td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка дисков(без демонтажа) 1шт</td>
+                                                        <td>
+                                                            <span class="price-val">300 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">300 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">300 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">300 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">300 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка дисков(с демонтажом) 1 шт</td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Очистка хрома Metal Polish (за деталь)</td>
+                                                        <td>
+                                                            <span class="price-val">500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Очистка кузова скрабом</td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Очистка кузова нано-глиной</td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="prices__panel" id="price-protect">
+                                        <div class="prices__table-wrap reveal">
+                                            <table class="prices__table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Услуга</th>
+                                                        <th>1 класс</th>
+                                                        <th>2 класс</th>
+                                                        <th>3 класс</th>
+                                                        <th>4 класс</th>
+                                                        <th>5 класс</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Кварцевое покрытие PRIDE KVARTZ</td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 600 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 800 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Полимерное покрытие PRIDE POLISH</td>
+                                                        <td>
+                                                            <span class="price-val">1 100 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 100 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 200 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 400 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Выставочный твердый воск PRIDE WAX</td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Кондиционер кожи Coch</td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 600 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 800 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Кондиционер кожи с ароматизатором</td>
+                                                        <td>
+                                                            <span class="price-val">1 200 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 200 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 300 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 300 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 400 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Обработка внешнего пластика (за деталь)</td>
+                                                        <td>
+                                                            <span class="price-val">600 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">600 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">700 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Покрытие для стекол PRIDE RAIN (полностью)</td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Покрытие для стекол PRIDE RAIN (полностью с панорамой крышей, люк)</td>
+                                                        <td>
+                                                            <span class="price-val">7 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Покрытие для стекол PRIDE RAIN (передняя полусфера)</td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="prices__panel" id="price-polish">
+                                        <div class="prices__table-wrap reveal">
+                                            <table class="prices__table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Услуга</th>
+                                                        <th>1 класс</th>
+                                                        <th>2 класс</th>
+                                                        <th>3 класс</th>
+                                                        <th>4 класс</th>
+                                                        <th>5 класс</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Облегченная полировка кузова</td>
+                                                        <td>
+                                                            <span class="price-val">15 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">16 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">18 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">20 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">23 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Абразивная восстановательная полировка кузова</td>
+                                                        <td>
+                                                            <span class="price-val">25 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">27 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">30 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">33 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">35 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Полировка лакированных вставок в салоне (за деталь)</td>
+                                                        <td>
+                                                            <span class="price-val">от 2500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 2500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 2500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 2500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 2500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Защитное покрытие PRIDE LIGHT (жидкое стекло)</td>
+                                                        <td>
+                                                            <span class="price-val">15 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">15 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">17 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">19 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">21 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Полировка одной детали</td>
+                                                        <td>
+                                                            <span class="price-val">от 5000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 5000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 7000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Защитное керамическое покрытие servFaces Coat Ultima</td>
+                                                        <td>
+                                                            <span class="price-val">23 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">25 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">30 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">30 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">35 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Защитно покрытие хромированных вставок</td>
+                                                        <td>
+                                                            <span class="price-val">от 1500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 1500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 1500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 1500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">30 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Защитное керамическое покрытие    servFaces Coat Ultima 1+1</td>
+                                                        <td>
+                                                            <span class="price-val">35 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">35 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">40 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">40 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">45 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Защитное керамичкеское покрытие servFaces Coat Ultima 2+1</td>
+                                                        <td>
+                                                            <span class="price-val">45 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">45 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">50 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">50 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">55 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Защитное покрытие для дисков (1 диск) PRIDE TECH</td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Защитное керамическое покрытие для кожи PRIDE Leather</td>
+                                                        <td>
+                                                            <span class="price-val">от15000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от15000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от15000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от15000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от15000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Полировка фар\фонарей (1 шт)</td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Полировка лобового стекла</td>
+                                                        <td>
+                                                            <span class="price-val">20 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">20 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">20 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">22 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">22 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="prices__panel" id="price-salon">
+                                        <div class="prices__table-wrap reveal">
+                                            <table class="prices__table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Услуга</th>
+                                                        <th>1 класс</th>
+                                                        <th>2 класс</th>
+                                                        <th>3 класс</th>
+                                                        <th>4 класс</th>
+                                                        <th>5 класс</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Химчистка салона</td>
+                                                        <td>
+                                                            <span class="price-val">16 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">17 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">19 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">20 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">22 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Детейлинг химчистка салона с разбором</td>
+                                                        <td>
+                                                            <span class="price-val">25 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">25 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">28 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">30 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">35 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка руля</td>
+                                                        <td>
+                                                            <span class="price-val">1 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка детского кресла</td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка передних сидений</td>
+                                                        <td>
+                                                            <span class="price-val">4 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">4 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">4 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">4 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">4 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка заднего сидения</td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка одного сидения</td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка багажного отделения</td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка подлокотника</td>
+                                                        <td>
+                                                            <span class="price-val">1 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">1 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка потолка</td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка коврового напольного покрытия</td>
+                                                        <td>
+                                                            <span class="price-val">7 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">7 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка обшивки дверей</td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">3 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">4 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Химчистка текстильного коврика (1 шт)</td>
+                                                        <td>
+                                                            <span class="price-val">600 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">600 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">600 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">600 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">600 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Озонация салона</td>
+                                                        <td>
+                                                            <span class="price-val">2 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 500 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">2 500 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="prices__panel" id="price-tint">
+                                        <div class="prices__table-wrap reveal">
+                                            <table class="prices__table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Услуга</th>
+                                                        <th>1 класс</th>
+                                                        <th>2 класс</th>
+                                                        <th>3 класс</th>
+                                                        <th>4 класс</th>
+                                                        <th>5 класс</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Удаление тонировки (1 стекло)</td>
+                                                        <td>
+                                                            <span class="price-val">от2000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от2000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от2000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от2000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от2000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Тонировка задняя полусфера</td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">10 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Тонировка передние 2 стекла</td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">6 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Тонировка лобового стекла атермальное (без гарантии)</td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Тонировка лобового стекла (без гарантии)</td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">5 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Передняя полусфера атермальной плёнкой</td>
+                                                        <td>
+                                                            <span class="price-val">12 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">12 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">12 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">13 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">13 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="prices__panel" id="price-film">
+                                        <div class="prices__table-wrap reveal">
+                                            <table class="prices__table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Услуга</th>
+                                                        <th>1 класс</th>
+                                                        <th>2 класс</th>
+                                                        <th>3 класс</th>
+                                                        <th>4 класс</th>
+                                                        <th>5 класс</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Оклейка кузова автомобиля полеуретан      (без крыши)</td>
+                                                        <td>
+                                                            <span class="price-val">230 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">240 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">280 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">300 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">300 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Полная оклейка кузова автомобиля полеуретан</td>
+                                                        <td>
+                                                            <span class="price-val">260 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">290 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">300 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">340 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">360 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Оклейка зон риска передней части автомобиля (капот, бампер, крылья, боковые зеркала, полоса на крышу, стойки)</td>
+                                                        <td>
+                                                            <span class="price-val">100 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">110 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">130 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">130 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">140 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Оклейка крыши автомобиля</td>
+                                                        <td>
+                                                            <span class="price-val">40 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">40 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">45 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">45 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">50 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Оклейка переднего бампера</td>
+                                                        <td>
+                                                            <span class="price-val">30 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">33 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">37 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">37 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">39 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Оклейка капота</td>
+                                                        <td>
+                                                            <span class="price-val">30 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">30 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">35 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">35 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">35 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Оклейка под ручками и зоны погрузки</td>
+                                                        <td>
+                                                            <span class="price-val">10 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">10 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">10 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">11 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">11 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Оклейка фары/стопов</td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">8 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">9 000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Расклейка автомобиля</td>
+                                                        <td>
+                                                            <span class="price-val">от 40000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 40000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 40000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 50000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 50000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Арматурные работы</td>
+                                                        <td>
+                                                            <span class="price-val">от 20000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 20000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 20000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 20000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 20000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="prices__panel" id="price-other">
+                                        <div class="prices__table-wrap reveal">
+                                            <table class="prices__table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Услуга</th>
+                                                        <th>1 класс</th>
+                                                        <th>2 класс</th>
+                                                        <th>3 класс</th>
+                                                        <th>4 класс</th>
+                                                        <th>5 класс</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Покраска рулевого колеса</td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 6000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Покраска и восстановление кожи, элементов интерьера салона автомобиля</td>
+                                                        <td>
+                                                            <span class="price-val">от 7000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 7000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 7000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 7000 ₽</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="price-val">от 7000 ₽</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <p class="prices__note prices-master__footnote">Класс автомобиля определяем по правилам студии; финальную стоимость согласовываем после осмотра.</p>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="pride-tilda">
+                            <section class="vertical-media section section--alt" id="vertical-media">
+                                <div class="container">
+                                    <div class="reveal">
+                                        <h2 class="section__title">Видео и фото работ</h2>
+                                        <h3 class="section__subtitle">Вертикальный формат для коротких роликов, сторис и быстрых примеров результата после работ</h3>
+                                    </div>
+                                    <div class="vertical-media__grid reveal">
+                                        <article class="vertical-media__item vertical-media__item--photo vertical-media__item--wide vertical-media__item--photo-1">
+                                            <div class="vertical-media__slot">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3963-3437-4664-b337-396565313266/image_1605_1.webp" alt="Фото работы PRIDE детейлинг" decoding="async">
+                                            </div>
+                                        </article>
+                                        <article class="vertical-media__item vertical-media__item--video vertical-media__item--video-1">
+                                            <div class="vertical-media__slot">
+                                                <iframe loading="lazy" src="https://player.vimeo.com/video/1186092306?background=1&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;controls=0&amp;dnt=1&amp;playsinline=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Видео работы PRIDE детейлинг 01"></iframe>
+                                            </div>
+                                        </article>
+                                        <article class="vertical-media__item vertical-media__item--video vertical-media__item--video-2">
+                                            <div class="vertical-media__slot">
+                                                <iframe loading="lazy" src="https://player.vimeo.com/video/1186894728?background=1&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;controls=0&amp;dnt=1&amp;playsinline=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Видео работы PRIDE детейлинг 02"></iframe>
+                                            </div>
+                                        </article>
+                                        <article class="vertical-media__item vertical-media__item--photo vertical-media__item--photo-2">
+                                            <div class="vertical-media__slot">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild6537-6639-4833-a332-326636323461/image_1607.webp" alt="Фото работы PRIDE детейлинг слева" decoding="async">
+                                            </div>
+                                        </article>
+                                        <article class="vertical-media__item vertical-media__item--photo vertical-media__item--photo-3">
+                                            <div class="vertical-media__slot">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild6566-6437-4238-b961-316532313964/image_1608.webp" alt="Фото работы PRIDE детейлинг справа" decoding="async">
+                                            </div>
+                                        </article>
+                                        <article class="vertical-media__item vertical-media__item--video vertical-media__item--video-3">
+                                            <div class="vertical-media__slot">
+                                                <iframe loading="lazy" src="https://player.vimeo.com/video/1187051656?background=1&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;controls=0&amp;dnt=1&amp;playsinline=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Видео работы PRIDE детейлинг 03"></iframe>
+                                            </div>
+                                        </article>
+                                        <article class="vertical-media__item vertical-media__item--photo vertical-media__item--photo-4">
+                                            <div class="vertical-media__slot">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3934-3465-4630-a564-333633323134/image_1661.webp" alt="Фото работы PRIDE детейлинг" decoding="async">
+                                            </div>
+                                        </article>
+                                        <article class="vertical-media__item vertical-media__item--photo vertical-media__item--photo-5">
+                                            <div class="vertical-media__slot">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3835-6435-4466-b465-353734663565/image_1611.webp" alt="Фото работы PRIDE детейлинг" decoding="async">
+                                            </div>
+                                        </article>
+                                        <article class="vertical-media__item vertical-media__item--photo vertical-media__item--photo-6">
+                                            <div class="vertical-media__slot">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3863-3931-4233-a364-623835326661/image_1606.webp" alt="Фото работы PRIDE детейлинг" decoding="async">
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- nominify end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        

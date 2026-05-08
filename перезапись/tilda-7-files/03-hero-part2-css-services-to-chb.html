@@ -1,0 +1,749 @@
+<div class="t123">
+    <div class="t-container_100 ">
+        <div class="t-width t-width_100 ">
+<!-- Герой 2/5 -->
+<style>
+                            }
+
+                            /* ============================================
+                               SERVICES — Asymmetric Bento Grid
+                               ============================================ */
+                            .services {
+                              padding: 100px 0;
+                              position: relative;
+                              background: var(--bg-section);
+                            }
+
+                            .services__header {
+                              margin-bottom: 56px;
+                            }
+
+                            .services__grid {
+                              display: grid;
+                              grid-template-columns: repeat(12, 1fr);
+                              grid-auto-rows: minmax(200px, auto);
+                              gap: 16px;
+                            }
+
+                            /* Asymmetric layout — 6 cards, different sizes */
+                            .service-card:nth-child(1) { grid-column: 1 / 8; grid-row: 1 / 3; }
+                            .service-card:nth-child(2) { grid-column: 8 / 13; grid-row: 1 / 2; }
+                            .service-card:nth-child(3) { grid-column: 8 / 13; grid-row: 2 / 3; }
+                            /* Bottom row — all equal height, aligned to same top/bottom */
+                            .service-card:nth-child(4) { grid-column: 1 / 5; grid-row: 3 / 4; min-height: 260px; }
+                            .service-card:nth-child(5) { grid-column: 5 / 9; grid-row: 3 / 4; min-height: 260px; }
+                            .service-card:nth-child(6) { grid-column: 9 / 13; grid-row: 3 / 4; min-height: 260px; }
+
+                            .service-card {
+                              position: relative;
+                              overflow: hidden;
+                              background: var(--bg-card);
+                              border: 1px solid var(--border);
+                              cursor: pointer;
+                              min-height: 220px;
+                            }
+
+                            .service-card__bg {
+                              position: absolute;
+                              inset: 0;
+                              background-size: cover;
+                              background-position: center;
+                              transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                              filter: brightness(0.5) saturate(0.6);
+                            }
+
+                            .service-card:hover .service-card__bg {
+                              transform: scale(1.08);
+                              filter: brightness(0.35) saturate(0.4);
+                            }
+
+                            /* srv-bg — alternative bg class used in services HTML */
+                            .srv-bg {
+                              position: absolute;
+                              inset: 0;
+                              transition: transform 0.7s ease;
+                              overflow: hidden;
+                            }
+
+                            .srv-bg img {
+                              width: 100%;
+                              height: 100%;
+                              object-fit: cover;
+                              object-position: center;
+                              display: block;
+                            }
+
+                            .service-card:hover .srv-bg {
+                              transform: scale(1.04);
+                            }
+
+                            .srv-bg::after {
+                              content: '';
+                              position: absolute;
+                              inset: 0;
+                              background: linear-gradient(180deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.72) 40%, rgba(10,10,10,0.96) 100%);
+                            }
+
+                            .srv-num {
+                              position: absolute;
+                              top: 20px;
+                              left: 24px;
+                              font-family: var(--font-heading);
+                              font-size: 13px;
+                              font-weight: 600;
+                              letter-spacing: 2px;
+                              color: var(--gold);
+                              z-index: 3;
+                            }
+
+                            .srv-content {
+                              position: absolute;
+                              left: 0;
+                              right: 0;
+                              bottom: 0;
+                              padding: 20px 26px;
+                              display: flex;
+                              flex-direction: column;
+                              z-index: 3;
+                              background: linear-gradient(180deg, rgba(5,6,8,0) 4%, rgba(5,6,8,0.46) 36%, rgba(5,6,8,0.94) 100%);
+                            }
+
+                            .srv-tag {
+                              font-family: var(--font-heading);
+                              font-size: 9px;
+                              letter-spacing: 3px;
+                              text-transform: uppercase;
+                              color: var(--gold);
+                              margin-bottom: 4px;
+                              opacity: 0;
+                              transform: translateY(12px);
+                              transition: transform .35s ease, opacity .3s ease;
+                            }
+
+                            .srv-title {
+                              font-family: var(--font-heading);
+                              font-size: clamp(16px, 1.8vw, 24px);
+                              font-weight: 700;
+                              text-transform: uppercase;
+                              letter-spacing: 1px;
+                              margin-bottom: 0;
+                              line-height: 1.15;
+                              color: #fff;
+                              opacity: 1;
+                              transform: translateY(0);
+                              transition: transform .35s ease .05s, opacity .3s ease .05s;
+                            }
+
+                            .srv-desc {
+                              font-size: 13px;
+                              color: rgba(255,255,255,0.92);
+                              line-height: 1.55;
+                              max-width: 380px;
+                            }
+
+                            .srv-btn {
+                              display: inline-flex;
+                              align-items: center;
+                              gap: 8px;
+                              margin-top: 0;
+                              padding: 10px 20px;
+                              width: fit-content;
+                              font-family: var(--font-heading);
+                              font-size: 11px;
+                              font-weight: 700;
+                              letter-spacing: .18em;
+                              text-transform: uppercase;
+                              color: #0A0A0A;
+                              border: 1.5px solid transparent;
+                              background: linear-gradient(130deg, #F5E060 0%, #D4A020 45%, #F0C830 100%);
+                              border-radius: var(--radius-control);
+                              opacity: 1;
+                              transition: color 0.35s ease, border-color 0.35s ease,
+                                          background 0.35s ease, box-shadow 0.35s ease;
+                              text-decoration: none;
+                            }
+
+                            .service-card:hover .srv-btn {
+                              opacity: 1;
+                              transform: translateY(0);
+                            }
+
+                            .srv-btn:hover {
+                              background: transparent;
+                              color: #E8C030;
+                              border-color: rgba(240,210,60,.7);
+                              box-shadow: 0 0 14px rgba(240,210,60,.15);
+                            }
+
+                            .srv-btn svg {
+                              width: 14px;
+                              height: 14px;
+                              stroke: currentColor;
+                              transition: transform 0.3s ease;
+                            }
+
+                            .srv-btn:hover svg {
+                              transform: translateX(4px);
+                            }
+
+                            .service-card__overlay {
+                              position: absolute;
+                              inset: 0;
+                              background: linear-gradient(180deg, transparent 30%, rgba(10, 10, 10, 0.9) 100%);
+                              z-index: 1;
+                            }
+
+                            .service-card__content {
+                              position: absolute;
+                              bottom: 0;
+                              left: 0;
+                              right: 0;
+                              padding: 28px;
+                              z-index: 2;
+                              transition: transform var(--transition);
+                            }
+
+                            .service-card__num {
+                              font-family: var(--font-heading);
+                              font-size: 13px;
+                              color: var(--gold);
+                              letter-spacing: 2px;
+                              margin-bottom: 8px;
+                              font-weight: 500;
+                            }
+
+                            .service-card__title {
+                              font-family: var(--font-heading);
+                              font-size: clamp(18px, 2vw, 26px);
+                              font-weight: 700;
+                              text-transform: uppercase;
+                              letter-spacing: 1px;
+                              margin-bottom: 8px;
+                              line-height: 1.2;
+                            }
+
+                            .service-card__desc {
+                              font-size: 13px;
+                              color: var(--text-muted);
+                              line-height: 1.5;
+                              max-width: 400px;
+                            }
+
+                            .service-card__btn {
+                              display: inline-flex;
+                              align-items: center;
+                              gap: 8px;
+                              margin-top: 16px;
+                              padding: 10px 20px;
+                              border: 1px solid var(--gold);
+                              font-family: var(--font-heading);
+                              font-size: 11px;
+                              font-weight: 600;
+                              letter-spacing: 2px;
+                              text-transform: uppercase;
+                              color: var(--gold);
+                              opacity: 0;
+                              transform: translateY(12px);
+                              transition: var(--transition);
+                            }
+
+                            .service-card:hover .service-card__btn {
+                              opacity: 1;
+                              transform: translateY(0);
+                            }
+
+                            .service-card__btn:hover {
+                              background: var(--gold);
+                              color: var(--bg-dark);
+                            }
+
+                            .service-card__corner {
+                              position: absolute;
+                              top: 20px;
+                              right: 20px;
+                              width: 40px;
+                              height: 40px;
+                              z-index: 2;
+                            }
+
+                            .service-card__corner::before,
+                            .service-card__corner::after {
+                              content: '';
+                              position: absolute;
+                              background: var(--gold);
+                              opacity: 0.3;
+                              transition: opacity var(--transition-fast);
+                            }
+
+                            .service-card__corner::before {
+                              top: 0;
+                              right: 0;
+                              width: 20px;
+                              height: 1px;
+                            }
+
+                            .service-card__corner::after {
+                              top: 0;
+                              right: 0;
+                              width: 1px;
+                              height: 20px;
+                            }
+
+                            .service-card:hover .service-card__corner::before,
+                            .service-card:hover .service-card__corner::after {
+                              opacity: 0.7;
+                            }
+
+                            /* ============================================
+                               WHY US
+                               ============================================ */
+                            .why-us {
+                              padding: 100px 0;
+                              position: relative;
+                            }
+
+                            .why-us__grid {
+                              display: grid;
+                              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                              gap: 24px;
+                              margin-top: 56px;
+                            }
+
+                            .why-card {
+                              padding: 36px 28px;
+                              background: var(--bg-card);
+                              border: 1px solid var(--border);
+                              position: relative;
+                              overflow: hidden;
+                              transition: var(--transition);
+                            }
+
+                            .why-card::before {
+                              content: '';
+                              position: absolute;
+                              top: 0;
+                              left: 0;
+                              width: 3px;
+                              height: 0;
+                              background: var(--gold);
+                              transition: height 0.6s ease;
+                            }
+
+                            .why-card:hover::before {
+                              height: 100%;
+                            }
+
+                            .why-card:hover {
+                              border-color: var(--border-strong);
+                              transform: translateY(-4px);
+                              box-shadow: var(--shadow-gold);
+                            }
+
+                            .why-card__icon {
+                              width: 48px;
+                              height: 48px;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              margin-bottom: 20px;
+                              color: var(--gold);
+                            }
+
+                            .why-card__icon svg {
+                              width: 32px;
+                              height: 32px;
+                              stroke: var(--gold);
+                              fill: none;
+                              stroke-width: 1.5;
+                            }
+
+                            .why-card__title {
+                              font-family: var(--font-heading);
+                              font-size: 18px;
+                              font-weight: 700;
+                              text-transform: uppercase;
+                              letter-spacing: 1px;
+                              margin-bottom: 12px;
+                            }
+
+                            .why-card__text {
+                              font-size: 14px;
+                              color: var(--text-muted);
+                              line-height: 1.7;
+                            }
+
+                            .why-card__num {
+                              position: absolute;
+                              top: 16px;
+                              right: 20px;
+                              font-family: var(--font-heading);
+                              font-size: 52px;
+                              font-weight: 700;
+                              color: transparent;
+                              -webkit-text-stroke: 1px var(--border);
+                              line-height: 1;
+                              user-select: none;
+                            }
+
+                            /* ============================================
+                               PORTFOLIO — Before / After
+                               ============================================ */
+                            .portfolio {
+                              padding: 100px 0;
+                              background: var(--bg-section);
+                              position: relative;
+                            }
+
+                            .portfolio__grid {
+                              display: grid;
+                              grid-template-columns: repeat(2, 1fr);
+                              gap: 24px;
+                              margin-top: 56px;
+                            }
+
+                            .portfolio-card {
+                              position: relative;
+                              overflow: hidden;
+                              border: 1px solid var(--border);
+                              background: var(--bg-card);
+                              aspect-ratio: 16/10;
+                            }
+
+                            .portfolio-card__slider {
+                              position: relative;
+                              width: 100%;
+                              height: 100%;
+                              cursor: col-resize;
+                              touch-action: none; /* предотвращает перехват touch iOS для скролла */
+                              -webkit-user-select: none;
+                              user-select: none;
+                            }
+
+                            .portfolio-card__before,
+                            .portfolio-card__after {
+                              position: absolute;
+                              inset: 0;
+                              background-size: cover;
+                              background-position: center;
+                            }
+
+                            .portfolio-card__before {
+                              clip-path: inset(0 50% 0 0);
+                              will-change: clip-path;
+                            }
+
+                            .portfolio-card__divider {
+                              position: absolute;
+                              top: 0;
+                              bottom: 0;
+                              left: 50%;
+                              width: 3px;
+                              background: var(--gold);
+                              z-index: 3;
+                              transform: translateX(-50%);
+                              will-change: left;
+                            }
+
+                            .portfolio-card__slider.is-dragging {
+                              cursor: grabbing;
+                            }
+
+                            .portfolio-card__divider::before {
+                              content: '';
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                              width: 36px;
+                              height: 36px;
+                              background: var(--gold);
+                              border-radius: 50%;
+                            }
+
+                            .portfolio-card__divider::after {
+                              content: '';
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                              width: 36px;
+                              height: 36px;
+                              line-height: 36px;
+                              text-align: center;
+                              font-size: 0;
+                              color: var(--bg-dark);
+                              z-index: 2;
+                              font-weight: 700;
+                              display: none;
+                            }
+
+                            /* На мобилке SVG вставляется через JS — скрываем эмодзи */
+                            .portfolio-card__divider.svg-fixed::after {
+                              display: none !important;
+                            }
+
+                            .portfolio-card__label {
+                              display: none;
+                            }
+
+                            .portfolio-card__label--before { left: 16px; }
+                            .portfolio-card__label--after { right: 16px; }
+
+                            .portfolio-card__tag {
+                              position: absolute;
+                              bottom: 16px;
+                              left: 16px;
+                              right: 16px;
+                              z-index: 4;
+                              font-family: var(--font-heading);
+                              font-size: clamp(12px, 1.2vw, 15px);
+                              font-weight: 600;
+                              letter-spacing: .03em;
+                              text-transform: none;
+                              margin: 0;
+                              color: var(--text);
+                              text-shadow: 0 2px 8px rgba(0,0,0,.7);
+                            }
+
+                            /* ============================================
+                               PRICES
+                               ============================================ */
+                            .prices {
+                              padding: 100px 0;
+                              position: relative;
+                            }
+
+                            .prices__tabs {
+                              display: flex;
+                              flex-wrap: wrap;
+                              gap: 8px;
+                              margin-top: 40px;
+                              margin-bottom: 40px;
+                            }
+
+                            .prices__tab {
+                              font-family: var(--font-heading);
+                              font-size: 11px;
+                              font-weight: 700;
+                              letter-spacing: .18em;
+                              text-transform: uppercase;
+                              padding: 11px 22px;
+                              border: 1.5px solid rgba(240,210,60,.35);
+                              color: var(--text-muted);
+                              background: rgba(240,210,60,.03);
+                              border-radius: var(--radius-control);
+                              cursor: pointer;
+                              transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease,
+                                          border-color 0.25s ease, color 0.25s ease;
+                            }
+
+                            .prices__tab:hover {
+                              border-color: rgba(240,210,60,.7);
+                              color: #E8C840;
+                              background: rgba(240,210,60,.08);
+                            }
+
+                            .prices__tab.active {
+                              background: linear-gradient(130deg, #F5E060 0%, #D4A020 45%, #F0C830 100%);
+                              color: #0A0A0A;
+                              border-color: transparent;
+                              box-shadow: 0 0 20px rgba(240,210,60,.35), 0 4px 16px rgba(0,0,0,.4);
+                            }
+
+                            .prices__panel {
+                              display: none;
+                            }
+
+                            .prices__panel.active {
+                              display: block;
+                              animation: fadeInUp 0.4s ease;
+                            }
+
+                            @keyframes fadeInUp {
+                              from { opacity: 0; transform: translateY(16px); }
+                              to { opacity: 1; transform: translateY(0); }
+                            }
+
+                            .prices__table-wrap {
+                              overflow-x: auto;
+                              border: 1px solid var(--border);
+                              background: var(--bg-card);
+                            }
+
+                            .prices__table {
+                              width: 100%;
+                              border-collapse: collapse;
+                              min-width: 640px;
+                            }
+
+                            .prices__table thead {
+                              background: rgba(232, 192, 48, 0.08);
+                            }
+
+                            .prices__table th {
+                              font-family: var(--font-heading);
+                              font-size: 12px;
+                              font-weight: 600;
+                              letter-spacing: 1.5px;
+                              text-transform: uppercase;
+                              text-align: left;
+                              padding: 16px 20px;
+                              color: var(--gold);
+                              border-bottom: 1px solid var(--border);
+                              white-space: nowrap;
+                            }
+
+                            .prices__table td {
+                              padding: 14px 20px;
+                              font-size: 14px;
+                              color: var(--text-muted);
+                              border-bottom: 1px solid rgba(232, 192, 48, 0.06);
+                              white-space: nowrap;
+                            }
+
+                            .prices__table tbody tr {
+                              transition: background var(--transition-fast);
+                            }
+
+                            .prices__table tbody tr:hover {
+                              background: rgba(232, 192, 48, 0.03);
+                            }
+
+                            .prices__table td:first-child {
+                              color: var(--text);
+                              font-weight: 500;
+                            }
+
+                            .prices__table .price-val {
+                              font-family: var(--font-heading);
+                              font-weight: 600;
+                              color: var(--text);
+                            }
+
+                            .prices__note {
+                              margin-top: 20px;
+                              font-size: 13px;
+                              color: var(--text-dim);
+                              display: flex;
+                              align-items: center;
+                              gap: 8px;
+                            }
+
+                            .prices__note::before {
+                              content: ' * ';
+                              color: var(--gold);
+                              font-size: 18px;
+                            }
+
+                            /* ============================================
+                               STAGES
+                               ============================================ */
+                            .stages {
+                              padding: 100px 0;
+                              background: var(--bg-section);
+                              position: relative;
+                            }
+
+                            .srv-4 .srv-num, .srv-5 .srv-num, .srv-6 .srv-num { display: none; }
+
+                            .stages__timeline {
+                              display: grid;
+                              grid-template-columns: repeat(6, 1fr);
+                              gap: 0;
+                              margin-top: 56px;
+                              position: relative;
+                            }
+
+                            /* Full line in dark — starts after step 01 dot, ends before step 06 dot */
+                            .stages__timeline::before {
+                              content: '';
+                              position: absolute;
+                              top: 36px;
+                              left: calc(8.33% + 38px);
+                              right: calc(8.33% + 38px);
+                              height: 2px;
+                              background: var(--border);
+                              z-index: 0;
+                            }
+
+                            /* Golden line from step 01 dot, stops halfway to step 02 */
+                            .stages__timeline::after {
+                              content: '';
+                              position: absolute;
+                              top: 36px;
+                              left: calc(8.33% + 38px);
+                              width: calc(8.33% - 20px);
+                              height: 2px;
+                              background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+                              box-shadow: 0 0 12px rgba(232,192,48,0.4);
+                              z-index: 1;
+                            }
+
+                            .stage-item {
+                              padding: 0 24px;
+                              position: relative;
+                              text-align: center;
+                              display: flex;
+                              flex-direction: column;
+                              align-items: center;
+                            }
+
+                            .stage-item__dot {
+                              width: 72px;
+                              height: 72px;
+                              border: 2px solid var(--border);
+                              background: var(--bg-section);
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              margin: 0 auto 24px;
+                              position: relative;
+                              z-index: 3;
+                              transition: var(--transition);
+                              box-shadow: 0 0 0 6px var(--bg-section);
+                            }
+
+                            /* Step 01 is always lit gold */
+                            .stage-item:first-child .stage-item__dot {
+                              border-color: var(--gold);
+                              background: rgba(232,192,48,0.08);
+                              box-shadow: 0 0 30px rgba(232, 192, 48, 0.3), inset 0 0 20px rgba(232,192,48,0.05);
+                            }
+
+                            .stage-item:hover .stage-item__dot {
+                              border-color: var(--gold);
+                              box-shadow: 0 0 30px rgba(232, 192, 48, 0.15);
+                            }
+
+                            .stage-item__num {
+                              font-family: var(--font-heading);
+                              font-size: 24px;
+                              font-weight: 700;
+                              color: var(--gold);
+                            }
+
+                            .stage-item__title {
+                              font-family: var(--font-heading);
+                              font-size: 16px;
+                              font-weight: 700;
+                              text-transform: uppercase;
+                              letter-spacing: 1px;
+                              margin-bottom: 0;
+                              min-height: 2.6em;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            }
+
+                            .stage-item__text {
+                              font-size: 13px;
+                              color: var(--text-muted);
+                              line-height: 1.6;
+                              max-height: 0;
+                              overflow: hidden;
+                              opacity: 0;
+                              transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
+</style>
+        </div>
+    </div>
+</div>

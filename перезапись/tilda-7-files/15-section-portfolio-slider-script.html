@@ -1,0 +1,122 @@
+<!-- Портфель + полный inline-скрипт слайдера (до </script>) -->
+<div class="t123">
+    <div class="t-container_100 ">
+        <div class="t-width t-width_100 ">
+                        <div class="pride-tilda">
+                            <section class="portfolio section section--alt" id="portfolio">
+                                <div class="container">
+                                    <div class="reveal">
+                                        <h2 class="section__title">Результат без слов</h2>
+                                        <h3 class="section__subtitle">Показываем реальные изменения после полировки, химчистки, восстановления кожи, оклейки и других работ</h3>
+                                    </div>
+                                    <div class="portfolio__grid">
+                                        <!-- Card 1 -->
+                                        <div class="portfolio-card reveal stagger-1">
+                                            <h3 class="portfolio-card__tag">Полировка кузова: убрали матовость и мелкую паутинку</h3>
+                                            <div class="portfolio-card__slider">
+                                                <div class="portfolio-card__after" style="background-image: url('https://static.tildacdn.com/tild3664-6537-4065-a337-623637386632/photo_2026-04-24_031.svg'); background-size: cover; background-position: center 14%;"></div>
+                                                <div class="portfolio-card__before" style="background-image: url('https://static.tildacdn.com/tild3332-3535-4230-a335-393362363131/image_153.svg'); background-size: cover; background-position: center 14%;"></div>
+                                                <div class="portfolio-card__divider"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Card 2 -->
+                                        <div class="portfolio-card reveal stagger-2">
+                                            <h3 class="portfolio-card__tag">Оклейка кузова: защита уязвимых зон от сколов</h3>
+                                            <div class="portfolio-card__slider">
+                                                <div class="portfolio-card__after" style="background-image: url('https://static.tildacdn.com/tild6564-3366-4435-b665-313936343930/image_154.svg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__before" style="background-image: url('https://static.tildacdn.com/tild3266-3131-4631-b935-653131366437/image_155.svg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__divider"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Card 3 -->
+                                        <div class="portfolio-card reveal stagger-3">
+                                            <h3 class="portfolio-card__tag">Химчистка салона: глубокая очистка сидений и ковров</h3>
+                                            <div class="portfolio-card__slider">
+                                                <div class="portfolio-card__after" style="background-image: url('https://static.tildacdn.com/tild6436-3965-4662-b133-626464383933/8e03f19db0bb55941ad6.jpg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__before" style="background-image: url('https://static.tildacdn.com/tild3835-3130-4837-a331-626463323364/image_156.svg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__divider"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Card 4 -->
+                                        <div class="portfolio-card reveal stagger-4">
+                                            <h3 class="portfolio-card__tag">Восстановление кожи: обновили цвет и убрали следы износа</h3>
+                                            <div class="portfolio-card__slider">
+                                                <div class="portfolio-card__after" style="background-image: url('https://static.tildacdn.com/tild3436-3134-4166-b938-656435393933/6a3f1e85ea779d04cda1.svg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__before" style="background-image: url('https://static.tildacdn.com/tild3430-3636-4335-b038-666434306136/image_159.svg'); background-size: cover; background-position: center;"></div>
+                                                <div class="portfolio-card__divider"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                        /* Before/After слайдер — inline JS блок 05 */
+                        (function() {
+                            var handleHTML = '<span class="portfolio-card__divider-handle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h14M11 4l4 4-4 4M5 4L1 8l4 4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+
+                            function ensureHandle(divider) {
+                                if (!divider)
+                                    return;
+                                if (!divider.querySelector('.portfolio-card__divider-handle')) {
+                                    divider.insertAdjacentHTML('beforeend', handleHTML);
+                                }
+                            }
+
+                            function initSliders() {
+                                document.querySelectorAll('.portfolio-card__slider').forEach(function(slider) {
+                                    if (slider.dataset.ready)
+                                        return;
+                                    slider.dataset.ready = '1';
+                                    var before = slider.querySelector('.portfolio-card__before');
+                                    var divider = slider.querySelector('.portfolio-card__divider');
+                                    if (!before || !divider)
+                                        return;
+                                    ensureHandle(divider);
+                                    var drag = false;
+                                    function pos(x) {
+                                        var r = slider.getBoundingClientRect();
+                                        var p = Math.max(5, Math.min(95, ((x - r.left) / r.width) * 100));
+                                        before.style.clipPath = 'inset(0 ' + (100 - p) + '% 0 0)';
+                                        divider.style.setProperty('left', p + '%', 'important');
+                                    }
+                                    slider.addEventListener('mousedown', function(e) {
+                                        drag = true;
+                                        pos(e.clientX);
+                                    });
+                                    document.addEventListener('mousemove', function(e) {
+                                        if (drag)
+                                            pos(e.clientX);
+                                    });
+                                    document.addEventListener('mouseup', function() {
+                                        drag = false;
+                                    });
+                                    slider.addEventListener('touchstart', function(e) {
+                                        drag = true;
+                                        e.preventDefault();
+                                        pos(e.touches[0].clientX);
+                                    }, {
+                                        passive: false
+                                    });
+                                    slider.addEventListener('touchmove', function(e) {
+                                        if (drag) {
+                                            e.preventDefault();
+                                            pos(e.touches[0].clientX);
+                                        }
+                                    }, {
+                                        passive: false
+                                    });
+                                    slider.addEventListener('touchend', function() {
+                                        drag = false;
+                                    });
+                                });
+                                document.querySelectorAll('.portfolio-card__divider').forEach(ensureHandle);
+                            }
+                            initSliders();
+                            setTimeout(initSliders, 400);
+                            window.addEventListener('resize', initSliders);
+                        })();
+                        </script>
+        </div>
+    </div>
+</div>

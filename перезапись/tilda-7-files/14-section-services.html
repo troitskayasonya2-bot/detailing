@@ -1,0 +1,401 @@
+<!-- nominify + <style> (в т.ч. правила прайса) + секция #services до закрытия обёртки -->
+<div class="t123">
+    <div class="t-container_100 ">
+        <div class="t-width t-width_100 ">
+                        <!-- nominify begin -->
+                        <style>
+                        @media (max-width: 768px) {
+                            .vertical-media__item--video-3 {
+                                display: none;
+                            }
+
+                            /* фото №3 в сетке (класс photo-3): на мобилке поднимаем кадр в слоте */
+                            .vertical-media__item--photo-3 .vertical-media__slot img,
+                            .pride-tilda #vertical-media .vertical-media__item--photo-3 .vertical-media__slot img,
+                            #vertical-media .vertical-media__item--photo-3 .vertical-media__slot img {
+                                object-position: center 12% !important;
+                                transform: translateY(-20%) scale(1.06) !important;
+                            }
+                        }/* Portfolio slider hard-fix (main page, block 05) */
+                        .portfolio-card__divider::after {
+                            content: none !important;
+                            display: none !important;
+                        }
+
+                        .portfolio-card__divider::before {
+                            content: none !important;
+                            display: none !important;
+                        }
+
+                        .portfolio-card__slider {
+                            touch-action: none;
+                        }
+
+                        .portfolio-card__divider-handle {
+                            position: absolute !important;
+                            top: 50% !important;
+                            left: 50% !important;
+                            transform: translate(-50%, -50%) !important;
+                            z-index: 4 !important;
+                            pointer-events: none !important;
+                            width: 36px !important;
+                            height: 36px !important;
+                            border-radius: 50% !important;
+                            background: #ffffff !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                        }
+
+                        .portfolio-card__divider-handle svg {
+                            width: 24px !important;
+                            height: 24px !important;
+                            display: block !important;
+                        }
+
+                        .portfolio-card__divider-handle svg path {
+                            stroke: #0A0A0A !important;
+                            stroke-width: 2.2 !important;
+                        }
+
+                        @media (max-width: 768px) {
+                            .portfolio-card__divider-handle {
+                                width: 52px !important;
+                                height: 52px !important;
+                            }
+
+                            .portfolio-card__divider-handle svg {
+                                width: 34px !important;
+                                height: 34px !important;
+                            }
+
+                            .portfolio-card__divider-handle svg path {
+                                stroke-width: 2.8 !important;
+                            }
+                        }/* Первая карточка в галерее «До/после»: сильнее поднять кадр в зоне превью */
+                        #portfolio .portfolio-card:first-child .portfolio-card__after, #portfolio .portfolio-card:first-child .portfolio-card__before {
+                            background-position: center 22% !important;
+                        }
+
+                        @media (max-width: 768px) {
+                            #portfolio .portfolio-card:first-child .portfolio-card__after, #portfolio .portfolio-card:first-child .portfolio-card__before {
+                                background-position: center 18% !important;
+                            }
+                        }/* Прайс: вкладки + одна активная таблица (блок #prices, Zero 05) */
+                        @keyframes pricesPanelIn {
+                            from {
+                                opacity: 0;
+                                transform: translateY(12px);
+                            }
+
+                            to {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+
+                        #prices.prices .container > .reveal .section__subtitle {
+                            max-width: 640px;
+                            margin-left: 0;
+                            margin-right: auto;
+                            text-align: left;
+                        }
+
+                        #prices.prices .prices__tabs {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 8px;
+                            margin-top: 24px;
+                            margin-bottom: 28px;
+                            justify-content: flex-start;
+                        }
+
+                        #prices.prices .prices__tab {
+                            font-size: 11px;
+                            font-weight: 700;
+                            letter-spacing: 0.16em;
+                            text-transform: uppercase;
+                            padding: 11px 18px;
+                            border: 1.5px solid rgba(240, 210, 60, 0.35);
+                            color: rgba(245, 242, 234, 0.65);
+                            background: rgba(240, 210, 60, 0.04);
+                            border-radius: var(--radius-control, var(--pride-r, 14px));
+                            cursor: pointer;
+                            font-family: inherit;
+                            line-height: 1.2;
+                            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+                        }
+
+                        #prices.prices .prices__tab:hover {
+                            border-color: rgba(240, 210, 60, 0.75);
+                            color: #e8c840;
+                            background: rgba(240, 210, 60, 0.1);
+                        }
+
+                        #prices.prices .prices__tab.active {
+                            background: linear-gradient(130deg, #f5e060 0%, #d4a020 45%, #f0c830 100%);
+                            color: #0a0a0a;
+                            border-color: transparent;
+                            box-shadow: 0 0 20px rgba(240, 210, 60, 0.35), 0 4px 16px rgba(0, 0, 0, 0.45);
+                        }
+
+                        #prices.prices .prices__panel {
+                            display: none;
+                        }
+
+                        #prices.prices .prices__panel.active {
+                            display: block;
+                            animation: pricesPanelIn 0.35s ease;
+                        }
+
+                        .prices-master__footnote {
+                            margin-top: 24px;
+                        }
+
+                        #prices.prices .prices__table td:first-child {
+                            white-space: normal !important;
+                            vertical-align: top;
+                            max-width: min(48vw, 380px);
+                            line-height: 1.35;
+                        }
+
+                        @media (max-width: 768px) {
+                            #prices.prices .prices__tabs {
+                                margin-top: 20px;
+                                margin-bottom: 12px;
+                                justify-content: flex-start;
+                                overflow-x: auto;
+                                flex-wrap: nowrap;
+                                padding-bottom: 8px;
+                                gap: 6px;
+                                -webkit-overflow-scrolling: touch;
+                                scrollbar-width: thin !important;
+                                scrollbar-color: rgba(240, 210, 60, 0.55) rgba(255, 255, 255, 0.12) !important;
+                            }
+
+                            #prices.prices .prices__tabs::-webkit-scrollbar {
+                                display: block !important;
+                                height: 4px !important;
+                            }
+
+                            #prices.prices .prices__tabs::-webkit-scrollbar-track {
+                                background: rgba(255, 255, 255, 0.12) !important;
+                                border-radius: 999px !important;
+                            }
+
+                            #prices.prices .prices__tabs::-webkit-scrollbar-thumb {
+                                background: rgba(240, 210, 60, 0.55) !important;
+                                border-radius: 999px !important;
+                            }
+
+                            #prices.prices .prices__tab {
+                                flex-shrink: 0;
+                                white-space: nowrap;
+                                font-size: 10px;
+                                padding: 9px 12px;
+                                letter-spacing: 0.12em;
+                            }
+
+                            #prices.prices .prices__table {
+                                min-width: 520px !important;
+                            }
+
+                            #prices.prices .prices__table th:first-child {
+                                white-space: normal !important;
+                                width: min(39vw, 173px) !important;
+                                min-width: min(39vw, 173px) !important;
+                                max-width: min(39vw, 173px) !important;
+                                vertical-align: bottom;
+                                line-height: 1.25;
+                            }
+
+                            #prices.prices .prices__table td:first-child {
+                                width: min(39vw, 173px) !important;
+                                min-width: min(39vw, 173px) !important;
+                                max-width: min(39vw, 173px) !important;
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                            }
+
+                            #prices.prices .prices__table th,
+                            #prices.prices .prices__table td {
+                                padding-left: 11px !important;
+                                padding-right: 11px !important;
+                            }
+
+                            #prices.prices .prices__table th:not(:first-child),
+                            #prices.prices .prices__table td:not(:first-child) {
+                                padding-left: 9px !important;
+                                padding-right: 9px !important;
+                            }
+
+                            #prices.prices .prices__table thead th {
+                                padding-top: 11px !important;
+                                padding-bottom: 10px !important;
+                                font-size: 11px !important;
+                                letter-spacing: 0.08em !important;
+                            }
+
+                            #prices.prices .prices__table tbody td {
+                                padding-top: 10px !important;
+                                padding-bottom: 10px !important;
+                            }
+
+                            .pride-tilda #prices.prices .prices__scroll-hint {
+                                display: inline-flex !important;
+                                align-items: center !important;
+                                margin: 6px 0 6px !important;
+                            }
+                        }
+
+                        /* Подсказка «Листайте вправо»: жёсткий размер svg — иначе правила Тильды тянут svg на всю ширину */
+                        .pride-tilda #prices.prices .prices__scroll-hint {
+                            margin: 8px 0 12px;
+                            display: none;
+                            align-items: center;
+                            gap: 8px;
+                            font-size: 13px;
+                            line-height: 1.4;
+                            font-weight: 400;
+                            color: rgba(242, 237, 227, 0.55);
+                            width: fit-content;
+                            max-width: 100%;
+                            box-sizing: border-box;
+                        }
+
+                        .pride-tilda #prices.prices .prices__scroll-hint svg {
+                            width: 18px !important;
+                            height: 18px !important;
+                            max-width: 18px !important;
+                            max-height: 18px !important;
+                            min-width: 0 !important;
+                            flex-shrink: 0 !important;
+                            display: block !important;
+                            box-sizing: border-box !important;
+                        }
+
+                        </style>
+                        <div class="pride-tilda">
+                            <section id="services">
+                                <div class="tire-bg"></div>
+                                <div class="section-wrap">
+                                    <div class="reveal">
+                                        <h2 class="section-title">Детейлинг-услуги</h2>
+                                        <h3 class="section-sub">Подберите услугу под задачу: защитить кузов, восстановить блеск, убрать вмятины, очистить салон или обновить кожу</h3>
+                                    </div>
+                                    <div class="services-grid">
+                                        <div class="srv-1 service-card reveal">
+                                            <div class="srv-bg">
+                                                <img loading="eager" src="https://static.tildacdn.com/tild3137-6665-4963-a466-343836373265/image_1610.webp" alt="" fetchpriority="high" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/okleyka-avto-plenkoy" aria-label="Перейти на страницу оклейки кузова"></a>
+                                            <span class="srv-num">01</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Защита кузова</div>
+                                                <h3 class="srv-title">Оклейка кузова</h3>
+                                                <h4 class="srv-desc">Защита лакокрасочного покрытия от сколов, песка, реагентов и следов городской эксплуатации. Подходит для новых и дорогих автомобилей, которые хочется сохранить в идеальном состоянии.</h4>
+                                                <a href="https://detailingpride.tilda.ws/okleyka-avto-plenkoy" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="srv-2 service-card reveal" style="transition-delay:.08s">
+                                            <div class="srv-bg">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3235-6336-4562-b766-373338653930/image_158.webp" alt="" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/polirovka-i-keramika" aria-label="Перейти на страницу полировки и керамики"></a>
+                                            <span class="srv-num">02</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Блеск и защита</div>
+                                                <h3 class="srv-title">Полировка и керамика</h3>
+                                                <h4 class="srv-desc">Убираем мелкие царапины, матовость и «паутинку», возвращаем кузову глубину цвета и закрепляем результат защитным покрытием.</h4>
+                                                <a href="https://detailingpride.tilda.ws/polirovka-i-keramika" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="srv-3 service-card reveal" style="transition-delay:.16s">
+                                            <div class="srv-bg">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3531-3334-4630-b634-656433333563/image_1660.webp" alt="" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/vypryamlenie-vmyatin" aria-label="Перейти на страницу выпрямления вмятин"></a>
+                                            <span class="srv-num">03</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Кузовные работы</div>
+                                                <h3 class="srv-title">Выпрямление вмятин</h3>
+                                                <h4 class="srv-desc">Аккуратно устраняем локальные вмятины без лишнего вмешательства в покрытие, если состояние детали позволяет выполнить ремонт без покраски.</h4>
+                                                <a href="https://detailingpride.tilda.ws/vypryamlenie-vmyatin" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="srv-4 service-card reveal" style="transition-delay:.12s">
+                                            <div class="srv-bg">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3963-3465-4731-a637-623530613835/image_150.webp" alt="" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/bronirovanie-stekla-i-panoramy" aria-label="Перейти на страницу бронирования стекла и панорамы"></a>
+                                            <span class="srv-num">04</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Защита стекла</div>
+                                                <h3 class="srv-title">Бронь стекла и панорамы</h3>
+                                                <h4 class="srv-desc">Защищаем лобовое стекло и панорамную крышу от мелких повреждений, песка, щёток и дорожного износа. Особенно актуально для трассы и активной городской езды.</h4>
+                                                <a href="https://detailingpride.tilda.ws/bronirovanie-stekla-i-panoramy" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="srv-5 service-card reveal" style="transition-delay:.2s">
+                                            <div class="srv-bg">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3736-6166-4135-a631-326164323037/IMG_2840_2_1.webp" alt="" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/himchistka-salona" aria-label="Перейти на страницу химчистки салона"></a>
+                                            <span class="srv-num">05</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Чистота салона</div>
+                                                <h3 class="srv-title">Химчистка салона</h3>
+                                                <h4 class="srv-desc">Глубоко очищаем салон с разбором или без: сиденья, ковры, пластик, потолок, швы и труднодоступные зоны. Убираем не только видимую грязь.</h4>
+                                                <a href="https://detailingpride.tilda.ws/himchistka-salona" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="srv-6 service-card reveal" style="transition-delay:.24s">
+                                            <div class="srv-bg">
+                                                <img loading="lazy" src="https://static.tildacdn.com/tild3130-6537-4532-a662-616532626163/image_151.webp" alt="" decoding="async">
+                                            </div>
+                                            <a class="srv-card-link" href="https://detailingpride.tilda.ws/pokraska-kozhi" aria-label="Перейти на страницу покраски кожи"></a>
+                                            <span class="srv-num">06</span>
+                                            <div class="srv-content">
+                                                <div class="srv-tag">Реставрация</div>
+                                                <h3 class="srv-title">Покраска кожи</h3>
+                                                <h4 class="srv-desc">Восстанавливаем цвет, аккуратный вид и ощущение ухоженного салона: сиденья, руль, подлокотники и другие кожаные элементы.</h4>
+                                                <a href="https://detailingpride.tilda.ws/pokraska-kozhi" class="srv-btn">
+                                                    Подробнее 
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+        </div>
+    </div>
+</div>

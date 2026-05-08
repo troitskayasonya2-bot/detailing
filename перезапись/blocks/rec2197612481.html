@@ -1,0 +1,52 @@
+<div id="rec2197612481" class="r t-rec t-rec_pt_45 t-rec_pb_45 t-screenmin-980px" style="padding-top:45px;padding-bottom:45px; " data-record-type="125" data-screen-min="980px">
+            <!-- T117 -->
+            <div class="t117">
+                <div class="t-width t-margin_auto t-width_100">
+                    <div class="t-map-lazyload t117_map" data-maplazy-load="false" style="background-color:rgb(229, 227, 223);overflow:hidden;transform: translateZ(0)">
+                        <div class="t-map" id="separateMap2197612481" data-map-language="" data-map-x="55.751979" data-map-y="37.617499" data-map-zoom="17" data-map-mode="" style="width:100%; position: relative; height:700px;"></div>
+                        <script type="text/javascript">
+                        var arMapMarkers2197612481 = [{
+                            title: "Pride Detailing",
+                            descr: "",
+                            lat: "55.5417531",
+                            lng: "37.1536610",
+                            color: null,
+                            url: null,
+                            isOpen: false,
+                            isHidden: false,
+                            offset: null,
+                        }, ];
+                        t_onReady(function() {
+                            t_map_lazyload_add_map();
+                            window.addEventListener('scroll', t_throttle(t_map_lazyload_add_map, 300));
+                            function t_map_lazyload_add_map() {
+                                var windowHeight = window.innerHeight;
+                                var scrollDiffHeigth = 700;
+                                var rec = document.getElementById('rec' + 2197612481);
+                                if (!rec)
+                                    return;
+                                var map = rec.querySelector('.t-map-lazyload');
+                                if (!map)
+                                    return;
+                                var blockTop = map.getBoundingClientRect().top + window.pageYOffset;
+                                if (window.pageYOffset > blockTop - windowHeight - scrollDiffHeigth) {
+                                    if (map.getAttribute('data-maplazy-load') === 'false') {
+                                        map.setAttribute('data-maplazy-load', 'true');
+                                        t_onFuncLoad('t_appendYandexMap', function() {
+                                            t_appendYandexMap("2197612481", "");
+                                        });
+                                    }
+                                }
+                            }
+                        });
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <style>
+            #rec2197612481 .t117_map {
+                border-radius: 0px;
+            }
+            </style>
+        </div>
+        
