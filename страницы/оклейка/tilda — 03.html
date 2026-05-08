@@ -795,10 +795,92 @@
       }, 250);
     }
 
-    function submitTildaForm(tForm) {
+    function showCustomFormMessage(form, text, type) {
+      var btn = form.querySelector('button[type="submit"], .btn');
+      if (!btn) return;
+
+      var existing = form.querySelector('.pride-success-msg');
+      if (existing) existing.remove();
+
+      var msg = document.createElement('div');
+      msg.className = 'pride-success-msg';
+      msg.textContent = text;
+      var isError = type === 'error';
+      msg.style.cssText = 'margin-top:14px;padding:14px 18px;background:' + (isError ? 'rgba(160,42,42,.18)' : 'rgba(42,122,58,.15)') + ';border:1px solid ' + (isError ? '#a02a2a' : '#2a7a3a') + ';color:#fff;font-family:inherit;font-size:14px;letter-spacing:.04em;border-radius:6px;text-align:center;';
+      btn.parentNode.insertBefore(msg, btn.nextSibling);
+
+      if (type !== 'pending') {
+        setTimeout(function() {
+          if (msg.parentNode) msg.remove();
+        }, 5000);
+      }
+    }
+
+    function bindTildaSubmitFeedback(tForm, form) {
+      var completed = false;
+
+      function cleanup() {
+        completed = true;
+        tForm.removeEventListener('tildaform:aftersuccess', onSuccess);
+        tForm.removeEventListener('tildaform:aftererror', onError);
+      }
+
+      function onSuccess() {
+        cleanup();
+        form.reset();
+        showCustomFormMessage(form, 'Спасибо, заявка принята!', 'success');
+      }
+
+      function onError() {
+        cleanup();
+        showCustomFormMessage(form, 'Не удалось отправить заявку. Проверьте телефон или попробуйте ещё раз.', 'error');
+      }
+
+      tForm.addEventListener('tildaform:aftersuccess', onSuccess);
+      tForm.addEventListener('tildaform:aftererror', onError);
+
+      setTimeout(function() {
+        if (!completed) {
+          cleanup();
+          showCustomFormMessage(form, 'Отправка заняла больше обычного. Если заявка не пришла, попробуйте ещё раз.', 'error');
+        }
+      }, 15000);
+
+      return cleanup;
+    }
+
+    function submitTildaForm(tForm, attempt) {
+      attempt = attempt || 0;
+
       var submitBtn = tForm.querySelector('button[type="submit"], input[type="submit"], .t-submit');
-      if (typeof tForm.requestSubmit === 'function') {
-        tForm.requestSubmit(submitBtn || undefined);
+      var allRecords = document.getElementById('allrecords');
+      var formsKey = allRecords ? allRecords.getAttribute('data-tilda-formskey') : '';
+      var formType = parseInt(tForm.getAttribute('data-formactiontype') || '0', 10);
+
+      if (submitBtn) {
+        submitBtn.tildaSendingStatus = '0';
+        submitBtn.classList.remove('t-btn_sending');
+      }
+
+      if (window.tildaForm && typeof window.tildaForm.send === 'function') {
+        var errors = [];
+        if (typeof window.tildaForm.hideErrors === 'function') window.tildaForm.hideErrors(tForm);
+        if (typeof window.tildaForm.validate === 'function') errors = window.tildaForm.validate(tForm);
+        if (typeof window.tildaForm.showErrors === 'function' && window.tildaForm.showErrors(tForm, errors)) {
+          return false;
+        }
+        if (submitBtn) {
+          submitBtn.tildaSendingStatus = '1';
+          submitBtn.classList.add('t-btn_sending');
+        }
+        window.tildaForm.send(tForm, submitBtn, formType, formsKey);
+        return true;
+      }
+
+      if (attempt < 20) {
+        setTimeout(function() {
+          submitTildaForm(tForm, attempt + 1);
+        }, 250);
         return true;
       }
 
@@ -828,25 +910,17 @@
         setTildaPhoneValue(tForm, phone);
         setTildaValue(tForm, 'Car', car);
         setTildaValue(tForm, 'Message', message);
-        submitTildaForm(tForm);
+        var cleanupFeedback = bindTildaSubmitFeedback(tForm, form);
+        showCustomFormMessage(form, 'Отправляем заявку...', 'pending');
+
+        if (!submitTildaForm(tForm)) {
+          cleanupFeedback();
+          showCustomFormMessage(form, 'Не удалось отправить заявку. Проверьте телефон или попробуйте ещё раз.', 'error');
+        }
       } else {
         console.warn('Tilda form #rec2247650141 not found');
+        showCustomFormMessage(form, 'Системная форма Tilda не найдена. Проверьте блок #rec2247650141.', 'error');
       }
-
-      form.reset();
-
-      var btn = form.querySelector('button[type="submit"], .btn');
-      var existing = form.querySelector('.pride-success-msg');
-      if (existing) existing.remove();
-      var successMsg = document.createElement('div');
-      successMsg.className = 'pride-success-msg';
-      successMsg.textContent = 'Спасибо, заявка принята!';
-      successMsg.style.cssText = 'margin-top:14px;padding:14px 18px;background:rgba(42,122,58,.15);border:1px solid #2a7a3a;color:#fff;font-family:inherit;font-size:14px;letter-spacing:.04em;border-radius:6px;text-align:center;';
-      btn.parentNode.insertBefore(successMsg, btn.nextSibling);
-
-      setTimeout(function() {
-        if (successMsg.parentNode) successMsg.remove();
-      }, 5000);
 
       return false;
     }
